@@ -45,13 +45,6 @@ class Record:
 
 class Position:
     def __init__(self, lat, lon, radius=None, pagination=None, payload=None):
-        # self._lat = self.lat(lat)
-        # self._lon = self.lon(lon)
-        print(f'construct {lat}')
-        print(f'construct {lon}')
-
-        # self._lat = lat
-        # self._lon = lon
         self.lat = lat
         self.lon = lon
         self.radius=radius

@@ -104,26 +104,31 @@ async def handle_echo(reader, writer):
 
     # Do stuff with the record
     if is_new:
+        # Invalid Request by new Client
         if request.is_whatisat():
             # Need a location before we can answer whatisat
             resp = request.client_response(MYNAME, valid=False)
             logger.debug(f'Error: {resp!r}')
+        # New Client
         elif request.is_iamat(): 
             records[rec.addr] = rec
             resp = request.client_response(MYNAME)
             logger.debug(f'New record: {resp!r}')
             #TODO need to update respond to the client and flood
+        # Peer Update
         elif request.is_iam():
             # TODO Update my record
             # create peer_response(MYNAME, MYPEERS)
             pass
     else:
+        # Update existing Client
         if request.is_iamat():
             # if iamat and location is same, reply to client only
             
             # else update records and flood
             pass
-        if request.is_whatisat():
+        # Existing Client Query
+        elif request.is_whatisat():
             # if rec.position.radius == request.radius:
             #   if len(rec.position.payload) <= request.pagesize
             #       serve the response with requested pagesize
@@ -135,9 +140,12 @@ async def handle_echo(reader, writer):
             #   else
             #       invalid resopnse
             pass
-        if request.is_iam():
+        # DOES THIS EVEN HAPPEN?
+        elif request.is_iam():
             # TODO: Update my record
             # create peer_response(MYNAME, MYPEERS)
+            pass
+        else:
             pass
         resp = request.client_response('else')
 
