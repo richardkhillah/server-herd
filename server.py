@@ -70,7 +70,7 @@ async def main():
     logging.info(f'Starting {fname} on port {port}')
     
     server = await asyncio.start_server(
-        handle_echo, '127.0.0.1', 8888)
+        handle_echo, ipaddr, port=port)
 
     addrs = ', '.join(str(sock.getsockname()) for sock in server.sockets)
     print(f'Serving on {addrs}')

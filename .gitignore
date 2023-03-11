@@ -1,3 +1,5 @@
 .env
 check_my_ports.py
 ports_assigned.csv
+venv
+venv/
