@@ -44,6 +44,9 @@ def parse(args: List[str]) -> Tuple[str, int]:
         sys.exit(0)
     return name, port
 
+def parse_iamat():
+    pass
+
 async def handle_echo(reader, writer):
     # Read info from sender
     data = await reader.read(100) # Want this to be as many as needed

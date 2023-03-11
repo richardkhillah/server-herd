@@ -1,3 +1,5 @@
+from time import time, strftime
+
 import asyncio
 import sys
 
@@ -11,8 +13,10 @@ herd = {
     'Jaquez': 17804,
 }
 
-def iamat(host, coord, time):
-    formatted = f"IAMAT {host} {coord} {time}"
+def iamat(host, coord, t=None):
+    if t is None:
+        t = time()
+    formatted = f"IAMAT {host} {coord} {t}"
     return formatted
 
 def whatsat():
@@ -37,7 +41,7 @@ if __name__ == '__main__':
     h, c, t = 'kiwi.cs.ucla.edu', '+34.068930-118.445127', '1621464827.959498503'
 
     try:
-        asyncio.run(tcp_echo_client(iamat(h, c, t), herd['Bailey']))
+        asyncio.run(tcp_echo_client(iamat(h, c), herd['Bailey']))
     except ConnectionRefusedError as cre:
         print("Connection Refused")
         print(cre)
