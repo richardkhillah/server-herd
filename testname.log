@@ -59,3 +59,128 @@ AttributeError: 'NoneType' object has no attribute 'info'
 2023-03-10 20:19:48,595 - Sent IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678508388.59451 to ('127.0.0.1', 62245)
 2023-03-10 20:20:12,553 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678508412.552442 from ('127.0.0.1', 62258)
 2023-03-10 20:20:12,553 - Sent IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678508412.552442 to ('127.0.0.1', 62258)
+2023-03-10 20:24:00,102 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678508640101681000 from ('127.0.0.1', 62305)
+2023-03-10 20:24:00,102 - Sent IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678508640101681000 to ('127.0.0.1', 62305)
+2023-03-10 20:24:32,467 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678508672.4672158 from ('127.0.0.1', 62308)
+2023-03-10 20:24:32,468 - Sent IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678508672.4672158 to ('127.0.0.1', 62308)
+2023-03-10 21:41:25,057 - Keyboard Interrupt. Shutting down.
+2023-03-10 21:41:31,778 - Starting Bailey on port 17800
+2023-03-10 21:41:36,640 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678513296.6398451 from ('127.0.0.1', 62916)
+2023-03-10 21:41:36,640 - Task exception was never retrieved
+future: <Task finished name='Task-4' coro=<handle_echo() done, defined at /Users/richardkhillah/Developer/ucla/cs131/hw6/server.py:113> exception=TypeError('crude_coord_split() takes 1 positional argument but 2 were given')>
+Traceback (most recent call last):
+  File "/Users/richardkhillah/Developer/ucla/cs131/hw6/server.py", line 122, in handle_echo
+    resp = Message(message, time.time())
+  File "/Users/richardkhillah/Developer/ucla/cs131/hw6/server.py", line 74, in __init__
+    coords = self.crude_coord_split(m[2])
+TypeError: crude_coord_split() takes 1 positional argument but 2 were given
+2023-03-10 21:42:21,582 - Keyboard Interrupt. Shutting down.
+2023-03-10 21:42:22,458 - Starting Bailey on port 17800
+2023-03-10 21:42:24,143 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678513344.14309 from ('127.0.0.1', 62932)
+2023-03-10 21:42:24,144 - Task exception was never retrieved
+future: <Task finished name='Task-4' coro=<handle_echo() done, defined at /Users/richardkhillah/Developer/ucla/cs131/hw6/server.py:113> exception=TypeError("unsupported operand type(s) for -: 'float' and 'str'")>
+Traceback (most recent call last):
+  File "/Users/richardkhillah/Developer/ucla/cs131/hw6/server.py", line 122, in handle_echo
+    resp = Message(message, time.time())
+  File "/Users/richardkhillah/Developer/ucla/cs131/hw6/server.py", line 78, in __init__
+    self.skew = received_time - time.strftime(client_time)
+TypeError: unsupported operand type(s) for -: 'float' and 'str'
+2023-03-10 21:44:12,346 - Keyboard Interrupt. Shutting down.
+2023-03-10 21:44:12,939 - Starting Bailey on port 17800
+2023-03-10 21:44:14,618 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678513454.617663 from ('127.0.0.1', 62939)
+2023-03-10 21:44:14,618 - Sent IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678513454.617663 to ('127.0.0.1', 62939)
+2023-03-10 21:45:01,070 - Keyboard Interrupt. Shutting down.
+2023-03-10 21:45:01,574 - Starting Bailey on port 17800
+2023-03-10 21:45:03,881 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678513503.880168 from ('127.0.0.1', 62960)
+2023-03-10 21:45:03,881 - Sent IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678513503.880168 to ('127.0.0.1', 62960)
+2023-03-10 21:46:50,679 - Keyboard Interrupt. Shutting down.
+2023-03-10 21:46:52,163 - Starting Bailey on port 17800
+2023-03-10 21:46:53,729 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678513613.728429 from ('127.0.0.1', 62970)
+2023-03-10 21:46:53,729 - Sent IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678513613.728429 to ('127.0.0.1', 62970)
+2023-03-10 21:48:33,019 - Keyboard Interrupt. Shutting down.
+2023-03-10 21:48:34,002 - Starting Bailey on port 17800
+2023-03-10 21:48:37,287 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678513717.286711 from ('127.0.0.1', 62980)
+2023-03-10 21:48:37,287 - Sent IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678513717.286711 to ('127.0.0.1', 62980)
+2023-03-10 21:49:28,805 - Keyboard Interrupt. Shutting down.
+2023-03-10 21:49:29,547 - Starting Bailey on port 17800
+2023-03-10 21:49:31,071 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678513771.070255 from ('127.0.0.1', 62981)
+2023-03-10 21:49:31,071 - Sent IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678513771.070255 to ('127.0.0.1', 62981)
+2023-03-10 21:49:55,272 - Keyboard Interrupt. Shutting down.
+2023-03-10 21:49:55,860 - Starting Bailey on port 17800
+2023-03-10 21:49:57,482 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678513797.4815419 from ('127.0.0.1', 62983)
+2023-03-10 21:49:57,482 - Task exception was never retrieved
+future: <Task finished name='Task-4' coro=<handle_echo() done, defined at /Users/richardkhillah/Developer/ucla/cs131/hw6/server.py:116> exception=AttributeError("'Message' object has no attribute 'time'")>
+Traceback (most recent call last):
+  File "/Users/richardkhillah/Developer/ucla/cs131/hw6/server.py", line 126, in handle_echo
+    print(f"resp: {resp.response('Bailey', None)}")
+  File "/Users/richardkhillah/Developer/ucla/cs131/hw6/server.py", line 98, in response
+    return f"AT {at} {self.skew} {self.__str__()}"
+  File "/Users/richardkhillah/Developer/ucla/cs131/hw6/server.py", line 91, in __str__
+    d = self.time if a == 'IAMAT' else self.pagination
+AttributeError: 'Message' object has no attribute 'time'
+2023-03-10 21:50:35,630 - Keyboard Interrupt. Shutting down.
+2023-03-10 21:50:36,771 - Starting Bailey on port 17800
+2023-03-10 21:50:39,652 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678513839.6518679 from ('127.0.0.1', 62986)
+2023-03-10 21:50:39,652 - Task exception was never retrieved
+future: <Task finished name='Task-4' coro=<handle_echo() done, defined at /Users/richardkhillah/Developer/ucla/cs131/hw6/server.py:114> exception=AttributeError("'Message' object has no attribute 'time'")>
+Traceback (most recent call last):
+  File "/Users/richardkhillah/Developer/ucla/cs131/hw6/server.py", line 124, in handle_echo
+    print(f"resp: {resp.response('Bailey', None)}")
+  File "/Users/richardkhillah/Developer/ucla/cs131/hw6/server.py", line 96, in response
+    return f"AT {at} {self.skew} {self.__str__()}"
+  File "/Users/richardkhillah/Developer/ucla/cs131/hw6/server.py", line 90, in __str__
+    d = self.time if a == 'IAMAT' else self.pagination
+AttributeError: 'Message' object has no attribute 'time'
+2023-03-10 21:51:25,000 - Keyboard Interrupt. Shutting down.
+2023-03-10 21:51:25,722 - Starting Bailey on port 17800
+2023-03-10 21:51:27,636 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678513887.636062 from ('127.0.0.1', 62988)
+2023-03-10 21:51:27,637 - Sent IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678513887.636062 to ('127.0.0.1', 62988)
+2023-03-10 21:54:25,361 - Keyboard Interrupt. Shutting down.
+2023-03-10 21:54:26,574 - Starting Bailey on port 17800
+2023-03-10 21:54:30,468 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678514070.468008 from ('127.0.0.1', 63002)
+2023-03-10 21:54:30,469 - Task exception was never retrieved
+future: <Task finished name='Task-4' coro=<handle_echo() done, defined at /Users/richardkhillah/Developer/ucla/cs131/hw6/server.py:117> exception=NameError("name 'a' is not defined")>
+Traceback (most recent call last):
+  File "/Users/richardkhillah/Developer/ucla/cs131/hw6/server.py", line 127, in handle_echo
+    print(f"resp: {resp.response('Bailey', None)}")
+  File "/Users/richardkhillah/Developer/ucla/cs131/hw6/server.py", line 99, in response
+    return f"AT {at} {self.skew} {self._body()}"
+  File "/Users/richardkhillah/Developer/ucla/cs131/hw6/server.py", line 87, in _body
+    c = "".join([*self.lon, *self.lat]) if a == 'IAMAT' else self.radius
+NameError: name 'a' is not defined
+2023-03-10 21:55:00,887 - Keyboard Interrupt. Shutting down.
+2023-03-10 21:55:01,361 - Starting Bailey on port 17800
+2023-03-10 21:55:03,157 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678514103.156158 from ('127.0.0.1', 63004)
+2023-03-10 21:55:03,157 - Sent IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678514103.156158 to ('127.0.0.1', 63004)
+2023-03-10 21:55:36,385 - Keyboard Interrupt. Shutting down.
+2023-03-10 21:55:36,891 - Starting Bailey on port 17800
+2023-03-10 21:55:38,969 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678514138.968961 from ('127.0.0.1', 63017)
+2023-03-10 21:55:38,970 - Task exception was never retrieved
+future: <Task finished name='Task-4' coro=<handle_echo() done, defined at /Users/richardkhillah/Developer/ucla/cs131/hw6/server.py:117> exception=NameError("name 'client_time' is not defined")>
+Traceback (most recent call last):
+  File "/Users/richardkhillah/Developer/ucla/cs131/hw6/server.py", line 126, in handle_echo
+    resp = Message(message, time.time())
+  File "/Users/richardkhillah/Developer/ucla/cs131/hw6/server.py", line 79, in __init__
+    self.skew = received_time - float(client_time)
+NameError: name 'client_time' is not defined
+2023-03-10 21:56:02,660 - Keyboard Interrupt. Shutting down.
+2023-03-10 21:56:03,244 - Starting Bailey on port 17800
+2023-03-10 21:56:10,315 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678514170.31493 from ('127.0.0.1', 63019)
+2023-03-10 21:56:10,316 - Sent IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678514170.31493 to ('127.0.0.1', 63019)
+2023-03-10 21:57:08,416 - Keyboard Interrupt. Shutting down.
+2023-03-10 21:57:08,982 - Starting Bailey on port 17800
+2023-03-10 21:57:11,212 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678514231.2120168 from ('127.0.0.1', 63094)
+2023-03-10 21:57:11,213 - Sent IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678514231.2120168 to ('127.0.0.1', 63094)
+2023-03-10 21:58:39,518 - Keyboard Interrupt. Shutting down.
+2023-03-10 21:58:40,833 - Starting Bailey on port 17800
+2023-03-10 21:58:42,771 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678514322.770356 from ('127.0.0.1', 63114)
+2023-03-10 21:58:42,771 - Sent IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678514322.770356 to ('127.0.0.1', 63114)
+2023-03-10 21:59:57,121 - Keyboard Interrupt. Shutting down.
+2023-03-10 21:59:57,657 - Starting Bailey on port 17800
+2023-03-10 21:59:58,980 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678514398.9794629 from ('127.0.0.1', 63118)
+2023-03-10 21:59:58,980 - Sent IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678514398.9794629 to ('127.0.0.1', 63118)
+2023-03-10 22:00:25,058 - Keyboard Interrupt. Shutting down.
+2023-03-10 22:00:25,645 - Starting Bailey on port 17800
+2023-03-10 22:00:27,140 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678514427.1398668 from ('127.0.0.1', 63119)
+2023-03-10 22:00:27,140 - Sent AT Bailey 0.0009162425994873047 kiwi.cs.ucla.edu -118.445127+34.068930 1678514427.1398668 to ('127.0.0.1', 63119)
+2023-03-10 22:01:45,872 - Keyboard Interrupt. Shutting down.
