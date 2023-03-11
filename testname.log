@@ -213,3 +213,84 @@ NameError: name 'client_time' is not defined
 2023-03-10 22:53:38,910 - Starting Bailey on port 17800
 2023-03-10 22:53:58,285 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678517638.284294 from ('127.0.0.1', 63601)
 2023-03-10 22:53:58,285 - Send: 'AT Bailey 0.0009860992431640625 kiwi.cs.ucla.edu -118.445127+34.068930 1678517638.284294'
+2023-03-10 23:03:12,596 - Starting Bailey on port 17800
+2023-03-10 23:03:16,082 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678518196.0819159 from ('127.0.0.1', 63646)
+2023-03-10 23:03:16,083 - Send: 'AT Bailey 0.0010712146759033203 kiwi.cs.ucla.edu -118.445127+34.068930 1678518196.0819159'
+2023-03-10 23:03:16,083 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 63647)
+2023-03-10 23:03:16,083 - Send: '? WHATISAT kiwi.cs.ucla.edu 10 5'
+2023-03-10 23:33:43,655 - Starting Bailey on port 17800
+2023-03-10 23:33:52,963 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678520032.962909 from ('127.0.0.1', 63802)
+2023-03-10 23:34:27,861 - Starting Bailey on port 17800
+2023-03-10 23:34:31,088 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678520071.0875251 from ('127.0.0.1', 63806)
+2023-03-10 23:34:31,088 - Send: <messages.Message object at 0x105693820>
+2023-03-10 23:34:55,241 - Starting Bailey on port 17800
+2023-03-10 23:34:57,798 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678520097.798027 from ('127.0.0.1', 63809)
+2023-03-10 23:34:57,799 - Send: 'AT Bailey 0.0009779930114746094 kiwi.cs.ucla.edu -118.445127+34.068930 1678520097.798027'
+2023-03-10 23:34:57,799 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 63810)
+2023-03-10 23:34:57,799 - Send: 'AT Bailey None None None None'
+2023-03-10 23:36:40,929 - Starting Bailey on port 17800
+2023-03-10 23:36:44,203 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678520204.202552 from ('127.0.0.1', 63816)
+2023-03-10 23:36:44,203 - Send: 'AT Bailey 0.0009799003601074219 kiwi.cs.ucla.edu -118.445127+34.068930 1678520204.202552'
+2023-03-10 23:36:44,204 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 63817)
+2023-03-10 23:36:44,204 - Send: 'AT Bailey None None None None'
+2023-03-10 23:37:55,927 - Starting Bailey on port 17800
+2023-03-10 23:37:57,605 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678520277.604507 from ('127.0.0.1', 63825)
+2023-03-10 23:37:57,605 - Send: 'AT Bailey 0.0010080337524414062 kiwi.cs.ucla.edu -118.445127+34.068930 1678520277.604507'
+2023-03-10 23:37:57,606 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 63826)
+2023-03-10 23:37:57,606 - Send: 'AT Bailey None None None None'
+2023-03-10 23:40:45,757 - Starting Bailey on port 17800
+2023-03-10 23:40:48,000 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678520447.999899 from ('127.0.0.1', 63859)
+2023-03-10 23:40:48,001 - Send: 'AT Bailey 0.001129150390625 kiwi.cs.ucla.edu +34.068930-118.445127 1678520447.999899'
+2023-03-10 23:40:48,001 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 63860)
+2023-03-10 23:40:48,001 - Send: 'AT Bailey None None None None'
+2023-03-10 23:43:19,451 - Starting Bailey on port 17800
+2023-03-10 23:43:20,765 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678520600.7648482 from ('127.0.0.1', 63904)
+2023-03-10 23:43:20,766 - Send: 'AT Bailey 0.001178741455078125 kiwi.cs.ucla.edu +34.068930-118.445127 1678520600.7648482'
+2023-03-10 23:43:20,766 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 63905)
+2023-03-10 23:43:20,767 - Send: 'AT Bailey None kiwi.cs.ucla.edu 10 5'
+2023-03-10 23:57:42,415 - Starting Bailey on port 17800
+2023-03-10 23:57:43,632 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678521463.631773 from ('127.0.0.1', 64043)
+2023-03-10 23:57:43,632 - Send: 'AT Bailey 0.001065969467163086 kiwi.cs.ucla.edu +34.068930-118.445127 1678521463.631773'
+2023-03-10 23:57:43,633 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 64044)
+2023-03-10 23:57:43,633 - Send: 'AT Bailey None kiwi.cs.ucla.edu 10 5'
+2023-03-10 23:58:18,190 - Starting Bailey on port 17800
+2023-03-10 23:58:19,170 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678521499.1697469 from ('127.0.0.1', 64046)
+2023-03-10 23:58:19,170 - Send: 'AT Bailey 0.0010330677032470703 kiwi.cs.ucla.edu +34.068930-118.445127 1678521499.1697469'
+2023-03-10 23:58:19,171 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 64047)
+2023-03-10 23:58:19,171 - Send: 'AT Bailey None kiwi.cs.ucla.edu 10 5'
+2023-03-10 23:59:54,965 - Starting Bailey on port 17800
+2023-03-10 23:59:56,127 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678521596.1270971 from ('127.0.0.1', 64068)
+2023-03-11 00:00:31,963 - Starting Bailey on port 17800
+2023-03-11 00:00:33,306 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678521633.305245 from ('127.0.0.1', 64091)
+2023-03-11 00:00:33,306 - Send: 'AT Bailey 0.0009431838989257812 kiwi.cs.ucla.edu +34.068930-118.445127 1678521633.305245'
+2023-03-11 00:00:33,306 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 64092)
+2023-03-11 00:00:33,307 - Send: 'AT Bailey 0.0009431838989257812 kiwi.cs.ucla.edu +34.068930-118.445127 1678521633.305245'
+2023-03-11 00:02:18,331 - Starting Bailey on port 17800
+2023-03-11 00:02:20,473 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678521740.472908 from ('127.0.0.1', 64102)
+2023-03-11 00:02:20,473 - Send: 'AT Bailey +0.0009429454803466797 kiwi.cs.ucla.edu +34.068930-118.445127 1678521740.472908'
+2023-03-11 00:02:20,474 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 64103)
+2023-03-11 00:02:20,474 - Send: 'AT Bailey +0.0009429454803466797 kiwi.cs.ucla.edu +34.068930-118.445127 1678521740.472908'
+2023-03-11 00:03:16,963 - Starting Bailey on port 17800
+2023-03-11 00:03:18,545 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 64106)
+2023-03-11 00:03:18,546 - Send: 'AT Bailey None kiwi.cs.ucla.edu 10 5'
+2023-03-11 00:03:18,546 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678521798.5464692 from ('127.0.0.1', 64107)
+2023-03-11 00:03:18,546 - Send: 'AT Bailey None kiwi.cs.ucla.edu 10 5'
+2023-03-11 10:04:18,675 - Starting Bailey on port 17800
+2023-03-11 10:04:20,366 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678557860.366006 from ('127.0.0.1', 65416)
+2023-03-11 10:04:20,367 - Send: 'AT Bailey +0.000982046127319336 kiwi.cs.ucla.edu +34.068930-118.445127 1678557860.366006'
+2023-03-11 10:04:20,367 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 65417)
+2023-03-11 10:04:20,367 - Send: 'AT Bailey None kiwi.cs.ucla.edu 10 5'
+2023-03-11 10:06:11,368 - Starting Bailey on port 17800
+2023-03-11 10:06:13,174 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678557973.173239 from ('127.0.0.1', 65453)
+2023-03-11 10:07:14,816 - Starting Bailey on port 17800
+2023-03-11 10:07:15,810 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678558035.8092759 from ('127.0.0.1', 65464)
+2023-03-11 10:17:15,434 - Starting Bailey on port 17800
+2023-03-11 10:17:16,251 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678558636.250397 from ('127.0.0.1', 49217)
+2023-03-11 10:17:16,251 - Send: 'AT Bailey +0.0012149810791015625 kiwi.cs.ucla.edu +34.068930-118.445127 1678558636.250397'
+2023-03-11 10:17:16,252 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 49218)
+2023-03-11 10:17:16,252 - Send: 'AT Bailey None kiwi.cs.ucla.edu 10 5'
+2023-03-11 11:13:22,235 - Starting Bailey on port 17800
+2023-03-11 11:13:24,284 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678562004.2831302 from ('127.0.0.1', 49775)
+2023-03-11 11:13:24,284 - Send: 'AT Bailey +0.0013887882232666016 kiwi.cs.ucla.edu +34.068930-118.445127 1678562004.2831302'
+2023-03-11 11:13:24,285 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 49776)
+2023-03-11 11:13:24,285 - Send: 'AT Bailey None kiwi.cs.ucla.edu 10 5'

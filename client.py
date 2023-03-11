@@ -19,8 +19,9 @@ def iamat(host, coord, t=None):
     formatted = f"IAMAT {host} {coord} {t}"
     return formatted
 
-def whatsat():
-    pass
+def whatsat(host, radius, page):
+    formatted = f"WHATISAT {host} {radius} {page}"
+    return formatted
 
 async def tcp_echo_client(message, port):
     reader, writer = await asyncio.open_connection(
@@ -39,9 +40,10 @@ async def tcp_echo_client(message, port):
 
 if __name__ == '__main__':
     h, c, t = 'kiwi.cs.ucla.edu', '+34.068930-118.445127', '1621464827.959498503'
-
+    r, p = 10, 5
     try:
         asyncio.run(tcp_echo_client(iamat(h, c), herd['Bailey']))
+        asyncio.run(tcp_echo_client(whatsat(h, r, p), herd['Bailey']))
     except ConnectionRefusedError as cre:
         print("Connection Refused")
         print(cre)
