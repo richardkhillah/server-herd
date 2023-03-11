@@ -7,8 +7,22 @@ import time
 
 from typing import List, Tuple
 
-logging.basicConfig(filename='testname.log', level=logging.INFO,
-                             format='%(asctime)s - %(message)s')
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+
+c_handler = logging.StreamHandler()
+f_handler = logging.FileHandler('testname.log')
+c_handler.setLevel(logging.DEBUG)
+f_handler.setLevel(logging.INFO)
+
+c_format = logging.Formatter('%(message)s')
+f_format = logging.Formatter('%(asctime)s - %(message)s')
+c_handler.setFormatter(c_format)
+f_handler.setFormatter(f_format)
+
+logger.addHandler(c_handler)
+logger.addHandler(f_handler)
+
 
 herd = {
     'Bailey': 17800,
@@ -119,19 +133,16 @@ async def handle_echo(reader, writer):
     data = await reader.read(100) # Want this to be as many as needed
     message = data.decode()
     addr = writer.get_extra_info('peername')
-
-    logging.info(f"Received {message} from {addr}")
-    print(f"Received {message!r} from {addr!r}")
+    logger.info(f"Received {message} from {addr}")
 
     resp = Message(message, time.time()).response('Bailey', None)
 
     # Reply to sender
-    print(f"Send: {resp!r}")
+    logger.info(f"Send: {resp!r}")
     writer.write(resp.encode())
     await writer.drain()
-    logging.info(f"Sent {resp} to {addr}")
 
-    print("Close the connection")
+    logger.debug("Close the connection")
     writer.close()
     await writer.wait_closed()
 
@@ -139,13 +150,13 @@ async def main():
     fname, port = parse(sys.argv[1:])
     if not fname:
         raise SystemExit(USAGE)
-    logging.info(f'Starting {fname} on port {port}')
+    logger.info(f'Starting {fname} on port {port}')
     
     server = await asyncio.start_server(
         handle_echo, ipaddr, port=port)
 
     addrs = ', '.join(str(sock.getsockname()) for sock in server.sockets)
-    print(f'Serving on {addrs}')
+    logger.debug(f'Serving on {addrs}')
 
     async with server:
         await server.serve_forever()
@@ -160,5 +171,5 @@ if __name__=='__main__':
     try:
         asyncio.run(main())
     except KeyboardInterrupt:
-        logging.info(f"Keyboard Interrupt. Shutting down.")
+        logging.info(f"Keyboard Interrupt. Shutting down.\n")
         sys.exit(0)
