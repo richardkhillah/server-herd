@@ -8,7 +8,8 @@ import time
 
 from typing import List, Tuple
 
-from messages import Message
+from request import Request
+from record import Record, Position
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -35,13 +36,15 @@ herd = {
     'Jaquez': 17804,
 }
 
+MYNAME=""
+
 ipaddr='127.0.0.1'
 
 USAGE = (
     f"Usage {sys.argv[0]} [srvname]"
 )
 
-clients = {}
+records = {}
 
 def parse(args: List[str]) -> Tuple[str, int]:
     arguments = collections.deque(args)
@@ -64,8 +67,23 @@ def parse(args: List[str]) -> Tuple[str, int]:
         sys.exit(0)
     return name, port
 
-def parse_iamat():
-    pass
+def get_or_create_client_record(msg):
+    is_new = False
+    try:
+        rec = records[msg.addr]
+    except:
+        rec = Record(
+            msg.addr,
+            msg.skew,
+            msg.client_time,
+            Position(msg.lat, msg.lon, 
+                     radius=msg.radius, 
+                     pagination=msg.pagination, 
+                     payload=msg._payload),
+        )
+        records[msg.addr] = rec
+        is_new = True
+    return is_new, rec
 
 TYPE = {
     'IAMAT': None,
@@ -81,8 +99,22 @@ async def handle_echo(reader, writer):
     logger.info(f"Received {message} from {addr}")
 
     # Parse the message. If we have a client 
-    msg = Message(message, time.time())
-    resp = msg.client_response('Bailey')
+    request = Request(message, time.time())
+    is_new, rec = get_or_create_client_record(request)
+
+    # Do stuff with the record
+    if is_new and request.is_whatisat():
+        resp = request.client_response(MYNAME, valid=False)
+        logger.debug(f'Error: {resp!r}')
+    elif is_new and request.is_iamat():
+        resp = request.client_response(MYNAME)
+        logger.debug(f'New record: {rec}')
+
+        # Make a response
+        resp = request.client_response(MYNAME)
+    else:
+        resp = request.client_response('else')
+
 
     # Reply to sender
     logger.info(f"Send: {resp!r}")
@@ -97,7 +129,9 @@ async def main():
     fname, port = parse(sys.argv[1:])
     if not fname:
         raise SystemExit(USAGE)
-    logger.info(f'Starting {fname} on port {port}')
+
+    MYNAME=fname
+    logger.info(f'Starting {MYNAME} on port {port}')
     
     server = await asyncio.start_server(
         handle_echo, ipaddr, port=port)

@@ -12,8 +12,8 @@ import time
 #     def __str__(self):
 #         return f"{self.type} {self.addr} {''.join([*self.lat, *self.lon])}"
 
-class Message:
-    def __init__(self, message, received_time=None):
+class Request:
+    def __init__(self, message, received_time=None, payload=None):
         self.type=None
         self.skew=None
         self.addr=None
@@ -23,6 +23,7 @@ class Message:
         self.pagination=None
         self.client_time=None
         self._message=message
+        self._payload=payload
         if message.startswith(('IAMAT', 'WHATISAT')):
             m = message.split()
             type=m[0]
@@ -62,8 +63,10 @@ class Message:
         b = self._body()
         return f"{a} {b}"
     
-    def client_response(self, at, payload=None):
-        if self.type not in ('IAMAT', 'WHATISAT'):
+    def client_response(self, at, valid=True, payload=None):
+        # if self.type not in ('IAMAT', 'WHATISAT'):
+        #     return f"? {self._message}"
+        if not valid:
             return f"? {self._message}"
         return f"AT {at} {self.skew} {self._body()}"
 
@@ -82,3 +85,8 @@ class Message:
         ret.append(temp)
         # FIX ME Ensure coordinates have the above form
         return ret
+
+    def is_whatisat(self):
+        return self.type == 'WHATISAT'
+    def is_iamat(self):
+        return self.type == 'IAMAT'

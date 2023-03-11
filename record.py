@@ -37,7 +37,11 @@ class Record:
                 Position.deserialize(dct['position']),
             )
     
-    def to_message(self, name)
+    def to_message(self, name):
+        pass
+
+    def has_changed(self, msg):
+        pass
 
 class Position:
     def __init__(self, lat, lon, radius=None, pagination=None, payload=None):
@@ -47,8 +51,11 @@ class Position:
         self.pagination=pagination
         self.payload=payload
     
+    def __repr__(self):
+        return self.__str__()
+
     def __str__(self):
-        return ''.join([self.lat, self.lon])
+        return ''.join([*self.lat, *self.lon])
     
     def __eq__(self, other):
         return (
