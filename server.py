@@ -81,7 +81,7 @@ def get_or_create_client_record(msg):
                      pagination=msg.pagination, 
                      payload=msg._payload),
         )
-        records[msg.addr] = rec
+        # records[msg.addr] = rec
         is_new = True
     return is_new, rec
 
@@ -109,8 +109,9 @@ async def handle_echo(reader, writer):
             resp = request.client_response(MYNAME, valid=False)
             logger.debug(f'Error: {resp!r}')
         elif request.is_iamat(): 
+            records[rec.addr] = rec
             resp = request.client_response(MYNAME)
-            logger.debug(f'New record: {rec}')
+            logger.debug(f'New record: {resp!r}')
             #TODO need to update respond to the client and flood
         elif request.is_iam():
             # TODO Update my record
@@ -119,7 +120,7 @@ async def handle_echo(reader, writer):
     else:
         if request.is_iamat():
             # if iamat and location is same, reply to client only
-
+            
             # else update records and flood
             pass
         if request.is_whatisat():

@@ -45,17 +45,60 @@ class Record:
 
 class Position:
     def __init__(self, lat, lon, radius=None, pagination=None, payload=None):
-        self.lat=lat
-        self.lon=lon
+        # self._lat = self.lat(lat)
+        # self._lon = self.lon(lon)
+        print(f'construct {lat}')
+        print(f'construct {lon}')
+
+        # self._lat = lat
+        # self._lon = lon
+        self.lat = lat
+        self.lon = lon
         self.radius=radius
         self.pagination=pagination
         self.payload=payload
     
     def __repr__(self):
         return self.__str__()
+    
+    @property
+    def lat(self):
+        return self._lat
+    
+    @lat.setter
+    def lat(self, args):
+        try:
+            if isinstance(args, str):
+                if not args.startswith(('+', '-')):
+                    raise ValueError(f'lat error: invalid coordinate string.')
+                self._lat = args
+            else:
+                if len(args) != 2:
+                    raise ValueError(f'lat error: expected 2, got {len(args)}.')
+                self._lat = ''.join(args)
+        except TypeError:
+            self._lat = None
+    
+    @property
+    def lon(self):
+        return self._lon
+    
+    @lon.setter
+    def lon(self, args):
+        try:
+            if isinstance(args, str):
+                if not args.startswith(('+', '-')):
+                    raise ValueError(f'lon error: invalid coordinate string.')
+                self._lon = args
+            else:
+                if len(args) != 2:
+                    raise ValueError(f'lon error: expected 2, got {len(args)}.')
+                self._lon = ''.join(args)
+        except TypeError:
+            self._lon = None
 
     def __str__(self):
-        return ''.join([*self.lat, *self.lon])
+        return ''.join([self.lat, self.lon])
     
     def __eq__(self, other):
         return (
