@@ -45,17 +45,19 @@ def parse(args: List[str]) -> Tuple[str, int]:
     return name, port
 
 async def handle_echo(reader, writer):
-    data = await reader.read(100)
+    # Read info from sender
+    data = await reader.read(100) # Want this to be as many as needed
     message = data.decode()
     addr = writer.get_extra_info('peername')
 
     logging.info(f"Received {message} from {addr}")
-
     print(f"Received {message!r} from {addr!r}")
 
+    # Reply to sender
     print(f"Send: {message!r}")
     writer.write(data)
     await writer.drain()
+    logging.info(f"Sent {message} to {addr}")
 
     print("Close the connection")
     writer.close()
@@ -82,5 +84,9 @@ async def main():
 #             print(resp.status)
 #             print(await resp.text())
 
-if __name__=='__main__':    
-    asyncio.run(main())
+if __name__=='__main__':
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        logging.info(f"Keyboard Interrupt. Shutting down.")
+        sys.exit(0)
