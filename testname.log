@@ -1,0 +1,25 @@
+2023-03-10 17:08:10,867 - Task exception was never retrieved
+future: <Task finished name='Task-4' coro=<handle_echo() done, defined at /Users/richardkhillah/Developer/ucla/cs131/hw6/server.py:9> exception=AttributeError("'NoneType' object has no attribute 'info'")>
+Traceback (most recent call last):
+  File "/Users/richardkhillah/Developer/ucla/cs131/hw6/server.py", line 14, in handle_echo
+    logger.info(f"Received {message!r} from {addr!r}")
+AttributeError: 'NoneType' object has no attribute 'info'
+2023-03-10 17:09:04,400 - Task exception was never retrieved
+future: <Task finished name='Task-4' coro=<handle_echo() done, defined at /Users/richardkhillah/Developer/ucla/cs131/hw6/server.py:9> exception=AttributeError("'NoneType' object has no attribute 'info'")>
+Traceback (most recent call last):
+  File "/Users/richardkhillah/Developer/ucla/cs131/hw6/server.py", line 14, in handle_echo
+    logger.info(f"Received {message!r} from {addr!r}")
+AttributeError: 'NoneType' object has no attribute 'info'
+2023-03-10 17:09:46,112 - Task exception was never retrieved
+future: <Task finished name='Task-4' coro=<handle_echo() done, defined at /Users/richardkhillah/Developer/ucla/cs131/hw6/server.py:9> exception=AttributeError("'NoneType' object has no attribute 'info'")>
+Traceback (most recent call last):
+  File "/Users/richardkhillah/Developer/ucla/cs131/hw6/server.py", line 14, in handle_echo
+    logger.info(f"Received {message!r} from {addr!r}")
+AttributeError: 'NoneType' object has no attribute 'info'
+2023-03-10 17:11:48,278 - Task exception was never retrieved
+future: <Task finished name='Task-4' coro=<handle_echo() done, defined at /Users/richardkhillah/Developer/ucla/cs131/hw6/server.py:9> exception=AttributeError("'NoneType' object has no attribute 'info'")>
+Traceback (most recent call last):
+  File "/Users/richardkhillah/Developer/ucla/cs131/hw6/server.py", line 14, in handle_echo
+    logger.info(f"Received {message} from {addr}")
+AttributeError: 'NoneType' object has no attribute 'info'
+2023-03-10 17:12:24,112 - Received Hello World! from ('127.0.0.1', 61095)

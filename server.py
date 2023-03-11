@@ -1,11 +1,17 @@
 import aiohttp
 import asyncio
+import logging
+
+logging.basicConfig(filename='testname.log', level=logging.INFO,
+                             format='%(asctime)s - %(message)s')
 
 
 async def handle_echo(reader, writer):
     data = await reader.read(100)
     message = data.decode()
     addr = writer.get_extra_info('peername')
+
+    logging.info(f"Received {message} from {addr}")
 
     print(f"Received {message!r} from {addr!r}")
 
