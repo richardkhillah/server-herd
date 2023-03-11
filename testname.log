@@ -369,3 +369,10 @@ NameError: name 'client_time' is not defined
 2023-03-11 12:11:32,268 - Send: 'AT else None kiwi.cs.ucla.edu 10 5'
 2023-03-11 12:11:32,269 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 50276)
 2023-03-11 12:11:32,269 - Send: '? WHATISAT plum.cs.ucla.edu 10 5'
+2023-03-11 12:32:25,093 - Starting Bailey on port 17800
+2023-03-11 12:32:26,916 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678566746.914855 from ('127.0.0.1', 50484)
+2023-03-11 12:32:26,916 - Send: 'AT  +0.0014770030975341797 kiwi.cs.ucla.edu +34.068930-118.445127 1678566746.914855'
+2023-03-11 12:32:26,917 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 50485)
+2023-03-11 12:32:26,917 - Send: 'AT else None kiwi.cs.ucla.edu 10 5'
+2023-03-11 12:32:26,918 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 50486)
+2023-03-11 12:32:26,918 - Send: '? WHATISAT plum.cs.ucla.edu 10 5'

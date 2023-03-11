@@ -103,16 +103,41 @@ async def handle_echo(reader, writer):
     is_new, rec = get_or_create_client_record(request)
 
     # Do stuff with the record
-    if is_new and request.is_whatisat():
-        resp = request.client_response(MYNAME, valid=False)
-        logger.debug(f'Error: {resp!r}')
-    elif is_new and request.is_iamat():
-        resp = request.client_response(MYNAME)
-        logger.debug(f'New record: {rec}')
-
-        # Make a response
-        resp = request.client_response(MYNAME)
+    if is_new:
+        if request.is_whatisat():
+            # Need a location before we can answer whatisat
+            resp = request.client_response(MYNAME, valid=False)
+            logger.debug(f'Error: {resp!r}')
+        elif request.is_iamat(): 
+            resp = request.client_response(MYNAME)
+            logger.debug(f'New record: {rec}')
+            #TODO need to update respond to the client and flood
+        elif request.is_iam():
+            # TODO Update my record
+            # create peer_response(MYNAME, MYPEERS)
+            pass
     else:
+        if request.is_iamat():
+            # if iamat and location is same, reply to client only
+
+            # else update records and flood
+            pass
+        if request.is_whatisat():
+            # if rec.position.radius == request.radius:
+            #   if len(rec.position.payload) <= request.pagesize
+            #       serve the response with requested pagesize
+            #   elif request.pagesize <= 20:
+            #       do api call
+            #       update record with new pagesize
+            #       serve the client
+            #       propagate results throughout
+            #   else
+            #       invalid resopnse
+            pass
+        if request.is_iam():
+            # TODO: Update my record
+            # create peer_response(MYNAME, MYPEERS)
+            pass
         resp = request.client_response('else')
 
 

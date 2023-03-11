@@ -90,3 +90,5 @@ class Request:
         return self.type == 'WHATISAT'
     def is_iamat(self):
         return self.type == 'IAMAT'
+    def is_iam(self):
+        return self.type == 'IAM'
