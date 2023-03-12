@@ -14,9 +14,12 @@ herd = {
     'Jaquez': 17804,
 }
 
-def iamat(host, coord, t=None):
+def iamat(host, coord, t=None, skew=None):
     if t is None:
         t = time()
+    if skew is not None:
+        t + skew
+        print(t+skew)
     formatted = f"IAMAT {host} {coord} {t}"
     return formatted
 
@@ -55,7 +58,7 @@ async def tcp_echo_client(message, port):
 
 if __name__ == '__main__':
     h, c, t = 'kiwi.cs.ucla.edu', '+34.068930-118.445127', '1621464827.959498503'
-    h2, c2, t2 = 'plum.cs.ucla.edu', '+77.770077-999.99999', '1621464827.959498503'
+    h2, c2, t2 = 'plum.cs.ucla.edu', '+77.770077-999.99999', time()
     r, p = 10, 5
     try:
         asyncio.run(tcp_echo_client(iamat(h, c), herd['Bailey']))
@@ -63,8 +66,9 @@ if __name__ == '__main__':
         asyncio.run(tcp_echo_client(whatsat(h, r, 3), herd['Bailey']))
         asyncio.run(tcp_echo_client(whatsat(h, r, 6), herd['Bailey']))
         asyncio.run(tcp_echo_client(whatsat(h2, r, p), herd['Bailey']))
-        # asyncio.run(tcp_echo_client(iamat(h, c2), herd['Bailey']))
-        # asyncio.run(tcp_echo_client(iamat(h, c2), herd['Bailey']))
+        asyncio.run(tcp_echo_client(iamat(h2, c2, t=t2, skew=1000000000), herd['Bailey']))
+        asyncio.run(tcp_echo_client(iamat(h2, c2), herd['Bailey']))
+        asyncio.run(tcp_echo_client(iamat(h2, c), herd['Bailey']))
     except ConnectionRefusedError as cre:
         print("Connection Refused")
         print(cre)

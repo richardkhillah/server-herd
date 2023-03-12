@@ -92,7 +92,6 @@ def get_or_create_client_record(req):
             req.client_time,
             make_position(req),
         )
-        # records[req.addr] = rec
         is_new = True
     return is_new, rec
 
@@ -119,12 +118,12 @@ async def handle_echo(reader, writer):
         # Invalid Request by new Client
         if request.is_whatisat():
             # Need a location before we can answer whatisat
-            resp = request.client_response(MYNAME, valid=False)
+            resp = request.client_response(MYNAME, rec, valid=False)
 
         # New Client
         elif request.is_iamat(): 
             records[rec.addr] = rec
-            resp = request.client_response(MYNAME)
+            resp = request.client_response(MYNAME, rec)
             
             #TODO need to flood
 
@@ -140,11 +139,11 @@ async def handle_echo(reader, writer):
             if str(rec.position) != Position.coords(request.lat, request.lon):
                 # FIXME I don't like how this update is occuring. just make direct like the rest of the code
                 rec = update_record(rec, request)
-                resp = request.client_response(MYNAME)
+                resp = request.client_response(MYNAME, rec)
 
                 # TODO: Flood response
             else:
-                resp = request.client_response('NO__UPDATE__NEEDED__IAMAT')
+                resp = request.client_response('NO__UPDATE__NEEDED__IAMAT', rec)
             # else update records and flood
 
         # Existing Client Query
@@ -160,7 +159,7 @@ async def handle_echo(reader, writer):
                     payload = json.dumps(payload)
                     
                     # serve the response with requested pagesize
-                    resp = request.client_response(MYNAME, payload=payload)
+                    resp = request.client_response(MYNAME, rec, payload=payload)
 
                 # Do an API call to get more results
                 elif rec.position.pagination <= request.pagination:
@@ -177,11 +176,11 @@ async def handle_echo(reader, writer):
                     rec.position.payload = json.dumps(api_response)
 
                     # serve the client
-                    resp = request.client_response(MYNAME, payload=rec.position.payload)
+                    resp = request.client_response(MYNAME, rec, payload=rec.position.payload)
 
                     # propagate results throughout
                 else:
-                    resp = request.client_response('EXISTING INVLAID', payload=rec.position.payload)
+                    resp = request.client_response('EXISTING INVLAID', rec, payload=rec.position.payload)
             # invalid resopnse
             else:
                 # perform api query
@@ -201,7 +200,7 @@ async def handle_echo(reader, writer):
                 rec.position.payload = json.dumps(api_response)
 
                 # construct client response with payload
-                resp = request.client_response(MYNAME, payload=rec.position.payload)
+                resp = request.client_response(MYNAME, rec, payload=rec.position.payload)
 
                 # construct flood response
                 
@@ -209,7 +208,7 @@ async def handle_echo(reader, writer):
         elif request.is_iam():
             # TODO: Update my record
             # create peer_response(MYNAME, MYPEERS)
-            resp = request.client_response('DOES THIS EVEN HAPPEN?')
+            resp = request.client_response('DOES THIS EVEN HAPPEN?', rec)
             pass
         else:
             pass

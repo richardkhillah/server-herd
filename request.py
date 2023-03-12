@@ -72,12 +72,20 @@ class Request:
         else:
             return ""
 
-    def client_response(self, at, valid=True, payload=None):
+    def client_response(self, at, rec, valid=True, payload=None):
         # if self.type not in ('IAMAT', 'WHATISAT'):
         #     return f"? {self._message}"
         if not valid:
             return f"? {self._message}"
-        r = f"AT {at} {self.skew} {self._body()}"
+    
+        # r = f"AT {at} {self.skew} {self._body()}"
+        s = rec.skew
+        a = rec.addr
+        b = str(rec.position) if self.type == 'IAMAT' else rec.position.radius
+        c = str(rec.client_time) if self.type == 'IAMAT' else rec.position.pagination
+
+        r = f"AT {at} {s} {a} {b} {c}"
+        # return r if not payload else (r + f"\n{payload}\n")
         return r if not payload else (r + f"\n{payload}\n")
 
     def crude_coord_split(self, coordstr):
