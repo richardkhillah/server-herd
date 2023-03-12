@@ -1,6 +1,7 @@
 from time import time, strftime
 
 import asyncio
+import json
 import sys
 
 ipaddr = '127.0.0.1'
@@ -33,7 +34,13 @@ async def tcp_echo_client(message, port):
     writer.write_eof()
 
     data = await reader.read()
-    print(f'Received: {data.decode()!r}')
+    decoded_data = data.decode()
+    if 'WHATISAT' in message and not decoded_data.startswith('?'):
+        json_data = json.loads(decoded_data)
+        print( f"{len(json_data['results'])=}")
+        # print(f'Received: {data.decode()}')
+    else:
+        print(f'Received: {decoded_data!r}')
 
     print('Close the connection')
     writer.close()

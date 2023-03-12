@@ -158,31 +158,39 @@ async def handle_echo(reader, writer):
 
                     # construct client response with payload
                     payload = json.loads(rec.position.payload)
-                    payload = json.dumps(payload['results'][:request.pagination], indent=2)
+                    payload['results'] = payload['results'][:request.pagination]
+                    payload = json.dumps(payload, indent=2)
                     resp = request.client_response(MYNAME, payload=payload)
                     #   serve the response with requested pagesize
                 # Do an API call to get more results
                 elif rec.position.pagination <= request.pagination:
                     print(f'CASE II: {rec.position.pagination <= request.pagination}: {rec.position.pagination=} {request.pagination=}')
+                    rec.position.radius = request.radius
+                    rec.position.pagination = request.pagination
                     
-            #       do api call
-            #       update record with new pagesize
-            #       serve the client
-            #       propagate results throughout
+                    api_response = dummy_api_call(rec.position, rec.position.radius, rec.position.pagination)
+                    # api_response['results'] = \
+                    #     api_response['results'][:int(rec.position.pagination)]
+                    rec.position.payload = json.dumps(api_response, indent=2)
+                    #       do api call
+                    #       update record with new pagesize
+                    #       serve the client
+                    resp = request.client_response(MYNAME, payload=rec.position.payload)
+                    #       propagate results throughout
                 else:
                     print('INVALID')
             #       invalid resopnse
             else:
                 # perform api query
                 # api_response = await api_call(rec.position, rec.position.radius)
-                api_response = dummy_api_call(rec.position, rec.position.radius)
+                api_response = dummy_api_call(rec.position, rec.position.radius, rec.position.pagination)
 
                 # update record
                 print("updating record")
                 rec.position.radius = request.radius
                 rec.position.pagination = request.pagination
-                api_response['results'] = \
-                    api_response['results'][:int(rec.position.pagination)]
+                # api_response['results'] = \
+                #     api_response['results'][:int(rec.position.pagination)]
                 rec.position.payload = json.dumps(api_response, indent=2)
 
                 # construct client response with payload
@@ -226,10 +234,10 @@ async def main():
     async with server:
         await server.serve_forever()
 
-def dummy_api_call(location, radius):
+def dummy_api_call(location, radius, pagination):
     with open('first_response.json', 'r') as rf:
         data = json.load(rf)
-
+        data['results'] = data['results'][:pagination]
         return data
 
 # async def api_call():
