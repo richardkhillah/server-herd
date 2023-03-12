@@ -152,11 +152,19 @@ async def handle_echo(reader, writer):
 
             if rec.position.radius == request.radius:
                 print(f"SHOULDN'T WORK: {rec.position.radius=} {rec.position.pagination=} {request.pagination=}")
-                if rec.position.pagination <= request.pagination:
-                    print(f'CASE I: {int(rec.position.pagination) <= int(request.pagination)}: {int(rec.position.pagination)=} {int(request.pagination)}')
-                #   serve the response with requested pagesize
-                elif request.pagination <= 20:
-                    print(f'CASE II: {int(rec.position.pagination) <= int(request.pagination)}: {int(rec.position.pagination)=} {int(request.pagination)}')
+                # serve a subset of previously queried data
+                if request.pagination <= rec.position.pagination:
+                    print(f'CASE I: {request.pagination <= rec.position.pagination}: {rec.position.pagination=} {request.pagination=}')
+
+                    # construct client response with payload
+                    payload = json.loads(rec.position.payload)
+                    payload = json.dumps(payload['results'][:request.pagination], indent=2)
+                    resp = request.client_response(MYNAME, payload=payload)
+                    #   serve the response with requested pagesize
+                # Do an API call to get more results
+                elif rec.position.pagination <= request.pagination:
+                    print(f'CASE II: {rec.position.pagination <= request.pagination}: {rec.position.pagination=} {request.pagination=}')
+                    
             #       do api call
             #       update record with new pagesize
             #       serve the client
