@@ -33,13 +33,20 @@ async def tcp_echo_client(message, port):
     await writer.drain()
     writer.write_eof()
 
-    data = await reader.read()
-    decoded_data = data.decode()
-    if 'WHATISAT' in message and not decoded_data.startswith('?'):
-        json_data = json.loads(decoded_data)
-        print( f"{len(json_data['results'])=}")
-        # print(f'Received: {data.decode()}')
+    if 'WHATISAT' in message:
+        while not reader.at_eof():
+            data = await reader.readline()
+            if decoded := data.decode():
+                if decoded.startswith('AT'):
+                    print(f"decoded: {decoded}")
+                elif not decoded.startswith('?'):
+                    decoded = data.decode()
+                    print(decoded)
+                    # json_data = json.loads(decoded)
+                    # print( f'{len(json_data["results"])=}')
     else:
+        data = await reader.read()
+        decoded_data = data.decode()
         print(f'Received: {decoded_data!r}')
 
     print('Close the connection')

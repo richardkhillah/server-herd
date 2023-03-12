@@ -68,8 +68,8 @@ class Request:
         #     return f"? {self._message}"
         if not valid:
             return f"? {self._message}"
-        return (f"AT {at} {self.skew} {self._body()}"+
-                "" if not payload else f"\n{payload}\n")
+        r = f"AT {at} {self.skew} {self._body()}"
+        return r if not payload else (r + f"\n{payload}\n")
 
     def crude_coord_split(self, coordstr):
         # s = '+34.068930-118.445127'

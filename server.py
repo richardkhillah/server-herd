@@ -159,7 +159,7 @@ async def handle_echo(reader, writer):
                     # construct client response with payload
                     payload = json.loads(rec.position.payload)
                     payload['results'] = payload['results'][:request.pagination]
-                    payload = json.dumps(payload, indent=2)
+                    payload = json.dumps(payload)
                     resp = request.client_response(MYNAME, payload=payload)
                     #   serve the response with requested pagesize
                 # Do an API call to get more results
@@ -171,7 +171,7 @@ async def handle_echo(reader, writer):
                     api_response = dummy_api_call(rec.position, rec.position.radius, rec.position.pagination)
                     # api_response['results'] = \
                     #     api_response['results'][:int(rec.position.pagination)]
-                    rec.position.payload = json.dumps(api_response, indent=2)
+                    rec.position.payload = json.dumps(api_response)
                     #       do api call
                     #       update record with new pagesize
                     #       serve the client
@@ -183,15 +183,16 @@ async def handle_echo(reader, writer):
             else:
                 # perform api query
                 # api_response = await api_call(rec.position, rec.position.radius)
+                # with open('places_raw.json', 'w') as f:
+                #     json.dump(api_response, f)
+
                 api_response = dummy_api_call(rec.position, rec.position.radius, rec.position.pagination)
 
                 # update record
                 print("updating record")
                 rec.position.radius = request.radius
                 rec.position.pagination = request.pagination
-                # api_response['results'] = \
-                #     api_response['results'][:int(rec.position.pagination)]
-                rec.position.payload = json.dumps(api_response, indent=2)
+                rec.position.payload = json.dumps(api_response)
 
                 # construct client response with payload
                 resp = request.client_response(MYNAME, payload=rec.position.payload)
@@ -222,7 +223,8 @@ async def main():
     if not fname:
         raise SystemExit(USAGE)
 
-    MYNAME=fname
+    global MYNAME 
+    MYNAME = fname
     logger.info(f'Starting {MYNAME} on port {port}')
     
     server = await asyncio.start_server(
@@ -235,7 +237,7 @@ async def main():
         await server.serve_forever()
 
 def dummy_api_call(location, radius, pagination):
-    with open('first_response.json', 'r') as rf:
+    with open('places_raw.json', 'r') as rf:
         data = json.load(rf)
         data['results'] = data['results'][:pagination]
         return data
