@@ -47,8 +47,8 @@ class Request:
                 self.type = 'WHATISAT'
                 self.addr = m[1]
                 try:
-                    self.radius = m[2]
-                    self.pagination = m[3]
+                    self.radius = int(m[2])
+                    self.pagination = int(m[3])
                 except:
                     pass
             

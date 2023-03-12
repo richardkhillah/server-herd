@@ -135,16 +135,21 @@ async def handle_echo(reader, writer):
         # Existing Client Query
         elif request.is_whatisat():
             resp = request.client_response('ELIF__IS_WHATISAT')
+            # print(f"TEST: {rec.position.radius=} {request.radius=} {rec.position.pagination=} {request.pagination=}")
+
             if rec.position.radius == request.radius:
-                print("SHOULDN'T WORK")
-            #   if len(rec.position.payload) <= request.pagesize
-            #       serve the response with requested pagesize
-            #   elif request.pagesize <= 20:
+                print(f"SHOULDN'T WORK: {rec.position.radius=} {rec.position.pagination=} {request.pagination=}")
+                if rec.position.pagination <= request.pagination:
+                    print(f'CASE I: {int(rec.position.pagination) <= int(request.pagination)}: {int(rec.position.pagination)=} {int(request.pagination)}')
+                #   serve the response with requested pagesize
+                elif request.pagination <= 20:
+                    print(f'CASE II: {int(rec.position.pagination) <= int(request.pagination)}: {int(rec.position.pagination)=} {int(request.pagination)}')
             #       do api call
             #       update record with new pagesize
             #       serve the client
             #       propagate results throughout
-            #   else
+                else:
+                    print('INVALID')
             #       invalid resopnse
             else:
                 # perform api query

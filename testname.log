@@ -1012,3 +1012,5563 @@ NameError: name 'client_time' is not defined
 
 2023-03-11 18:37:49,127 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 52888)
 2023-03-11 18:37:49,127 - Send: ? WHATISAT plum.cs.ucla.edu 10 5
+2023-03-11 18:43:26,941 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678589006.9402611 from ('127.0.0.1', 52920)
+2023-03-11 18:43:58,083 - Starting Bailey on port 17800
+2023-03-11 18:43:59,726 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678589039.725131 from ('127.0.0.1', 52923)
+2023-03-11 18:43:59,727 - Send: AT  +0.0018689632415771484 kiwi.cs.ucla.edu +34.068930-118.445127 1678589039.725131
+2023-03-11 18:43:59,728 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 52924)
+2023-03-11 18:43:59,729 - Send: 
+{
+  "html_attributions": [],
+  "results": [
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675219,
+          "lng": 151.2016502
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86614532010728,
+            "lng": 151.2031259298927
+          },
+          "southwest": {
+            "lat": -33.86884497989272,
+            "lng": 151.2004262701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Harbour Dinner Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 375,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109764923610545394994\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgOlAWvVjtVgHTEaXkHlRsk4B_BduD3zIs35wle3TQcGd8EQErKAzw4AH2ViCKxvuEh21JEMvdYfuRel_zgCqhgI1Kg0BLallsOKYSdwgL9nC0vVz9TNvpowY-fiU_10NXxGfyFiqZV5qJC8N5nisL1T99tmBCBdfSegLE_fg65-KOE4",
+          "width": 500
+        }
+      ],
+      "place_id": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.4,
+      "reference": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 25,
+      "vicinity": "32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8587323,
+          "lng": 151.2100055
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85739847010727,
+            "lng": 151.2112436298927
+          },
+          "southwest": {
+            "lat": -33.86009812989271,
+            "lng": 151.2085439701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+      "icon_background_color": "#FF9E67",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/bar_pinlet",
+      "name": "Cruise Bar",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 575,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112582655193348962755\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgNOB9aPPpEjZMsGWTfajvj0RkfZ5FQYgJ2UlGqGyJVZ4eDV62c_uPy3mkpR9CmhwkkIKM9hairF3lsk4SlX_dr7iBkLtn68JThSI_gt_LOo3oxgEl0FQOEy25DatBEOJZEexUhg02CY8UDqdXHrD3ojOcW_DePNeHgiK7yQWG7us4lD",
+          "width": 766
+        }
+      ],
+      "place_id": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "plus_code": {
+        "compound_code": "46R6+G2 The Rocks, New South Wales",
+        "global_code": "4RRH46R6+G2"
+      },
+      "price_level": 2,
+      "rating": 4,
+      "reference": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "scope": "GOOGLE",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 1432,
+      "vicinity": "Level 1, 2 and 3, Overseas Passenger Terminal, Circular Quay W, The Rocks"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8677035,
+          "lng": 151.2017297
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86634597010728,
+            "lng": 151.2031781298927
+          },
+          "southwest": {
+            "lat": -33.86904562989272,
+            "lng": 151.2004784701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Magistic Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3456,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111624752247196095718\">Nieves Casais</a>"
+          ],
+          "photo_reference": "AfLeUgPkcxWx8lykpZx3HXsF_94t3nxSp5aqo3yMyeZ29Ngc5v8b0T9horsQ4x8tcJr68cI0QsMCpXybqJEcvC3U1mn8cRMCB6RRsBFlYDj2UNQPyxLsSJnwCgrM1W8xIuhYnKWojjkkhM-ceaz6AwcxMY5cOll7mnWvtf6CCajIndF8qg-f",
+          "width": 4608
+        }
+      ],
+      "place_id": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "plus_code": {
+        "compound_code": "46J2+WM Sydney, New South Wales",
+        "global_code": "4RRH46J2+WM"
+      },
+      "rating": 4.1,
+      "reference": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 112,
+      "vicinity": "King Street Wharf, 32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675883,
+          "lng": 151.2016452
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86623847010728,
+            "lng": 151.2029950298927
+          },
+          "southwest": {
+            "lat": -33.86893812989273,
+            "lng": 151.2002953701073
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Showboats",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4912,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105311284660389698992\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgP2XYkDZiZBDbOOglLdJ-9SDcspKqz72gidrLg6MZg79qPm5aD-DQH5Uq8wjjFw4UplQYWgllgmBksI-fO48PK2DpkINWscIepgw18AgNzLwaCoehhqhmsW4SNQW3i0tgQyenWxsnFhDRaFhtp6RDzEhDnpXRnFADjb2zlfqzc6xXB5",
+          "width": 7360
+        }
+      ],
+      "place_id": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.2,
+      "reference": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 151,
+      "vicinity": "32 The Promenade, King Street Wharf, 5, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8609391,
+          "lng": 151.2098735
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85958927010727,
+            "lng": 151.2112233298927
+          },
+          "southwest": {
+            "lat": -33.86228892989272,
+            "lng": 151.2085236701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Australian Cruise Group",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1536,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/113088009011192061895\">Keith Bauman</a>"
+          ],
+          "photo_reference": "AfLeUgPtWyHe9ukbVvMP1_67CjcM3a-H8i1kqX41GqqG-1l2eFF7HtDFn1FrH8CYg08Qtr-XSdsxuqPjGDSbx_U4BNOthuU-wIcetMf5uTkvrExQrrg1Eg7FrrwMdCn5KZIcTx8LIQivWb7p7RqdcSNwWejxjnKvu2htKGeWLLTLRSzH0sBT",
+          "width": 2048
+        }
+      ],
+      "place_id": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "plus_code": {
+        "compound_code": "46Q5+JW Sydney, New South Wales",
+        "global_code": "4RRH46Q5+JW"
+      },
+      "rating": 4.4,
+      "reference": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 5,
+      "vicinity": "6 Cirular Quay, Sydney"
+    }
+  ],
+  "status": "OK"
+}
+
+2023-03-11 18:43:59,731 - Received WHATISAT kiwi.cs.ucla.edu 10 3 from ('127.0.0.1', 52925)
+2023-03-11 18:43:59,731 - Send: AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 3
+2023-03-11 18:43:59,732 - Received WHATISAT kiwi.cs.ucla.edu 10 6 from ('127.0.0.1', 52926)
+2023-03-11 18:43:59,732 - Send: AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 6
+2023-03-11 18:43:59,733 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 52927)
+2023-03-11 18:43:59,733 - Send: ? WHATISAT plum.cs.ucla.edu 10 5
+2023-03-11 18:46:05,074 - Starting Bailey on port 17800
+2023-03-11 18:46:06,529 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678589166.527991 from ('127.0.0.1', 52946)
+2023-03-11 18:46:06,529 - Send: AT  +0.0016770362854003906 kiwi.cs.ucla.edu +34.068930-118.445127 1678589166.527991
+2023-03-11 18:46:06,530 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 52947)
+2023-03-11 18:46:06,531 - Send: 
+{
+  "html_attributions": [],
+  "results": [
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675219,
+          "lng": 151.2016502
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86614532010728,
+            "lng": 151.2031259298927
+          },
+          "southwest": {
+            "lat": -33.86884497989272,
+            "lng": 151.2004262701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Harbour Dinner Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 375,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109764923610545394994\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgOlAWvVjtVgHTEaXkHlRsk4B_BduD3zIs35wle3TQcGd8EQErKAzw4AH2ViCKxvuEh21JEMvdYfuRel_zgCqhgI1Kg0BLallsOKYSdwgL9nC0vVz9TNvpowY-fiU_10NXxGfyFiqZV5qJC8N5nisL1T99tmBCBdfSegLE_fg65-KOE4",
+          "width": 500
+        }
+      ],
+      "place_id": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.4,
+      "reference": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 25,
+      "vicinity": "32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8587323,
+          "lng": 151.2100055
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85739847010727,
+            "lng": 151.2112436298927
+          },
+          "southwest": {
+            "lat": -33.86009812989271,
+            "lng": 151.2085439701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+      "icon_background_color": "#FF9E67",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/bar_pinlet",
+      "name": "Cruise Bar",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 575,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112582655193348962755\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgNOB9aPPpEjZMsGWTfajvj0RkfZ5FQYgJ2UlGqGyJVZ4eDV62c_uPy3mkpR9CmhwkkIKM9hairF3lsk4SlX_dr7iBkLtn68JThSI_gt_LOo3oxgEl0FQOEy25DatBEOJZEexUhg02CY8UDqdXHrD3ojOcW_DePNeHgiK7yQWG7us4lD",
+          "width": 766
+        }
+      ],
+      "place_id": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "plus_code": {
+        "compound_code": "46R6+G2 The Rocks, New South Wales",
+        "global_code": "4RRH46R6+G2"
+      },
+      "price_level": 2,
+      "rating": 4,
+      "reference": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "scope": "GOOGLE",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 1432,
+      "vicinity": "Level 1, 2 and 3, Overseas Passenger Terminal, Circular Quay W, The Rocks"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8677035,
+          "lng": 151.2017297
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86634597010728,
+            "lng": 151.2031781298927
+          },
+          "southwest": {
+            "lat": -33.86904562989272,
+            "lng": 151.2004784701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Magistic Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3456,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111624752247196095718\">Nieves Casais</a>"
+          ],
+          "photo_reference": "AfLeUgPkcxWx8lykpZx3HXsF_94t3nxSp5aqo3yMyeZ29Ngc5v8b0T9horsQ4x8tcJr68cI0QsMCpXybqJEcvC3U1mn8cRMCB6RRsBFlYDj2UNQPyxLsSJnwCgrM1W8xIuhYnKWojjkkhM-ceaz6AwcxMY5cOll7mnWvtf6CCajIndF8qg-f",
+          "width": 4608
+        }
+      ],
+      "place_id": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "plus_code": {
+        "compound_code": "46J2+WM Sydney, New South Wales",
+        "global_code": "4RRH46J2+WM"
+      },
+      "rating": 4.1,
+      "reference": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 112,
+      "vicinity": "King Street Wharf, 32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675883,
+          "lng": 151.2016452
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86623847010728,
+            "lng": 151.2029950298927
+          },
+          "southwest": {
+            "lat": -33.86893812989273,
+            "lng": 151.2002953701073
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Showboats",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4912,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105311284660389698992\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgP2XYkDZiZBDbOOglLdJ-9SDcspKqz72gidrLg6MZg79qPm5aD-DQH5Uq8wjjFw4UplQYWgllgmBksI-fO48PK2DpkINWscIepgw18AgNzLwaCoehhqhmsW4SNQW3i0tgQyenWxsnFhDRaFhtp6RDzEhDnpXRnFADjb2zlfqzc6xXB5",
+          "width": 7360
+        }
+      ],
+      "place_id": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.2,
+      "reference": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 151,
+      "vicinity": "32 The Promenade, King Street Wharf, 5, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8609391,
+          "lng": 151.2098735
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85958927010727,
+            "lng": 151.2112233298927
+          },
+          "southwest": {
+            "lat": -33.86228892989272,
+            "lng": 151.2085236701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Australian Cruise Group",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1536,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/113088009011192061895\">Keith Bauman</a>"
+          ],
+          "photo_reference": "AfLeUgPtWyHe9ukbVvMP1_67CjcM3a-H8i1kqX41GqqG-1l2eFF7HtDFn1FrH8CYg08Qtr-XSdsxuqPjGDSbx_U4BNOthuU-wIcetMf5uTkvrExQrrg1Eg7FrrwMdCn5KZIcTx8LIQivWb7p7RqdcSNwWejxjnKvu2htKGeWLLTLRSzH0sBT",
+          "width": 2048
+        }
+      ],
+      "place_id": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "plus_code": {
+        "compound_code": "46Q5+JW Sydney, New South Wales",
+        "global_code": "4RRH46Q5+JW"
+      },
+      "rating": 4.4,
+      "reference": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 5,
+      "vicinity": "6 Cirular Quay, Sydney"
+    }
+  ],
+  "status": "OK"
+}
+
+2023-03-11 18:46:06,533 - Received WHATISAT kiwi.cs.ucla.edu 10 3 from ('127.0.0.1', 52948)
+2023-03-11 18:46:47,618 - Starting Bailey on port 17800
+2023-03-11 18:46:51,018 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678589211.016705 from ('127.0.0.1', 52964)
+2023-03-11 18:46:51,018 - Send: AT  +0.0015590190887451172 kiwi.cs.ucla.edu +34.068930-118.445127 1678589211.016705
+2023-03-11 18:46:51,019 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 52965)
+2023-03-11 18:46:51,020 - Send: 
+{
+  "html_attributions": [],
+  "results": [
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675219,
+          "lng": 151.2016502
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86614532010728,
+            "lng": 151.2031259298927
+          },
+          "southwest": {
+            "lat": -33.86884497989272,
+            "lng": 151.2004262701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Harbour Dinner Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 375,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109764923610545394994\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgOlAWvVjtVgHTEaXkHlRsk4B_BduD3zIs35wle3TQcGd8EQErKAzw4AH2ViCKxvuEh21JEMvdYfuRel_zgCqhgI1Kg0BLallsOKYSdwgL9nC0vVz9TNvpowY-fiU_10NXxGfyFiqZV5qJC8N5nisL1T99tmBCBdfSegLE_fg65-KOE4",
+          "width": 500
+        }
+      ],
+      "place_id": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.4,
+      "reference": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 25,
+      "vicinity": "32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8587323,
+          "lng": 151.2100055
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85739847010727,
+            "lng": 151.2112436298927
+          },
+          "southwest": {
+            "lat": -33.86009812989271,
+            "lng": 151.2085439701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+      "icon_background_color": "#FF9E67",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/bar_pinlet",
+      "name": "Cruise Bar",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 575,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112582655193348962755\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgNOB9aPPpEjZMsGWTfajvj0RkfZ5FQYgJ2UlGqGyJVZ4eDV62c_uPy3mkpR9CmhwkkIKM9hairF3lsk4SlX_dr7iBkLtn68JThSI_gt_LOo3oxgEl0FQOEy25DatBEOJZEexUhg02CY8UDqdXHrD3ojOcW_DePNeHgiK7yQWG7us4lD",
+          "width": 766
+        }
+      ],
+      "place_id": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "plus_code": {
+        "compound_code": "46R6+G2 The Rocks, New South Wales",
+        "global_code": "4RRH46R6+G2"
+      },
+      "price_level": 2,
+      "rating": 4,
+      "reference": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "scope": "GOOGLE",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 1432,
+      "vicinity": "Level 1, 2 and 3, Overseas Passenger Terminal, Circular Quay W, The Rocks"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8677035,
+          "lng": 151.2017297
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86634597010728,
+            "lng": 151.2031781298927
+          },
+          "southwest": {
+            "lat": -33.86904562989272,
+            "lng": 151.2004784701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Magistic Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3456,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111624752247196095718\">Nieves Casais</a>"
+          ],
+          "photo_reference": "AfLeUgPkcxWx8lykpZx3HXsF_94t3nxSp5aqo3yMyeZ29Ngc5v8b0T9horsQ4x8tcJr68cI0QsMCpXybqJEcvC3U1mn8cRMCB6RRsBFlYDj2UNQPyxLsSJnwCgrM1W8xIuhYnKWojjkkhM-ceaz6AwcxMY5cOll7mnWvtf6CCajIndF8qg-f",
+          "width": 4608
+        }
+      ],
+      "place_id": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "plus_code": {
+        "compound_code": "46J2+WM Sydney, New South Wales",
+        "global_code": "4RRH46J2+WM"
+      },
+      "rating": 4.1,
+      "reference": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 112,
+      "vicinity": "King Street Wharf, 32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675883,
+          "lng": 151.2016452
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86623847010728,
+            "lng": 151.2029950298927
+          },
+          "southwest": {
+            "lat": -33.86893812989273,
+            "lng": 151.2002953701073
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Showboats",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4912,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105311284660389698992\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgP2XYkDZiZBDbOOglLdJ-9SDcspKqz72gidrLg6MZg79qPm5aD-DQH5Uq8wjjFw4UplQYWgllgmBksI-fO48PK2DpkINWscIepgw18AgNzLwaCoehhqhmsW4SNQW3i0tgQyenWxsnFhDRaFhtp6RDzEhDnpXRnFADjb2zlfqzc6xXB5",
+          "width": 7360
+        }
+      ],
+      "place_id": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.2,
+      "reference": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 151,
+      "vicinity": "32 The Promenade, King Street Wharf, 5, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8609391,
+          "lng": 151.2098735
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85958927010727,
+            "lng": 151.2112233298927
+          },
+          "southwest": {
+            "lat": -33.86228892989272,
+            "lng": 151.2085236701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Australian Cruise Group",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1536,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/113088009011192061895\">Keith Bauman</a>"
+          ],
+          "photo_reference": "AfLeUgPtWyHe9ukbVvMP1_67CjcM3a-H8i1kqX41GqqG-1l2eFF7HtDFn1FrH8CYg08Qtr-XSdsxuqPjGDSbx_U4BNOthuU-wIcetMf5uTkvrExQrrg1Eg7FrrwMdCn5KZIcTx8LIQivWb7p7RqdcSNwWejxjnKvu2htKGeWLLTLRSzH0sBT",
+          "width": 2048
+        }
+      ],
+      "place_id": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "plus_code": {
+        "compound_code": "46Q5+JW Sydney, New South Wales",
+        "global_code": "4RRH46Q5+JW"
+      },
+      "rating": 4.4,
+      "reference": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 5,
+      "vicinity": "6 Cirular Quay, Sydney"
+    }
+  ],
+  "status": "OK"
+}
+
+2023-03-11 18:46:51,021 - Received WHATISAT kiwi.cs.ucla.edu 10 3 from ('127.0.0.1', 52966)
+2023-03-11 18:46:51,021 - Send: AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 3
+2023-03-11 18:46:51,022 - Received WHATISAT kiwi.cs.ucla.edu 10 6 from ('127.0.0.1', 52967)
+2023-03-11 18:46:51,022 - Send: AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 6
+2023-03-11 18:46:51,024 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 52968)
+2023-03-11 18:46:51,024 - Send: ? WHATISAT plum.cs.ucla.edu 10 5
+2023-03-11 18:48:22,607 - Starting Bailey on port 17800
+2023-03-11 18:48:24,246 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678589304.2446961 from ('127.0.0.1', 52983)
+2023-03-11 18:48:24,246 - Send: AT  +0.0019178390502929688 kiwi.cs.ucla.edu +34.068930-118.445127 1678589304.2446961
+2023-03-11 18:48:24,247 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 52984)
+2023-03-11 18:48:45,823 - Starting Bailey on port 17800
+2023-03-11 18:48:47,086 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678589327.085161 from ('127.0.0.1', 52988)
+2023-03-11 18:48:47,087 - Send: AT  +0.0017731189727783203 kiwi.cs.ucla.edu +34.068930-118.445127 1678589327.085161
+2023-03-11 18:48:47,088 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 52989)
+2023-03-11 18:48:47,089 - Send: 
+{
+  "html_attributions": [],
+  "results": [
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675219,
+          "lng": 151.2016502
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86614532010728,
+            "lng": 151.2031259298927
+          },
+          "southwest": {
+            "lat": -33.86884497989272,
+            "lng": 151.2004262701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Harbour Dinner Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 375,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109764923610545394994\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgOlAWvVjtVgHTEaXkHlRsk4B_BduD3zIs35wle3TQcGd8EQErKAzw4AH2ViCKxvuEh21JEMvdYfuRel_zgCqhgI1Kg0BLallsOKYSdwgL9nC0vVz9TNvpowY-fiU_10NXxGfyFiqZV5qJC8N5nisL1T99tmBCBdfSegLE_fg65-KOE4",
+          "width": 500
+        }
+      ],
+      "place_id": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.4,
+      "reference": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 25,
+      "vicinity": "32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8587323,
+          "lng": 151.2100055
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85739847010727,
+            "lng": 151.2112436298927
+          },
+          "southwest": {
+            "lat": -33.86009812989271,
+            "lng": 151.2085439701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+      "icon_background_color": "#FF9E67",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/bar_pinlet",
+      "name": "Cruise Bar",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 575,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112582655193348962755\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgNOB9aPPpEjZMsGWTfajvj0RkfZ5FQYgJ2UlGqGyJVZ4eDV62c_uPy3mkpR9CmhwkkIKM9hairF3lsk4SlX_dr7iBkLtn68JThSI_gt_LOo3oxgEl0FQOEy25DatBEOJZEexUhg02CY8UDqdXHrD3ojOcW_DePNeHgiK7yQWG7us4lD",
+          "width": 766
+        }
+      ],
+      "place_id": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "plus_code": {
+        "compound_code": "46R6+G2 The Rocks, New South Wales",
+        "global_code": "4RRH46R6+G2"
+      },
+      "price_level": 2,
+      "rating": 4,
+      "reference": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "scope": "GOOGLE",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 1432,
+      "vicinity": "Level 1, 2 and 3, Overseas Passenger Terminal, Circular Quay W, The Rocks"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8677035,
+          "lng": 151.2017297
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86634597010728,
+            "lng": 151.2031781298927
+          },
+          "southwest": {
+            "lat": -33.86904562989272,
+            "lng": 151.2004784701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Magistic Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3456,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111624752247196095718\">Nieves Casais</a>"
+          ],
+          "photo_reference": "AfLeUgPkcxWx8lykpZx3HXsF_94t3nxSp5aqo3yMyeZ29Ngc5v8b0T9horsQ4x8tcJr68cI0QsMCpXybqJEcvC3U1mn8cRMCB6RRsBFlYDj2UNQPyxLsSJnwCgrM1W8xIuhYnKWojjkkhM-ceaz6AwcxMY5cOll7mnWvtf6CCajIndF8qg-f",
+          "width": 4608
+        }
+      ],
+      "place_id": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "plus_code": {
+        "compound_code": "46J2+WM Sydney, New South Wales",
+        "global_code": "4RRH46J2+WM"
+      },
+      "rating": 4.1,
+      "reference": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 112,
+      "vicinity": "King Street Wharf, 32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675883,
+          "lng": 151.2016452
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86623847010728,
+            "lng": 151.2029950298927
+          },
+          "southwest": {
+            "lat": -33.86893812989273,
+            "lng": 151.2002953701073
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Showboats",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4912,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105311284660389698992\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgP2XYkDZiZBDbOOglLdJ-9SDcspKqz72gidrLg6MZg79qPm5aD-DQH5Uq8wjjFw4UplQYWgllgmBksI-fO48PK2DpkINWscIepgw18AgNzLwaCoehhqhmsW4SNQW3i0tgQyenWxsnFhDRaFhtp6RDzEhDnpXRnFADjb2zlfqzc6xXB5",
+          "width": 7360
+        }
+      ],
+      "place_id": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.2,
+      "reference": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 151,
+      "vicinity": "32 The Promenade, King Street Wharf, 5, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8609391,
+          "lng": 151.2098735
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85958927010727,
+            "lng": 151.2112233298927
+          },
+          "southwest": {
+            "lat": -33.86228892989272,
+            "lng": 151.2085236701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Australian Cruise Group",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1536,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/113088009011192061895\">Keith Bauman</a>"
+          ],
+          "photo_reference": "AfLeUgPtWyHe9ukbVvMP1_67CjcM3a-H8i1kqX41GqqG-1l2eFF7HtDFn1FrH8CYg08Qtr-XSdsxuqPjGDSbx_U4BNOthuU-wIcetMf5uTkvrExQrrg1Eg7FrrwMdCn5KZIcTx8LIQivWb7p7RqdcSNwWejxjnKvu2htKGeWLLTLRSzH0sBT",
+          "width": 2048
+        }
+      ],
+      "place_id": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "plus_code": {
+        "compound_code": "46Q5+JW Sydney, New South Wales",
+        "global_code": "4RRH46Q5+JW"
+      },
+      "rating": 4.4,
+      "reference": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 5,
+      "vicinity": "6 Cirular Quay, Sydney"
+    }
+  ],
+  "status": "OK"
+}
+
+2023-03-11 18:48:47,091 - Received WHATISAT kiwi.cs.ucla.edu 10 3 from ('127.0.0.1', 52990)
+2023-03-11 18:48:47,091 - Send: AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 3
+2023-03-11 18:48:47,092 - Received WHATISAT kiwi.cs.ucla.edu 10 6 from ('127.0.0.1', 52991)
+2023-03-11 18:48:47,092 - Send: AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 6
+2023-03-11 18:48:47,093 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 52992)
+2023-03-11 18:48:47,093 - Send: ? WHATISAT plum.cs.ucla.edu 10 5
+2023-03-11 18:50:07,789 - Starting Bailey on port 17800
+2023-03-11 18:50:08,747 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678589408.746101 from ('127.0.0.1', 52998)
+2023-03-11 18:50:08,747 - Send: AT  +0.0017490386962890625 kiwi.cs.ucla.edu +34.068930-118.445127 1678589408.746101
+2023-03-11 18:50:08,748 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 52999)
+2023-03-11 18:50:08,749 - Send: 
+{
+  "html_attributions": [],
+  "results": [
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675219,
+          "lng": 151.2016502
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86614532010728,
+            "lng": 151.2031259298927
+          },
+          "southwest": {
+            "lat": -33.86884497989272,
+            "lng": 151.2004262701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Harbour Dinner Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 375,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109764923610545394994\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgOlAWvVjtVgHTEaXkHlRsk4B_BduD3zIs35wle3TQcGd8EQErKAzw4AH2ViCKxvuEh21JEMvdYfuRel_zgCqhgI1Kg0BLallsOKYSdwgL9nC0vVz9TNvpowY-fiU_10NXxGfyFiqZV5qJC8N5nisL1T99tmBCBdfSegLE_fg65-KOE4",
+          "width": 500
+        }
+      ],
+      "place_id": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.4,
+      "reference": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 25,
+      "vicinity": "32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8587323,
+          "lng": 151.2100055
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85739847010727,
+            "lng": 151.2112436298927
+          },
+          "southwest": {
+            "lat": -33.86009812989271,
+            "lng": 151.2085439701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+      "icon_background_color": "#FF9E67",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/bar_pinlet",
+      "name": "Cruise Bar",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 575,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112582655193348962755\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgNOB9aPPpEjZMsGWTfajvj0RkfZ5FQYgJ2UlGqGyJVZ4eDV62c_uPy3mkpR9CmhwkkIKM9hairF3lsk4SlX_dr7iBkLtn68JThSI_gt_LOo3oxgEl0FQOEy25DatBEOJZEexUhg02CY8UDqdXHrD3ojOcW_DePNeHgiK7yQWG7us4lD",
+          "width": 766
+        }
+      ],
+      "place_id": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "plus_code": {
+        "compound_code": "46R6+G2 The Rocks, New South Wales",
+        "global_code": "4RRH46R6+G2"
+      },
+      "price_level": 2,
+      "rating": 4,
+      "reference": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "scope": "GOOGLE",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 1432,
+      "vicinity": "Level 1, 2 and 3, Overseas Passenger Terminal, Circular Quay W, The Rocks"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8677035,
+          "lng": 151.2017297
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86634597010728,
+            "lng": 151.2031781298927
+          },
+          "southwest": {
+            "lat": -33.86904562989272,
+            "lng": 151.2004784701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Magistic Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3456,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111624752247196095718\">Nieves Casais</a>"
+          ],
+          "photo_reference": "AfLeUgPkcxWx8lykpZx3HXsF_94t3nxSp5aqo3yMyeZ29Ngc5v8b0T9horsQ4x8tcJr68cI0QsMCpXybqJEcvC3U1mn8cRMCB6RRsBFlYDj2UNQPyxLsSJnwCgrM1W8xIuhYnKWojjkkhM-ceaz6AwcxMY5cOll7mnWvtf6CCajIndF8qg-f",
+          "width": 4608
+        }
+      ],
+      "place_id": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "plus_code": {
+        "compound_code": "46J2+WM Sydney, New South Wales",
+        "global_code": "4RRH46J2+WM"
+      },
+      "rating": 4.1,
+      "reference": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 112,
+      "vicinity": "King Street Wharf, 32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675883,
+          "lng": 151.2016452
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86623847010728,
+            "lng": 151.2029950298927
+          },
+          "southwest": {
+            "lat": -33.86893812989273,
+            "lng": 151.2002953701073
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Showboats",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4912,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105311284660389698992\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgP2XYkDZiZBDbOOglLdJ-9SDcspKqz72gidrLg6MZg79qPm5aD-DQH5Uq8wjjFw4UplQYWgllgmBksI-fO48PK2DpkINWscIepgw18AgNzLwaCoehhqhmsW4SNQW3i0tgQyenWxsnFhDRaFhtp6RDzEhDnpXRnFADjb2zlfqzc6xXB5",
+          "width": 7360
+        }
+      ],
+      "place_id": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.2,
+      "reference": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 151,
+      "vicinity": "32 The Promenade, King Street Wharf, 5, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8609391,
+          "lng": 151.2098735
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85958927010727,
+            "lng": 151.2112233298927
+          },
+          "southwest": {
+            "lat": -33.86228892989272,
+            "lng": 151.2085236701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Australian Cruise Group",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1536,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/113088009011192061895\">Keith Bauman</a>"
+          ],
+          "photo_reference": "AfLeUgPtWyHe9ukbVvMP1_67CjcM3a-H8i1kqX41GqqG-1l2eFF7HtDFn1FrH8CYg08Qtr-XSdsxuqPjGDSbx_U4BNOthuU-wIcetMf5uTkvrExQrrg1Eg7FrrwMdCn5KZIcTx8LIQivWb7p7RqdcSNwWejxjnKvu2htKGeWLLTLRSzH0sBT",
+          "width": 2048
+        }
+      ],
+      "place_id": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "plus_code": {
+        "compound_code": "46Q5+JW Sydney, New South Wales",
+        "global_code": "4RRH46Q5+JW"
+      },
+      "rating": 4.4,
+      "reference": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 5,
+      "vicinity": "6 Cirular Quay, Sydney"
+    }
+  ],
+  "status": "OK"
+}
+
+2023-03-11 18:50:08,751 - Received WHATISAT kiwi.cs.ucla.edu 10 3 from ('127.0.0.1', 53000)
+2023-03-11 18:50:08,751 - Send: AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 3
+2023-03-11 18:50:08,752 - Received WHATISAT kiwi.cs.ucla.edu 10 6 from ('127.0.0.1', 53001)
+2023-03-11 18:50:08,752 - Send: AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 6
+2023-03-11 18:50:08,753 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 53002)
+2023-03-11 18:50:08,753 - Send: ? WHATISAT plum.cs.ucla.edu 10 5
+2023-03-11 18:51:12,453 - Starting Bailey on port 17800
+2023-03-11 18:51:14,672 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678589474.6713548 from ('127.0.0.1', 53023)
+2023-03-11 18:51:14,673 - Send: AT  +0.001728057861328125 kiwi.cs.ucla.edu +34.068930-118.445127 1678589474.6713548
+2023-03-11 18:51:14,674 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 53024)
+2023-03-11 18:51:14,675 - Send: 
+{
+  "html_attributions": [],
+  "results": [
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675219,
+          "lng": 151.2016502
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86614532010728,
+            "lng": 151.2031259298927
+          },
+          "southwest": {
+            "lat": -33.86884497989272,
+            "lng": 151.2004262701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Harbour Dinner Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 375,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109764923610545394994\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgOlAWvVjtVgHTEaXkHlRsk4B_BduD3zIs35wle3TQcGd8EQErKAzw4AH2ViCKxvuEh21JEMvdYfuRel_zgCqhgI1Kg0BLallsOKYSdwgL9nC0vVz9TNvpowY-fiU_10NXxGfyFiqZV5qJC8N5nisL1T99tmBCBdfSegLE_fg65-KOE4",
+          "width": 500
+        }
+      ],
+      "place_id": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.4,
+      "reference": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 25,
+      "vicinity": "32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8587323,
+          "lng": 151.2100055
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85739847010727,
+            "lng": 151.2112436298927
+          },
+          "southwest": {
+            "lat": -33.86009812989271,
+            "lng": 151.2085439701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+      "icon_background_color": "#FF9E67",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/bar_pinlet",
+      "name": "Cruise Bar",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 575,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112582655193348962755\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgNOB9aPPpEjZMsGWTfajvj0RkfZ5FQYgJ2UlGqGyJVZ4eDV62c_uPy3mkpR9CmhwkkIKM9hairF3lsk4SlX_dr7iBkLtn68JThSI_gt_LOo3oxgEl0FQOEy25DatBEOJZEexUhg02CY8UDqdXHrD3ojOcW_DePNeHgiK7yQWG7us4lD",
+          "width": 766
+        }
+      ],
+      "place_id": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "plus_code": {
+        "compound_code": "46R6+G2 The Rocks, New South Wales",
+        "global_code": "4RRH46R6+G2"
+      },
+      "price_level": 2,
+      "rating": 4,
+      "reference": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "scope": "GOOGLE",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 1432,
+      "vicinity": "Level 1, 2 and 3, Overseas Passenger Terminal, Circular Quay W, The Rocks"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8677035,
+          "lng": 151.2017297
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86634597010728,
+            "lng": 151.2031781298927
+          },
+          "southwest": {
+            "lat": -33.86904562989272,
+            "lng": 151.2004784701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Magistic Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3456,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111624752247196095718\">Nieves Casais</a>"
+          ],
+          "photo_reference": "AfLeUgPkcxWx8lykpZx3HXsF_94t3nxSp5aqo3yMyeZ29Ngc5v8b0T9horsQ4x8tcJr68cI0QsMCpXybqJEcvC3U1mn8cRMCB6RRsBFlYDj2UNQPyxLsSJnwCgrM1W8xIuhYnKWojjkkhM-ceaz6AwcxMY5cOll7mnWvtf6CCajIndF8qg-f",
+          "width": 4608
+        }
+      ],
+      "place_id": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "plus_code": {
+        "compound_code": "46J2+WM Sydney, New South Wales",
+        "global_code": "4RRH46J2+WM"
+      },
+      "rating": 4.1,
+      "reference": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 112,
+      "vicinity": "King Street Wharf, 32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675883,
+          "lng": 151.2016452
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86623847010728,
+            "lng": 151.2029950298927
+          },
+          "southwest": {
+            "lat": -33.86893812989273,
+            "lng": 151.2002953701073
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Showboats",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4912,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105311284660389698992\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgP2XYkDZiZBDbOOglLdJ-9SDcspKqz72gidrLg6MZg79qPm5aD-DQH5Uq8wjjFw4UplQYWgllgmBksI-fO48PK2DpkINWscIepgw18AgNzLwaCoehhqhmsW4SNQW3i0tgQyenWxsnFhDRaFhtp6RDzEhDnpXRnFADjb2zlfqzc6xXB5",
+          "width": 7360
+        }
+      ],
+      "place_id": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.2,
+      "reference": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 151,
+      "vicinity": "32 The Promenade, King Street Wharf, 5, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8609391,
+          "lng": 151.2098735
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85958927010727,
+            "lng": 151.2112233298927
+          },
+          "southwest": {
+            "lat": -33.86228892989272,
+            "lng": 151.2085236701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Australian Cruise Group",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1536,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/113088009011192061895\">Keith Bauman</a>"
+          ],
+          "photo_reference": "AfLeUgPtWyHe9ukbVvMP1_67CjcM3a-H8i1kqX41GqqG-1l2eFF7HtDFn1FrH8CYg08Qtr-XSdsxuqPjGDSbx_U4BNOthuU-wIcetMf5uTkvrExQrrg1Eg7FrrwMdCn5KZIcTx8LIQivWb7p7RqdcSNwWejxjnKvu2htKGeWLLTLRSzH0sBT",
+          "width": 2048
+        }
+      ],
+      "place_id": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "plus_code": {
+        "compound_code": "46Q5+JW Sydney, New South Wales",
+        "global_code": "4RRH46Q5+JW"
+      },
+      "rating": 4.4,
+      "reference": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 5,
+      "vicinity": "6 Cirular Quay, Sydney"
+    }
+  ],
+  "status": "OK"
+}
+
+2023-03-11 18:51:14,676 - Received WHATISAT kiwi.cs.ucla.edu 10 3 from ('127.0.0.1', 53025)
+2023-03-11 18:51:14,676 - Send: AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 3
+2023-03-11 18:51:14,678 - Received WHATISAT kiwi.cs.ucla.edu 10 6 from ('127.0.0.1', 53026)
+2023-03-11 18:51:14,678 - Send: AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 6
+2023-03-11 18:51:14,679 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 53027)
+2023-03-11 18:51:14,679 - Send: ? WHATISAT plum.cs.ucla.edu 10 5
+2023-03-11 18:51:31,077 - Starting Bailey on port 17800
+2023-03-11 18:51:32,741 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678589492.739854 from ('127.0.0.1', 53028)
+2023-03-11 18:51:32,741 - Send: AT  +0.0017728805541992188 kiwi.cs.ucla.edu +34.068930-118.445127 1678589492.739854
+2023-03-11 18:51:32,742 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 53029)
+2023-03-11 18:51:32,743 - Send: 
+{
+  "html_attributions": [],
+  "results": [
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675219,
+          "lng": 151.2016502
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86614532010728,
+            "lng": 151.2031259298927
+          },
+          "southwest": {
+            "lat": -33.86884497989272,
+            "lng": 151.2004262701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Harbour Dinner Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 375,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109764923610545394994\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgOlAWvVjtVgHTEaXkHlRsk4B_BduD3zIs35wle3TQcGd8EQErKAzw4AH2ViCKxvuEh21JEMvdYfuRel_zgCqhgI1Kg0BLallsOKYSdwgL9nC0vVz9TNvpowY-fiU_10NXxGfyFiqZV5qJC8N5nisL1T99tmBCBdfSegLE_fg65-KOE4",
+          "width": 500
+        }
+      ],
+      "place_id": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.4,
+      "reference": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 25,
+      "vicinity": "32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8587323,
+          "lng": 151.2100055
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85739847010727,
+            "lng": 151.2112436298927
+          },
+          "southwest": {
+            "lat": -33.86009812989271,
+            "lng": 151.2085439701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+      "icon_background_color": "#FF9E67",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/bar_pinlet",
+      "name": "Cruise Bar",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 575,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112582655193348962755\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgNOB9aPPpEjZMsGWTfajvj0RkfZ5FQYgJ2UlGqGyJVZ4eDV62c_uPy3mkpR9CmhwkkIKM9hairF3lsk4SlX_dr7iBkLtn68JThSI_gt_LOo3oxgEl0FQOEy25DatBEOJZEexUhg02CY8UDqdXHrD3ojOcW_DePNeHgiK7yQWG7us4lD",
+          "width": 766
+        }
+      ],
+      "place_id": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "plus_code": {
+        "compound_code": "46R6+G2 The Rocks, New South Wales",
+        "global_code": "4RRH46R6+G2"
+      },
+      "price_level": 2,
+      "rating": 4,
+      "reference": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "scope": "GOOGLE",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 1432,
+      "vicinity": "Level 1, 2 and 3, Overseas Passenger Terminal, Circular Quay W, The Rocks"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8677035,
+          "lng": 151.2017297
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86634597010728,
+            "lng": 151.2031781298927
+          },
+          "southwest": {
+            "lat": -33.86904562989272,
+            "lng": 151.2004784701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Magistic Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3456,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111624752247196095718\">Nieves Casais</a>"
+          ],
+          "photo_reference": "AfLeUgPkcxWx8lykpZx3HXsF_94t3nxSp5aqo3yMyeZ29Ngc5v8b0T9horsQ4x8tcJr68cI0QsMCpXybqJEcvC3U1mn8cRMCB6RRsBFlYDj2UNQPyxLsSJnwCgrM1W8xIuhYnKWojjkkhM-ceaz6AwcxMY5cOll7mnWvtf6CCajIndF8qg-f",
+          "width": 4608
+        }
+      ],
+      "place_id": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "plus_code": {
+        "compound_code": "46J2+WM Sydney, New South Wales",
+        "global_code": "4RRH46J2+WM"
+      },
+      "rating": 4.1,
+      "reference": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 112,
+      "vicinity": "King Street Wharf, 32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675883,
+          "lng": 151.2016452
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86623847010728,
+            "lng": 151.2029950298927
+          },
+          "southwest": {
+            "lat": -33.86893812989273,
+            "lng": 151.2002953701073
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Showboats",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4912,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105311284660389698992\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgP2XYkDZiZBDbOOglLdJ-9SDcspKqz72gidrLg6MZg79qPm5aD-DQH5Uq8wjjFw4UplQYWgllgmBksI-fO48PK2DpkINWscIepgw18AgNzLwaCoehhqhmsW4SNQW3i0tgQyenWxsnFhDRaFhtp6RDzEhDnpXRnFADjb2zlfqzc6xXB5",
+          "width": 7360
+        }
+      ],
+      "place_id": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.2,
+      "reference": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 151,
+      "vicinity": "32 The Promenade, King Street Wharf, 5, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8609391,
+          "lng": 151.2098735
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85958927010727,
+            "lng": 151.2112233298927
+          },
+          "southwest": {
+            "lat": -33.86228892989272,
+            "lng": 151.2085236701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Australian Cruise Group",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1536,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/113088009011192061895\">Keith Bauman</a>"
+          ],
+          "photo_reference": "AfLeUgPtWyHe9ukbVvMP1_67CjcM3a-H8i1kqX41GqqG-1l2eFF7HtDFn1FrH8CYg08Qtr-XSdsxuqPjGDSbx_U4BNOthuU-wIcetMf5uTkvrExQrrg1Eg7FrrwMdCn5KZIcTx8LIQivWb7p7RqdcSNwWejxjnKvu2htKGeWLLTLRSzH0sBT",
+          "width": 2048
+        }
+      ],
+      "place_id": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "plus_code": {
+        "compound_code": "46Q5+JW Sydney, New South Wales",
+        "global_code": "4RRH46Q5+JW"
+      },
+      "rating": 4.4,
+      "reference": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 5,
+      "vicinity": "6 Cirular Quay, Sydney"
+    }
+  ],
+  "status": "OK"
+}
+
+2023-03-11 18:51:32,745 - Received WHATISAT kiwi.cs.ucla.edu 10 3 from ('127.0.0.1', 53030)
+2023-03-11 18:51:32,745 - Send: AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 3
+2023-03-11 18:51:32,746 - Received WHATISAT kiwi.cs.ucla.edu 10 6 from ('127.0.0.1', 53031)
+2023-03-11 18:51:32,746 - Send: AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 6
+2023-03-11 18:51:32,747 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 53032)
+2023-03-11 18:51:32,747 - Send: ? WHATISAT plum.cs.ucla.edu 10 5
+2023-03-11 18:52:28,466 - Starting Bailey on port 17800
+2023-03-11 18:52:29,514 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678589549.51245 from ('127.0.0.1', 53037)
+2023-03-11 18:52:29,514 - Send: AT  +0.002025127410888672 kiwi.cs.ucla.edu +34.068930-118.445127 1678589549.51245
+2023-03-11 18:52:29,515 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 53038)
+2023-03-11 18:52:29,516 - Send: 
+{
+  "html_attributions": [],
+  "results": [
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675219,
+          "lng": 151.2016502
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86614532010728,
+            "lng": 151.2031259298927
+          },
+          "southwest": {
+            "lat": -33.86884497989272,
+            "lng": 151.2004262701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Harbour Dinner Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 375,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109764923610545394994\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgOlAWvVjtVgHTEaXkHlRsk4B_BduD3zIs35wle3TQcGd8EQErKAzw4AH2ViCKxvuEh21JEMvdYfuRel_zgCqhgI1Kg0BLallsOKYSdwgL9nC0vVz9TNvpowY-fiU_10NXxGfyFiqZV5qJC8N5nisL1T99tmBCBdfSegLE_fg65-KOE4",
+          "width": 500
+        }
+      ],
+      "place_id": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.4,
+      "reference": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 25,
+      "vicinity": "32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8587323,
+          "lng": 151.2100055
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85739847010727,
+            "lng": 151.2112436298927
+          },
+          "southwest": {
+            "lat": -33.86009812989271,
+            "lng": 151.2085439701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+      "icon_background_color": "#FF9E67",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/bar_pinlet",
+      "name": "Cruise Bar",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 575,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112582655193348962755\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgNOB9aPPpEjZMsGWTfajvj0RkfZ5FQYgJ2UlGqGyJVZ4eDV62c_uPy3mkpR9CmhwkkIKM9hairF3lsk4SlX_dr7iBkLtn68JThSI_gt_LOo3oxgEl0FQOEy25DatBEOJZEexUhg02CY8UDqdXHrD3ojOcW_DePNeHgiK7yQWG7us4lD",
+          "width": 766
+        }
+      ],
+      "place_id": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "plus_code": {
+        "compound_code": "46R6+G2 The Rocks, New South Wales",
+        "global_code": "4RRH46R6+G2"
+      },
+      "price_level": 2,
+      "rating": 4,
+      "reference": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "scope": "GOOGLE",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 1432,
+      "vicinity": "Level 1, 2 and 3, Overseas Passenger Terminal, Circular Quay W, The Rocks"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8677035,
+          "lng": 151.2017297
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86634597010728,
+            "lng": 151.2031781298927
+          },
+          "southwest": {
+            "lat": -33.86904562989272,
+            "lng": 151.2004784701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Magistic Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3456,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111624752247196095718\">Nieves Casais</a>"
+          ],
+          "photo_reference": "AfLeUgPkcxWx8lykpZx3HXsF_94t3nxSp5aqo3yMyeZ29Ngc5v8b0T9horsQ4x8tcJr68cI0QsMCpXybqJEcvC3U1mn8cRMCB6RRsBFlYDj2UNQPyxLsSJnwCgrM1W8xIuhYnKWojjkkhM-ceaz6AwcxMY5cOll7mnWvtf6CCajIndF8qg-f",
+          "width": 4608
+        }
+      ],
+      "place_id": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "plus_code": {
+        "compound_code": "46J2+WM Sydney, New South Wales",
+        "global_code": "4RRH46J2+WM"
+      },
+      "rating": 4.1,
+      "reference": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 112,
+      "vicinity": "King Street Wharf, 32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675883,
+          "lng": 151.2016452
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86623847010728,
+            "lng": 151.2029950298927
+          },
+          "southwest": {
+            "lat": -33.86893812989273,
+            "lng": 151.2002953701073
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Showboats",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4912,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105311284660389698992\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgP2XYkDZiZBDbOOglLdJ-9SDcspKqz72gidrLg6MZg79qPm5aD-DQH5Uq8wjjFw4UplQYWgllgmBksI-fO48PK2DpkINWscIepgw18AgNzLwaCoehhqhmsW4SNQW3i0tgQyenWxsnFhDRaFhtp6RDzEhDnpXRnFADjb2zlfqzc6xXB5",
+          "width": 7360
+        }
+      ],
+      "place_id": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.2,
+      "reference": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 151,
+      "vicinity": "32 The Promenade, King Street Wharf, 5, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8609391,
+          "lng": 151.2098735
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85958927010727,
+            "lng": 151.2112233298927
+          },
+          "southwest": {
+            "lat": -33.86228892989272,
+            "lng": 151.2085236701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Australian Cruise Group",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1536,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/113088009011192061895\">Keith Bauman</a>"
+          ],
+          "photo_reference": "AfLeUgPtWyHe9ukbVvMP1_67CjcM3a-H8i1kqX41GqqG-1l2eFF7HtDFn1FrH8CYg08Qtr-XSdsxuqPjGDSbx_U4BNOthuU-wIcetMf5uTkvrExQrrg1Eg7FrrwMdCn5KZIcTx8LIQivWb7p7RqdcSNwWejxjnKvu2htKGeWLLTLRSzH0sBT",
+          "width": 2048
+        }
+      ],
+      "place_id": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "plus_code": {
+        "compound_code": "46Q5+JW Sydney, New South Wales",
+        "global_code": "4RRH46Q5+JW"
+      },
+      "rating": 4.4,
+      "reference": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 5,
+      "vicinity": "6 Cirular Quay, Sydney"
+    }
+  ],
+  "status": "OK"
+}
+
+2023-03-11 18:52:29,517 - Received WHATISAT kiwi.cs.ucla.edu 10 3 from ('127.0.0.1', 53039)
+2023-03-11 18:53:20,629 - Starting Bailey on port 17800
+2023-03-11 18:53:21,366 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678589601.3652768 from ('127.0.0.1', 53071)
+2023-03-11 18:53:21,366 - Send: AT  +0.001646280288696289 kiwi.cs.ucla.edu +34.068930-118.445127 1678589601.3652768
+2023-03-11 18:53:21,368 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 53072)
+2023-03-11 18:53:21,369 - Send: 
+{
+  "html_attributions": [],
+  "results": [
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675219,
+          "lng": 151.2016502
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86614532010728,
+            "lng": 151.2031259298927
+          },
+          "southwest": {
+            "lat": -33.86884497989272,
+            "lng": 151.2004262701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Harbour Dinner Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 375,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109764923610545394994\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgOlAWvVjtVgHTEaXkHlRsk4B_BduD3zIs35wle3TQcGd8EQErKAzw4AH2ViCKxvuEh21JEMvdYfuRel_zgCqhgI1Kg0BLallsOKYSdwgL9nC0vVz9TNvpowY-fiU_10NXxGfyFiqZV5qJC8N5nisL1T99tmBCBdfSegLE_fg65-KOE4",
+          "width": 500
+        }
+      ],
+      "place_id": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.4,
+      "reference": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 25,
+      "vicinity": "32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8587323,
+          "lng": 151.2100055
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85739847010727,
+            "lng": 151.2112436298927
+          },
+          "southwest": {
+            "lat": -33.86009812989271,
+            "lng": 151.2085439701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+      "icon_background_color": "#FF9E67",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/bar_pinlet",
+      "name": "Cruise Bar",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 575,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112582655193348962755\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgNOB9aPPpEjZMsGWTfajvj0RkfZ5FQYgJ2UlGqGyJVZ4eDV62c_uPy3mkpR9CmhwkkIKM9hairF3lsk4SlX_dr7iBkLtn68JThSI_gt_LOo3oxgEl0FQOEy25DatBEOJZEexUhg02CY8UDqdXHrD3ojOcW_DePNeHgiK7yQWG7us4lD",
+          "width": 766
+        }
+      ],
+      "place_id": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "plus_code": {
+        "compound_code": "46R6+G2 The Rocks, New South Wales",
+        "global_code": "4RRH46R6+G2"
+      },
+      "price_level": 2,
+      "rating": 4,
+      "reference": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "scope": "GOOGLE",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 1432,
+      "vicinity": "Level 1, 2 and 3, Overseas Passenger Terminal, Circular Quay W, The Rocks"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8677035,
+          "lng": 151.2017297
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86634597010728,
+            "lng": 151.2031781298927
+          },
+          "southwest": {
+            "lat": -33.86904562989272,
+            "lng": 151.2004784701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Magistic Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3456,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111624752247196095718\">Nieves Casais</a>"
+          ],
+          "photo_reference": "AfLeUgPkcxWx8lykpZx3HXsF_94t3nxSp5aqo3yMyeZ29Ngc5v8b0T9horsQ4x8tcJr68cI0QsMCpXybqJEcvC3U1mn8cRMCB6RRsBFlYDj2UNQPyxLsSJnwCgrM1W8xIuhYnKWojjkkhM-ceaz6AwcxMY5cOll7mnWvtf6CCajIndF8qg-f",
+          "width": 4608
+        }
+      ],
+      "place_id": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "plus_code": {
+        "compound_code": "46J2+WM Sydney, New South Wales",
+        "global_code": "4RRH46J2+WM"
+      },
+      "rating": 4.1,
+      "reference": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 112,
+      "vicinity": "King Street Wharf, 32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675883,
+          "lng": 151.2016452
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86623847010728,
+            "lng": 151.2029950298927
+          },
+          "southwest": {
+            "lat": -33.86893812989273,
+            "lng": 151.2002953701073
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Showboats",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4912,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105311284660389698992\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgP2XYkDZiZBDbOOglLdJ-9SDcspKqz72gidrLg6MZg79qPm5aD-DQH5Uq8wjjFw4UplQYWgllgmBksI-fO48PK2DpkINWscIepgw18AgNzLwaCoehhqhmsW4SNQW3i0tgQyenWxsnFhDRaFhtp6RDzEhDnpXRnFADjb2zlfqzc6xXB5",
+          "width": 7360
+        }
+      ],
+      "place_id": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.2,
+      "reference": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 151,
+      "vicinity": "32 The Promenade, King Street Wharf, 5, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8609391,
+          "lng": 151.2098735
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85958927010727,
+            "lng": 151.2112233298927
+          },
+          "southwest": {
+            "lat": -33.86228892989272,
+            "lng": 151.2085236701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Australian Cruise Group",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1536,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/113088009011192061895\">Keith Bauman</a>"
+          ],
+          "photo_reference": "AfLeUgPtWyHe9ukbVvMP1_67CjcM3a-H8i1kqX41GqqG-1l2eFF7HtDFn1FrH8CYg08Qtr-XSdsxuqPjGDSbx_U4BNOthuU-wIcetMf5uTkvrExQrrg1Eg7FrrwMdCn5KZIcTx8LIQivWb7p7RqdcSNwWejxjnKvu2htKGeWLLTLRSzH0sBT",
+          "width": 2048
+        }
+      ],
+      "place_id": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "plus_code": {
+        "compound_code": "46Q5+JW Sydney, New South Wales",
+        "global_code": "4RRH46Q5+JW"
+      },
+      "rating": 4.4,
+      "reference": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 5,
+      "vicinity": "6 Cirular Quay, Sydney"
+    }
+  ],
+  "status": "OK"
+}
+
+2023-03-11 18:53:21,370 - Received WHATISAT kiwi.cs.ucla.edu 10 3 from ('127.0.0.1', 53073)
+2023-03-11 18:53:21,371 - Send: 
+{
+  "html_attributions": [],
+  "results": [
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675219,
+          "lng": 151.2016502
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86614532010728,
+            "lng": 151.2031259298927
+          },
+          "southwest": {
+            "lat": -33.86884497989272,
+            "lng": 151.2004262701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Harbour Dinner Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 375,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109764923610545394994\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgOlAWvVjtVgHTEaXkHlRsk4B_BduD3zIs35wle3TQcGd8EQErKAzw4AH2ViCKxvuEh21JEMvdYfuRel_zgCqhgI1Kg0BLallsOKYSdwgL9nC0vVz9TNvpowY-fiU_10NXxGfyFiqZV5qJC8N5nisL1T99tmBCBdfSegLE_fg65-KOE4",
+          "width": 500
+        }
+      ],
+      "place_id": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.4,
+      "reference": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 25,
+      "vicinity": "32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8587323,
+          "lng": 151.2100055
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85739847010727,
+            "lng": 151.2112436298927
+          },
+          "southwest": {
+            "lat": -33.86009812989271,
+            "lng": 151.2085439701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+      "icon_background_color": "#FF9E67",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/bar_pinlet",
+      "name": "Cruise Bar",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 575,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112582655193348962755\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgNOB9aPPpEjZMsGWTfajvj0RkfZ5FQYgJ2UlGqGyJVZ4eDV62c_uPy3mkpR9CmhwkkIKM9hairF3lsk4SlX_dr7iBkLtn68JThSI_gt_LOo3oxgEl0FQOEy25DatBEOJZEexUhg02CY8UDqdXHrD3ojOcW_DePNeHgiK7yQWG7us4lD",
+          "width": 766
+        }
+      ],
+      "place_id": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "plus_code": {
+        "compound_code": "46R6+G2 The Rocks, New South Wales",
+        "global_code": "4RRH46R6+G2"
+      },
+      "price_level": 2,
+      "rating": 4,
+      "reference": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "scope": "GOOGLE",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 1432,
+      "vicinity": "Level 1, 2 and 3, Overseas Passenger Terminal, Circular Quay W, The Rocks"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8677035,
+          "lng": 151.2017297
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86634597010728,
+            "lng": 151.2031781298927
+          },
+          "southwest": {
+            "lat": -33.86904562989272,
+            "lng": 151.2004784701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Magistic Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3456,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111624752247196095718\">Nieves Casais</a>"
+          ],
+          "photo_reference": "AfLeUgPkcxWx8lykpZx3HXsF_94t3nxSp5aqo3yMyeZ29Ngc5v8b0T9horsQ4x8tcJr68cI0QsMCpXybqJEcvC3U1mn8cRMCB6RRsBFlYDj2UNQPyxLsSJnwCgrM1W8xIuhYnKWojjkkhM-ceaz6AwcxMY5cOll7mnWvtf6CCajIndF8qg-f",
+          "width": 4608
+        }
+      ],
+      "place_id": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "plus_code": {
+        "compound_code": "46J2+WM Sydney, New South Wales",
+        "global_code": "4RRH46J2+WM"
+      },
+      "rating": 4.1,
+      "reference": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 112,
+      "vicinity": "King Street Wharf, 32 The Promenade, Sydney"
+    }
+  ],
+  "status": "OK"
+}
+
+2023-03-11 18:53:21,373 - Received WHATISAT kiwi.cs.ucla.edu 10 6 from ('127.0.0.1', 53074)
+2023-03-11 18:53:21,373 - Send: 
+{
+  "html_attributions": [],
+  "results": [
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675219,
+          "lng": 151.2016502
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86614532010728,
+            "lng": 151.2031259298927
+          },
+          "southwest": {
+            "lat": -33.86884497989272,
+            "lng": 151.2004262701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Harbour Dinner Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 375,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109764923610545394994\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgOlAWvVjtVgHTEaXkHlRsk4B_BduD3zIs35wle3TQcGd8EQErKAzw4AH2ViCKxvuEh21JEMvdYfuRel_zgCqhgI1Kg0BLallsOKYSdwgL9nC0vVz9TNvpowY-fiU_10NXxGfyFiqZV5qJC8N5nisL1T99tmBCBdfSegLE_fg65-KOE4",
+          "width": 500
+        }
+      ],
+      "place_id": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.4,
+      "reference": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 25,
+      "vicinity": "32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8587323,
+          "lng": 151.2100055
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85739847010727,
+            "lng": 151.2112436298927
+          },
+          "southwest": {
+            "lat": -33.86009812989271,
+            "lng": 151.2085439701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+      "icon_background_color": "#FF9E67",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/bar_pinlet",
+      "name": "Cruise Bar",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 575,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112582655193348962755\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgNOB9aPPpEjZMsGWTfajvj0RkfZ5FQYgJ2UlGqGyJVZ4eDV62c_uPy3mkpR9CmhwkkIKM9hairF3lsk4SlX_dr7iBkLtn68JThSI_gt_LOo3oxgEl0FQOEy25DatBEOJZEexUhg02CY8UDqdXHrD3ojOcW_DePNeHgiK7yQWG7us4lD",
+          "width": 766
+        }
+      ],
+      "place_id": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "plus_code": {
+        "compound_code": "46R6+G2 The Rocks, New South Wales",
+        "global_code": "4RRH46R6+G2"
+      },
+      "price_level": 2,
+      "rating": 4,
+      "reference": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "scope": "GOOGLE",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 1432,
+      "vicinity": "Level 1, 2 and 3, Overseas Passenger Terminal, Circular Quay W, The Rocks"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8677035,
+          "lng": 151.2017297
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86634597010728,
+            "lng": 151.2031781298927
+          },
+          "southwest": {
+            "lat": -33.86904562989272,
+            "lng": 151.2004784701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Magistic Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3456,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111624752247196095718\">Nieves Casais</a>"
+          ],
+          "photo_reference": "AfLeUgPkcxWx8lykpZx3HXsF_94t3nxSp5aqo3yMyeZ29Ngc5v8b0T9horsQ4x8tcJr68cI0QsMCpXybqJEcvC3U1mn8cRMCB6RRsBFlYDj2UNQPyxLsSJnwCgrM1W8xIuhYnKWojjkkhM-ceaz6AwcxMY5cOll7mnWvtf6CCajIndF8qg-f",
+          "width": 4608
+        }
+      ],
+      "place_id": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "plus_code": {
+        "compound_code": "46J2+WM Sydney, New South Wales",
+        "global_code": "4RRH46J2+WM"
+      },
+      "rating": 4.1,
+      "reference": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 112,
+      "vicinity": "King Street Wharf, 32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675883,
+          "lng": 151.2016452
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86623847010728,
+            "lng": 151.2029950298927
+          },
+          "southwest": {
+            "lat": -33.86893812989273,
+            "lng": 151.2002953701073
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Showboats",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4912,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105311284660389698992\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgP2XYkDZiZBDbOOglLdJ-9SDcspKqz72gidrLg6MZg79qPm5aD-DQH5Uq8wjjFw4UplQYWgllgmBksI-fO48PK2DpkINWscIepgw18AgNzLwaCoehhqhmsW4SNQW3i0tgQyenWxsnFhDRaFhtp6RDzEhDnpXRnFADjb2zlfqzc6xXB5",
+          "width": 7360
+        }
+      ],
+      "place_id": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.2,
+      "reference": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 151,
+      "vicinity": "32 The Promenade, King Street Wharf, 5, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8609391,
+          "lng": 151.2098735
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85958927010727,
+            "lng": 151.2112233298927
+          },
+          "southwest": {
+            "lat": -33.86228892989272,
+            "lng": 151.2085236701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Australian Cruise Group",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1536,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/113088009011192061895\">Keith Bauman</a>"
+          ],
+          "photo_reference": "AfLeUgPtWyHe9ukbVvMP1_67CjcM3a-H8i1kqX41GqqG-1l2eFF7HtDFn1FrH8CYg08Qtr-XSdsxuqPjGDSbx_U4BNOthuU-wIcetMf5uTkvrExQrrg1Eg7FrrwMdCn5KZIcTx8LIQivWb7p7RqdcSNwWejxjnKvu2htKGeWLLTLRSzH0sBT",
+          "width": 2048
+        }
+      ],
+      "place_id": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "plus_code": {
+        "compound_code": "46Q5+JW Sydney, New South Wales",
+        "global_code": "4RRH46Q5+JW"
+      },
+      "rating": 4.4,
+      "reference": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 5,
+      "vicinity": "6 Cirular Quay, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8686058,
+          "lng": 151.2018206
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86730002010728,
+            "lng": 151.2032717798927
+          },
+          "southwest": {
+            "lat": -33.86999967989272,
+            "lng": 151.2005721201073
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Rhythmboat Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 480,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/104066891898402903288\">Rhythmboat Sydney Harbour Cruises</a>"
+          ],
+          "photo_reference": "AfLeUgPNtTEKmccp3cAUgZV-XG8eGi9Y0trqX3srU97UKdzLUHyCqceXscgaSeb9AYig1mnHK6DgrdiIAZ9TJuh_Yg2yPCECsoCH3vfNLAORi5PuJDbQYdPSVlyeCwJXE8422oa18ZHSGvIvQkLDQHhSW7G3ca1DeAY9isWCgt0_npdKA2P9",
+          "width": 640
+        }
+      ],
+      "place_id": "ChIJyWEHuEmuEmsRm9hTkapTCrk",
+      "plus_code": {
+        "compound_code": "46J2+HP Sydney, New South Wales",
+        "global_code": "4RRH46J2+HP"
+      },
+      "rating": 3.8,
+      "reference": "ChIJyWEHuEmuEmsRm9hTkapTCrk",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 29,
+      "vicinity": "King Street Wharf, King St, Sydney"
+    }
+  ],
+  "status": "OK"
+}
+
+2023-03-11 18:53:21,375 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 53075)
+2023-03-11 18:53:21,375 - Send: ? WHATISAT plum.cs.ucla.edu 10 5
+2023-03-11 18:53:48,636 - Starting Bailey on port 17800
+2023-03-11 18:53:49,722 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678589629.721038 from ('127.0.0.1', 53088)
+2023-03-11 18:53:49,722 - Send: AT  +0.0018429756164550781 kiwi.cs.ucla.edu +34.068930-118.445127 1678589629.721038
+2023-03-11 18:53:49,723 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 53089)
+2023-03-11 18:53:49,724 - Send: 
+{
+  "html_attributions": [],
+  "results": [
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675219,
+          "lng": 151.2016502
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86614532010728,
+            "lng": 151.2031259298927
+          },
+          "southwest": {
+            "lat": -33.86884497989272,
+            "lng": 151.2004262701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Harbour Dinner Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 375,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109764923610545394994\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgOlAWvVjtVgHTEaXkHlRsk4B_BduD3zIs35wle3TQcGd8EQErKAzw4AH2ViCKxvuEh21JEMvdYfuRel_zgCqhgI1Kg0BLallsOKYSdwgL9nC0vVz9TNvpowY-fiU_10NXxGfyFiqZV5qJC8N5nisL1T99tmBCBdfSegLE_fg65-KOE4",
+          "width": 500
+        }
+      ],
+      "place_id": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.4,
+      "reference": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 25,
+      "vicinity": "32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8587323,
+          "lng": 151.2100055
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85739847010727,
+            "lng": 151.2112436298927
+          },
+          "southwest": {
+            "lat": -33.86009812989271,
+            "lng": 151.2085439701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+      "icon_background_color": "#FF9E67",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/bar_pinlet",
+      "name": "Cruise Bar",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 575,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112582655193348962755\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgNOB9aPPpEjZMsGWTfajvj0RkfZ5FQYgJ2UlGqGyJVZ4eDV62c_uPy3mkpR9CmhwkkIKM9hairF3lsk4SlX_dr7iBkLtn68JThSI_gt_LOo3oxgEl0FQOEy25DatBEOJZEexUhg02CY8UDqdXHrD3ojOcW_DePNeHgiK7yQWG7us4lD",
+          "width": 766
+        }
+      ],
+      "place_id": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "plus_code": {
+        "compound_code": "46R6+G2 The Rocks, New South Wales",
+        "global_code": "4RRH46R6+G2"
+      },
+      "price_level": 2,
+      "rating": 4,
+      "reference": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "scope": "GOOGLE",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 1432,
+      "vicinity": "Level 1, 2 and 3, Overseas Passenger Terminal, Circular Quay W, The Rocks"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8677035,
+          "lng": 151.2017297
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86634597010728,
+            "lng": 151.2031781298927
+          },
+          "southwest": {
+            "lat": -33.86904562989272,
+            "lng": 151.2004784701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Magistic Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3456,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111624752247196095718\">Nieves Casais</a>"
+          ],
+          "photo_reference": "AfLeUgPkcxWx8lykpZx3HXsF_94t3nxSp5aqo3yMyeZ29Ngc5v8b0T9horsQ4x8tcJr68cI0QsMCpXybqJEcvC3U1mn8cRMCB6RRsBFlYDj2UNQPyxLsSJnwCgrM1W8xIuhYnKWojjkkhM-ceaz6AwcxMY5cOll7mnWvtf6CCajIndF8qg-f",
+          "width": 4608
+        }
+      ],
+      "place_id": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "plus_code": {
+        "compound_code": "46J2+WM Sydney, New South Wales",
+        "global_code": "4RRH46J2+WM"
+      },
+      "rating": 4.1,
+      "reference": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 112,
+      "vicinity": "King Street Wharf, 32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675883,
+          "lng": 151.2016452
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86623847010728,
+            "lng": 151.2029950298927
+          },
+          "southwest": {
+            "lat": -33.86893812989273,
+            "lng": 151.2002953701073
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Showboats",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4912,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105311284660389698992\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgP2XYkDZiZBDbOOglLdJ-9SDcspKqz72gidrLg6MZg79qPm5aD-DQH5Uq8wjjFw4UplQYWgllgmBksI-fO48PK2DpkINWscIepgw18AgNzLwaCoehhqhmsW4SNQW3i0tgQyenWxsnFhDRaFhtp6RDzEhDnpXRnFADjb2zlfqzc6xXB5",
+          "width": 7360
+        }
+      ],
+      "place_id": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.2,
+      "reference": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 151,
+      "vicinity": "32 The Promenade, King Street Wharf, 5, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8609391,
+          "lng": 151.2098735
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85958927010727,
+            "lng": 151.2112233298927
+          },
+          "southwest": {
+            "lat": -33.86228892989272,
+            "lng": 151.2085236701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Australian Cruise Group",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1536,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/113088009011192061895\">Keith Bauman</a>"
+          ],
+          "photo_reference": "AfLeUgPtWyHe9ukbVvMP1_67CjcM3a-H8i1kqX41GqqG-1l2eFF7HtDFn1FrH8CYg08Qtr-XSdsxuqPjGDSbx_U4BNOthuU-wIcetMf5uTkvrExQrrg1Eg7FrrwMdCn5KZIcTx8LIQivWb7p7RqdcSNwWejxjnKvu2htKGeWLLTLRSzH0sBT",
+          "width": 2048
+        }
+      ],
+      "place_id": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "plus_code": {
+        "compound_code": "46Q5+JW Sydney, New South Wales",
+        "global_code": "4RRH46Q5+JW"
+      },
+      "rating": 4.4,
+      "reference": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 5,
+      "vicinity": "6 Cirular Quay, Sydney"
+    }
+  ],
+  "status": "OK"
+}
+
+2023-03-11 18:53:49,726 - Received WHATISAT kiwi.cs.ucla.edu 10 3 from ('127.0.0.1', 53090)
+2023-03-11 18:53:49,726 - Send: 
+{
+  "html_attributions": [],
+  "results": [
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675219,
+          "lng": 151.2016502
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86614532010728,
+            "lng": 151.2031259298927
+          },
+          "southwest": {
+            "lat": -33.86884497989272,
+            "lng": 151.2004262701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Harbour Dinner Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 375,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109764923610545394994\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgOlAWvVjtVgHTEaXkHlRsk4B_BduD3zIs35wle3TQcGd8EQErKAzw4AH2ViCKxvuEh21JEMvdYfuRel_zgCqhgI1Kg0BLallsOKYSdwgL9nC0vVz9TNvpowY-fiU_10NXxGfyFiqZV5qJC8N5nisL1T99tmBCBdfSegLE_fg65-KOE4",
+          "width": 500
+        }
+      ],
+      "place_id": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.4,
+      "reference": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 25,
+      "vicinity": "32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8587323,
+          "lng": 151.2100055
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85739847010727,
+            "lng": 151.2112436298927
+          },
+          "southwest": {
+            "lat": -33.86009812989271,
+            "lng": 151.2085439701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+      "icon_background_color": "#FF9E67",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/bar_pinlet",
+      "name": "Cruise Bar",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 575,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112582655193348962755\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgNOB9aPPpEjZMsGWTfajvj0RkfZ5FQYgJ2UlGqGyJVZ4eDV62c_uPy3mkpR9CmhwkkIKM9hairF3lsk4SlX_dr7iBkLtn68JThSI_gt_LOo3oxgEl0FQOEy25DatBEOJZEexUhg02CY8UDqdXHrD3ojOcW_DePNeHgiK7yQWG7us4lD",
+          "width": 766
+        }
+      ],
+      "place_id": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "plus_code": {
+        "compound_code": "46R6+G2 The Rocks, New South Wales",
+        "global_code": "4RRH46R6+G2"
+      },
+      "price_level": 2,
+      "rating": 4,
+      "reference": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "scope": "GOOGLE",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 1432,
+      "vicinity": "Level 1, 2 and 3, Overseas Passenger Terminal, Circular Quay W, The Rocks"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8677035,
+          "lng": 151.2017297
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86634597010728,
+            "lng": 151.2031781298927
+          },
+          "southwest": {
+            "lat": -33.86904562989272,
+            "lng": 151.2004784701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Magistic Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3456,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111624752247196095718\">Nieves Casais</a>"
+          ],
+          "photo_reference": "AfLeUgPkcxWx8lykpZx3HXsF_94t3nxSp5aqo3yMyeZ29Ngc5v8b0T9horsQ4x8tcJr68cI0QsMCpXybqJEcvC3U1mn8cRMCB6RRsBFlYDj2UNQPyxLsSJnwCgrM1W8xIuhYnKWojjkkhM-ceaz6AwcxMY5cOll7mnWvtf6CCajIndF8qg-f",
+          "width": 4608
+        }
+      ],
+      "place_id": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "plus_code": {
+        "compound_code": "46J2+WM Sydney, New South Wales",
+        "global_code": "4RRH46J2+WM"
+      },
+      "rating": 4.1,
+      "reference": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 112,
+      "vicinity": "King Street Wharf, 32 The Promenade, Sydney"
+    }
+  ],
+  "status": "OK"
+}
+
+2023-03-11 18:53:49,728 - Received WHATISAT kiwi.cs.ucla.edu 10 6 from ('127.0.0.1', 53091)
+2023-03-11 18:53:49,729 - Send: 
+{
+  "html_attributions": [],
+  "results": [
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675219,
+          "lng": 151.2016502
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86614532010728,
+            "lng": 151.2031259298927
+          },
+          "southwest": {
+            "lat": -33.86884497989272,
+            "lng": 151.2004262701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Harbour Dinner Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 375,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109764923610545394994\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgOlAWvVjtVgHTEaXkHlRsk4B_BduD3zIs35wle3TQcGd8EQErKAzw4AH2ViCKxvuEh21JEMvdYfuRel_zgCqhgI1Kg0BLallsOKYSdwgL9nC0vVz9TNvpowY-fiU_10NXxGfyFiqZV5qJC8N5nisL1T99tmBCBdfSegLE_fg65-KOE4",
+          "width": 500
+        }
+      ],
+      "place_id": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.4,
+      "reference": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 25,
+      "vicinity": "32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8587323,
+          "lng": 151.2100055
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85739847010727,
+            "lng": 151.2112436298927
+          },
+          "southwest": {
+            "lat": -33.86009812989271,
+            "lng": 151.2085439701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+      "icon_background_color": "#FF9E67",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/bar_pinlet",
+      "name": "Cruise Bar",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 575,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112582655193348962755\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgNOB9aPPpEjZMsGWTfajvj0RkfZ5FQYgJ2UlGqGyJVZ4eDV62c_uPy3mkpR9CmhwkkIKM9hairF3lsk4SlX_dr7iBkLtn68JThSI_gt_LOo3oxgEl0FQOEy25DatBEOJZEexUhg02CY8UDqdXHrD3ojOcW_DePNeHgiK7yQWG7us4lD",
+          "width": 766
+        }
+      ],
+      "place_id": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "plus_code": {
+        "compound_code": "46R6+G2 The Rocks, New South Wales",
+        "global_code": "4RRH46R6+G2"
+      },
+      "price_level": 2,
+      "rating": 4,
+      "reference": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "scope": "GOOGLE",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 1432,
+      "vicinity": "Level 1, 2 and 3, Overseas Passenger Terminal, Circular Quay W, The Rocks"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8677035,
+          "lng": 151.2017297
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86634597010728,
+            "lng": 151.2031781298927
+          },
+          "southwest": {
+            "lat": -33.86904562989272,
+            "lng": 151.2004784701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Magistic Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3456,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111624752247196095718\">Nieves Casais</a>"
+          ],
+          "photo_reference": "AfLeUgPkcxWx8lykpZx3HXsF_94t3nxSp5aqo3yMyeZ29Ngc5v8b0T9horsQ4x8tcJr68cI0QsMCpXybqJEcvC3U1mn8cRMCB6RRsBFlYDj2UNQPyxLsSJnwCgrM1W8xIuhYnKWojjkkhM-ceaz6AwcxMY5cOll7mnWvtf6CCajIndF8qg-f",
+          "width": 4608
+        }
+      ],
+      "place_id": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "plus_code": {
+        "compound_code": "46J2+WM Sydney, New South Wales",
+        "global_code": "4RRH46J2+WM"
+      },
+      "rating": 4.1,
+      "reference": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 112,
+      "vicinity": "King Street Wharf, 32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675883,
+          "lng": 151.2016452
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86623847010728,
+            "lng": 151.2029950298927
+          },
+          "southwest": {
+            "lat": -33.86893812989273,
+            "lng": 151.2002953701073
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Showboats",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4912,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105311284660389698992\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgP2XYkDZiZBDbOOglLdJ-9SDcspKqz72gidrLg6MZg79qPm5aD-DQH5Uq8wjjFw4UplQYWgllgmBksI-fO48PK2DpkINWscIepgw18AgNzLwaCoehhqhmsW4SNQW3i0tgQyenWxsnFhDRaFhtp6RDzEhDnpXRnFADjb2zlfqzc6xXB5",
+          "width": 7360
+        }
+      ],
+      "place_id": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.2,
+      "reference": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 151,
+      "vicinity": "32 The Promenade, King Street Wharf, 5, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8609391,
+          "lng": 151.2098735
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85958927010727,
+            "lng": 151.2112233298927
+          },
+          "southwest": {
+            "lat": -33.86228892989272,
+            "lng": 151.2085236701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Australian Cruise Group",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1536,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/113088009011192061895\">Keith Bauman</a>"
+          ],
+          "photo_reference": "AfLeUgPtWyHe9ukbVvMP1_67CjcM3a-H8i1kqX41GqqG-1l2eFF7HtDFn1FrH8CYg08Qtr-XSdsxuqPjGDSbx_U4BNOthuU-wIcetMf5uTkvrExQrrg1Eg7FrrwMdCn5KZIcTx8LIQivWb7p7RqdcSNwWejxjnKvu2htKGeWLLTLRSzH0sBT",
+          "width": 2048
+        }
+      ],
+      "place_id": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "plus_code": {
+        "compound_code": "46Q5+JW Sydney, New South Wales",
+        "global_code": "4RRH46Q5+JW"
+      },
+      "rating": 4.4,
+      "reference": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 5,
+      "vicinity": "6 Cirular Quay, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8686058,
+          "lng": 151.2018206
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86730002010728,
+            "lng": 151.2032717798927
+          },
+          "southwest": {
+            "lat": -33.86999967989272,
+            "lng": 151.2005721201073
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Rhythmboat Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 480,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/104066891898402903288\">Rhythmboat Sydney Harbour Cruises</a>"
+          ],
+          "photo_reference": "AfLeUgPNtTEKmccp3cAUgZV-XG8eGi9Y0trqX3srU97UKdzLUHyCqceXscgaSeb9AYig1mnHK6DgrdiIAZ9TJuh_Yg2yPCECsoCH3vfNLAORi5PuJDbQYdPSVlyeCwJXE8422oa18ZHSGvIvQkLDQHhSW7G3ca1DeAY9isWCgt0_npdKA2P9",
+          "width": 640
+        }
+      ],
+      "place_id": "ChIJyWEHuEmuEmsRm9hTkapTCrk",
+      "plus_code": {
+        "compound_code": "46J2+HP Sydney, New South Wales",
+        "global_code": "4RRH46J2+HP"
+      },
+      "rating": 3.8,
+      "reference": "ChIJyWEHuEmuEmsRm9hTkapTCrk",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 29,
+      "vicinity": "King Street Wharf, King St, Sydney"
+    }
+  ],
+  "status": "OK"
+}
+
+2023-03-11 18:53:49,730 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 53092)
+2023-03-11 18:53:49,730 - Send: ? WHATISAT plum.cs.ucla.edu 10 5
+2023-03-11 18:55:36,066 - Starting Bailey on port 17800
+2023-03-11 18:55:37,519 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678589737.51716 from ('127.0.0.1', 53108)
+2023-03-11 18:55:37,519 - Send: AT  +0.001940011978149414 kiwi.cs.ucla.edu +34.068930-118.445127 1678589737.51716
+2023-03-11 18:55:37,520 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 53109)
+2023-03-11 18:55:37,521 - Send: 
+{
+  "html_attributions": [],
+  "results": [
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675219,
+          "lng": 151.2016502
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86614532010728,
+            "lng": 151.2031259298927
+          },
+          "southwest": {
+            "lat": -33.86884497989272,
+            "lng": 151.2004262701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Harbour Dinner Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 375,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109764923610545394994\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgOlAWvVjtVgHTEaXkHlRsk4B_BduD3zIs35wle3TQcGd8EQErKAzw4AH2ViCKxvuEh21JEMvdYfuRel_zgCqhgI1Kg0BLallsOKYSdwgL9nC0vVz9TNvpowY-fiU_10NXxGfyFiqZV5qJC8N5nisL1T99tmBCBdfSegLE_fg65-KOE4",
+          "width": 500
+        }
+      ],
+      "place_id": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.4,
+      "reference": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 25,
+      "vicinity": "32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8587323,
+          "lng": 151.2100055
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85739847010727,
+            "lng": 151.2112436298927
+          },
+          "southwest": {
+            "lat": -33.86009812989271,
+            "lng": 151.2085439701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+      "icon_background_color": "#FF9E67",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/bar_pinlet",
+      "name": "Cruise Bar",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 575,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112582655193348962755\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgNOB9aPPpEjZMsGWTfajvj0RkfZ5FQYgJ2UlGqGyJVZ4eDV62c_uPy3mkpR9CmhwkkIKM9hairF3lsk4SlX_dr7iBkLtn68JThSI_gt_LOo3oxgEl0FQOEy25DatBEOJZEexUhg02CY8UDqdXHrD3ojOcW_DePNeHgiK7yQWG7us4lD",
+          "width": 766
+        }
+      ],
+      "place_id": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "plus_code": {
+        "compound_code": "46R6+G2 The Rocks, New South Wales",
+        "global_code": "4RRH46R6+G2"
+      },
+      "price_level": 2,
+      "rating": 4,
+      "reference": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "scope": "GOOGLE",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 1432,
+      "vicinity": "Level 1, 2 and 3, Overseas Passenger Terminal, Circular Quay W, The Rocks"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8677035,
+          "lng": 151.2017297
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86634597010728,
+            "lng": 151.2031781298927
+          },
+          "southwest": {
+            "lat": -33.86904562989272,
+            "lng": 151.2004784701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Magistic Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3456,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111624752247196095718\">Nieves Casais</a>"
+          ],
+          "photo_reference": "AfLeUgPkcxWx8lykpZx3HXsF_94t3nxSp5aqo3yMyeZ29Ngc5v8b0T9horsQ4x8tcJr68cI0QsMCpXybqJEcvC3U1mn8cRMCB6RRsBFlYDj2UNQPyxLsSJnwCgrM1W8xIuhYnKWojjkkhM-ceaz6AwcxMY5cOll7mnWvtf6CCajIndF8qg-f",
+          "width": 4608
+        }
+      ],
+      "place_id": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "plus_code": {
+        "compound_code": "46J2+WM Sydney, New South Wales",
+        "global_code": "4RRH46J2+WM"
+      },
+      "rating": 4.1,
+      "reference": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 112,
+      "vicinity": "King Street Wharf, 32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675883,
+          "lng": 151.2016452
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86623847010728,
+            "lng": 151.2029950298927
+          },
+          "southwest": {
+            "lat": -33.86893812989273,
+            "lng": 151.2002953701073
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Showboats",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4912,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105311284660389698992\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgP2XYkDZiZBDbOOglLdJ-9SDcspKqz72gidrLg6MZg79qPm5aD-DQH5Uq8wjjFw4UplQYWgllgmBksI-fO48PK2DpkINWscIepgw18AgNzLwaCoehhqhmsW4SNQW3i0tgQyenWxsnFhDRaFhtp6RDzEhDnpXRnFADjb2zlfqzc6xXB5",
+          "width": 7360
+        }
+      ],
+      "place_id": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.2,
+      "reference": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 151,
+      "vicinity": "32 The Promenade, King Street Wharf, 5, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8609391,
+          "lng": 151.2098735
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85958927010727,
+            "lng": 151.2112233298927
+          },
+          "southwest": {
+            "lat": -33.86228892989272,
+            "lng": 151.2085236701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Australian Cruise Group",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1536,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/113088009011192061895\">Keith Bauman</a>"
+          ],
+          "photo_reference": "AfLeUgPtWyHe9ukbVvMP1_67CjcM3a-H8i1kqX41GqqG-1l2eFF7HtDFn1FrH8CYg08Qtr-XSdsxuqPjGDSbx_U4BNOthuU-wIcetMf5uTkvrExQrrg1Eg7FrrwMdCn5KZIcTx8LIQivWb7p7RqdcSNwWejxjnKvu2htKGeWLLTLRSzH0sBT",
+          "width": 2048
+        }
+      ],
+      "place_id": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "plus_code": {
+        "compound_code": "46Q5+JW Sydney, New South Wales",
+        "global_code": "4RRH46Q5+JW"
+      },
+      "rating": 4.4,
+      "reference": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 5,
+      "vicinity": "6 Cirular Quay, Sydney"
+    }
+  ],
+  "status": "OK"
+}
+
+2023-03-11 18:55:37,522 - Received WHATISAT kiwi.cs.ucla.edu 10 3 from ('127.0.0.1', 53110)
+2023-03-11 18:55:37,523 - Send: AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 3
+2023-03-11 18:55:37,524 - Received WHATISAT kiwi.cs.ucla.edu 10 6 from ('127.0.0.1', 53111)
+2023-03-11 18:55:37,524 - Send: AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 6
+2023-03-11 18:55:37,525 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 53112)
+2023-03-11 18:55:37,525 - Send: ? WHATISAT plum.cs.ucla.edu 10 5
+2023-03-11 18:59:54,383 - Starting Bailey on port 17800
+2023-03-11 18:59:56,200 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678589996.198385 from ('127.0.0.1', 53136)
+2023-03-11 18:59:56,200 - Send: AT  +0.001834869384765625 kiwi.cs.ucla.edu +34.068930-118.445127 1678589996.198385
+2023-03-11 18:59:56,201 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 53137)
+2023-03-11 18:59:56,202 - Send: 
+{
+  "html_attributions": [],
+  "results": [
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675219,
+          "lng": 151.2016502
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86614532010728,
+            "lng": 151.2031259298927
+          },
+          "southwest": {
+            "lat": -33.86884497989272,
+            "lng": 151.2004262701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Harbour Dinner Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 375,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109764923610545394994\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgOlAWvVjtVgHTEaXkHlRsk4B_BduD3zIs35wle3TQcGd8EQErKAzw4AH2ViCKxvuEh21JEMvdYfuRel_zgCqhgI1Kg0BLallsOKYSdwgL9nC0vVz9TNvpowY-fiU_10NXxGfyFiqZV5qJC8N5nisL1T99tmBCBdfSegLE_fg65-KOE4",
+          "width": 500
+        }
+      ],
+      "place_id": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.4,
+      "reference": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 25,
+      "vicinity": "32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8587323,
+          "lng": 151.2100055
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85739847010727,
+            "lng": 151.2112436298927
+          },
+          "southwest": {
+            "lat": -33.86009812989271,
+            "lng": 151.2085439701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+      "icon_background_color": "#FF9E67",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/bar_pinlet",
+      "name": "Cruise Bar",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 575,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112582655193348962755\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgNOB9aPPpEjZMsGWTfajvj0RkfZ5FQYgJ2UlGqGyJVZ4eDV62c_uPy3mkpR9CmhwkkIKM9hairF3lsk4SlX_dr7iBkLtn68JThSI_gt_LOo3oxgEl0FQOEy25DatBEOJZEexUhg02CY8UDqdXHrD3ojOcW_DePNeHgiK7yQWG7us4lD",
+          "width": 766
+        }
+      ],
+      "place_id": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "plus_code": {
+        "compound_code": "46R6+G2 The Rocks, New South Wales",
+        "global_code": "4RRH46R6+G2"
+      },
+      "price_level": 2,
+      "rating": 4,
+      "reference": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "scope": "GOOGLE",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 1432,
+      "vicinity": "Level 1, 2 and 3, Overseas Passenger Terminal, Circular Quay W, The Rocks"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8677035,
+          "lng": 151.2017297
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86634597010728,
+            "lng": 151.2031781298927
+          },
+          "southwest": {
+            "lat": -33.86904562989272,
+            "lng": 151.2004784701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Magistic Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3456,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111624752247196095718\">Nieves Casais</a>"
+          ],
+          "photo_reference": "AfLeUgPkcxWx8lykpZx3HXsF_94t3nxSp5aqo3yMyeZ29Ngc5v8b0T9horsQ4x8tcJr68cI0QsMCpXybqJEcvC3U1mn8cRMCB6RRsBFlYDj2UNQPyxLsSJnwCgrM1W8xIuhYnKWojjkkhM-ceaz6AwcxMY5cOll7mnWvtf6CCajIndF8qg-f",
+          "width": 4608
+        }
+      ],
+      "place_id": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "plus_code": {
+        "compound_code": "46J2+WM Sydney, New South Wales",
+        "global_code": "4RRH46J2+WM"
+      },
+      "rating": 4.1,
+      "reference": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 112,
+      "vicinity": "King Street Wharf, 32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675883,
+          "lng": 151.2016452
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86623847010728,
+            "lng": 151.2029950298927
+          },
+          "southwest": {
+            "lat": -33.86893812989273,
+            "lng": 151.2002953701073
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Showboats",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4912,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105311284660389698992\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgP2XYkDZiZBDbOOglLdJ-9SDcspKqz72gidrLg6MZg79qPm5aD-DQH5Uq8wjjFw4UplQYWgllgmBksI-fO48PK2DpkINWscIepgw18AgNzLwaCoehhqhmsW4SNQW3i0tgQyenWxsnFhDRaFhtp6RDzEhDnpXRnFADjb2zlfqzc6xXB5",
+          "width": 7360
+        }
+      ],
+      "place_id": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.2,
+      "reference": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 151,
+      "vicinity": "32 The Promenade, King Street Wharf, 5, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8609391,
+          "lng": 151.2098735
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85958927010727,
+            "lng": 151.2112233298927
+          },
+          "southwest": {
+            "lat": -33.86228892989272,
+            "lng": 151.2085236701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Australian Cruise Group",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1536,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/113088009011192061895\">Keith Bauman</a>"
+          ],
+          "photo_reference": "AfLeUgPtWyHe9ukbVvMP1_67CjcM3a-H8i1kqX41GqqG-1l2eFF7HtDFn1FrH8CYg08Qtr-XSdsxuqPjGDSbx_U4BNOthuU-wIcetMf5uTkvrExQrrg1Eg7FrrwMdCn5KZIcTx8LIQivWb7p7RqdcSNwWejxjnKvu2htKGeWLLTLRSzH0sBT",
+          "width": 2048
+        }
+      ],
+      "place_id": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "plus_code": {
+        "compound_code": "46Q5+JW Sydney, New South Wales",
+        "global_code": "4RRH46Q5+JW"
+      },
+      "rating": 4.4,
+      "reference": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 5,
+      "vicinity": "6 Cirular Quay, Sydney"
+    }
+  ],
+  "status": "OK"
+}
+
+2023-03-11 18:59:56,204 - Received WHATISAT kiwi.cs.ucla.edu 10 3 from ('127.0.0.1', 53138)
+2023-03-11 18:59:56,204 - Send: AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 3
+2023-03-11 18:59:56,206 - Received WHATISAT kiwi.cs.ucla.edu 10 6 from ('127.0.0.1', 53139)
+2023-03-11 18:59:56,206 - Send: AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 6
+2023-03-11 18:59:56,206 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 53140)
+2023-03-11 18:59:56,207 - Send: ? WHATISAT plum.cs.ucla.edu 10 5
+2023-03-11 19:00:36,875 - Starting Bailey on port 17800
+2023-03-11 19:00:38,438 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678590038.437284 from ('127.0.0.1', 53149)
+2023-03-11 19:00:38,439 - Send: AT  +0.0017528533935546875 kiwi.cs.ucla.edu +34.068930-118.445127 1678590038.437284
+2023-03-11 19:00:38,440 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 53150)
+2023-03-11 19:00:38,440 - Send: 
+{
+  "html_attributions": [],
+  "results": [
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675219,
+          "lng": 151.2016502
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86614532010728,
+            "lng": 151.2031259298927
+          },
+          "southwest": {
+            "lat": -33.86884497989272,
+            "lng": 151.2004262701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Harbour Dinner Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 375,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109764923610545394994\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgOlAWvVjtVgHTEaXkHlRsk4B_BduD3zIs35wle3TQcGd8EQErKAzw4AH2ViCKxvuEh21JEMvdYfuRel_zgCqhgI1Kg0BLallsOKYSdwgL9nC0vVz9TNvpowY-fiU_10NXxGfyFiqZV5qJC8N5nisL1T99tmBCBdfSegLE_fg65-KOE4",
+          "width": 500
+        }
+      ],
+      "place_id": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.4,
+      "reference": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 25,
+      "vicinity": "32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8587323,
+          "lng": 151.2100055
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85739847010727,
+            "lng": 151.2112436298927
+          },
+          "southwest": {
+            "lat": -33.86009812989271,
+            "lng": 151.2085439701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+      "icon_background_color": "#FF9E67",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/bar_pinlet",
+      "name": "Cruise Bar",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 575,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112582655193348962755\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgNOB9aPPpEjZMsGWTfajvj0RkfZ5FQYgJ2UlGqGyJVZ4eDV62c_uPy3mkpR9CmhwkkIKM9hairF3lsk4SlX_dr7iBkLtn68JThSI_gt_LOo3oxgEl0FQOEy25DatBEOJZEexUhg02CY8UDqdXHrD3ojOcW_DePNeHgiK7yQWG7us4lD",
+          "width": 766
+        }
+      ],
+      "place_id": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "plus_code": {
+        "compound_code": "46R6+G2 The Rocks, New South Wales",
+        "global_code": "4RRH46R6+G2"
+      },
+      "price_level": 2,
+      "rating": 4,
+      "reference": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "scope": "GOOGLE",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 1432,
+      "vicinity": "Level 1, 2 and 3, Overseas Passenger Terminal, Circular Quay W, The Rocks"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8677035,
+          "lng": 151.2017297
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86634597010728,
+            "lng": 151.2031781298927
+          },
+          "southwest": {
+            "lat": -33.86904562989272,
+            "lng": 151.2004784701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Magistic Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3456,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111624752247196095718\">Nieves Casais</a>"
+          ],
+          "photo_reference": "AfLeUgPkcxWx8lykpZx3HXsF_94t3nxSp5aqo3yMyeZ29Ngc5v8b0T9horsQ4x8tcJr68cI0QsMCpXybqJEcvC3U1mn8cRMCB6RRsBFlYDj2UNQPyxLsSJnwCgrM1W8xIuhYnKWojjkkhM-ceaz6AwcxMY5cOll7mnWvtf6CCajIndF8qg-f",
+          "width": 4608
+        }
+      ],
+      "place_id": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "plus_code": {
+        "compound_code": "46J2+WM Sydney, New South Wales",
+        "global_code": "4RRH46J2+WM"
+      },
+      "rating": 4.1,
+      "reference": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 112,
+      "vicinity": "King Street Wharf, 32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675883,
+          "lng": 151.2016452
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86623847010728,
+            "lng": 151.2029950298927
+          },
+          "southwest": {
+            "lat": -33.86893812989273,
+            "lng": 151.2002953701073
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Showboats",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4912,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105311284660389698992\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgP2XYkDZiZBDbOOglLdJ-9SDcspKqz72gidrLg6MZg79qPm5aD-DQH5Uq8wjjFw4UplQYWgllgmBksI-fO48PK2DpkINWscIepgw18AgNzLwaCoehhqhmsW4SNQW3i0tgQyenWxsnFhDRaFhtp6RDzEhDnpXRnFADjb2zlfqzc6xXB5",
+          "width": 7360
+        }
+      ],
+      "place_id": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.2,
+      "reference": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 151,
+      "vicinity": "32 The Promenade, King Street Wharf, 5, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8609391,
+          "lng": 151.2098735
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85958927010727,
+            "lng": 151.2112233298927
+          },
+          "southwest": {
+            "lat": -33.86228892989272,
+            "lng": 151.2085236701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Australian Cruise Group",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1536,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/113088009011192061895\">Keith Bauman</a>"
+          ],
+          "photo_reference": "AfLeUgPtWyHe9ukbVvMP1_67CjcM3a-H8i1kqX41GqqG-1l2eFF7HtDFn1FrH8CYg08Qtr-XSdsxuqPjGDSbx_U4BNOthuU-wIcetMf5uTkvrExQrrg1Eg7FrrwMdCn5KZIcTx8LIQivWb7p7RqdcSNwWejxjnKvu2htKGeWLLTLRSzH0sBT",
+          "width": 2048
+        }
+      ],
+      "place_id": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "plus_code": {
+        "compound_code": "46Q5+JW Sydney, New South Wales",
+        "global_code": "4RRH46Q5+JW"
+      },
+      "rating": 4.4,
+      "reference": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 5,
+      "vicinity": "6 Cirular Quay, Sydney"
+    }
+  ],
+  "status": "OK"
+}
+
+2023-03-11 19:00:38,442 - Received WHATISAT kiwi.cs.ucla.edu 10 3 from ('127.0.0.1', 53151)
+2023-03-11 19:00:38,442 - Send: AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 3
+2023-03-11 19:00:38,443 - Received WHATISAT kiwi.cs.ucla.edu 10 6 from ('127.0.0.1', 53152)
+2023-03-11 19:00:38,443 - Send: AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 6
+2023-03-11 19:00:38,444 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 53153)
+2023-03-11 19:00:38,444 - Send: ? WHATISAT plum.cs.ucla.edu 10 5
+2023-03-11 19:01:24,426 - Starting Bailey on port 17800
+2023-03-11 19:01:25,708 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678590085.707256 from ('127.0.0.1', 53156)
+2023-03-11 19:01:25,709 - Send: AT  +0.0017228126525878906 kiwi.cs.ucla.edu +34.068930-118.445127 1678590085.707256
+2023-03-11 19:01:25,710 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 53157)
+2023-03-11 19:01:25,710 - Send: 
+{
+  "html_attributions": [],
+  "results": [
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675219,
+          "lng": 151.2016502
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86614532010728,
+            "lng": 151.2031259298927
+          },
+          "southwest": {
+            "lat": -33.86884497989272,
+            "lng": 151.2004262701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Harbour Dinner Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 375,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109764923610545394994\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgOlAWvVjtVgHTEaXkHlRsk4B_BduD3zIs35wle3TQcGd8EQErKAzw4AH2ViCKxvuEh21JEMvdYfuRel_zgCqhgI1Kg0BLallsOKYSdwgL9nC0vVz9TNvpowY-fiU_10NXxGfyFiqZV5qJC8N5nisL1T99tmBCBdfSegLE_fg65-KOE4",
+          "width": 500
+        }
+      ],
+      "place_id": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.4,
+      "reference": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 25,
+      "vicinity": "32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8587323,
+          "lng": 151.2100055
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85739847010727,
+            "lng": 151.2112436298927
+          },
+          "southwest": {
+            "lat": -33.86009812989271,
+            "lng": 151.2085439701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+      "icon_background_color": "#FF9E67",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/bar_pinlet",
+      "name": "Cruise Bar",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 575,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112582655193348962755\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgNOB9aPPpEjZMsGWTfajvj0RkfZ5FQYgJ2UlGqGyJVZ4eDV62c_uPy3mkpR9CmhwkkIKM9hairF3lsk4SlX_dr7iBkLtn68JThSI_gt_LOo3oxgEl0FQOEy25DatBEOJZEexUhg02CY8UDqdXHrD3ojOcW_DePNeHgiK7yQWG7us4lD",
+          "width": 766
+        }
+      ],
+      "place_id": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "plus_code": {
+        "compound_code": "46R6+G2 The Rocks, New South Wales",
+        "global_code": "4RRH46R6+G2"
+      },
+      "price_level": 2,
+      "rating": 4,
+      "reference": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "scope": "GOOGLE",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 1432,
+      "vicinity": "Level 1, 2 and 3, Overseas Passenger Terminal, Circular Quay W, The Rocks"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8677035,
+          "lng": 151.2017297
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86634597010728,
+            "lng": 151.2031781298927
+          },
+          "southwest": {
+            "lat": -33.86904562989272,
+            "lng": 151.2004784701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Magistic Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3456,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111624752247196095718\">Nieves Casais</a>"
+          ],
+          "photo_reference": "AfLeUgPkcxWx8lykpZx3HXsF_94t3nxSp5aqo3yMyeZ29Ngc5v8b0T9horsQ4x8tcJr68cI0QsMCpXybqJEcvC3U1mn8cRMCB6RRsBFlYDj2UNQPyxLsSJnwCgrM1W8xIuhYnKWojjkkhM-ceaz6AwcxMY5cOll7mnWvtf6CCajIndF8qg-f",
+          "width": 4608
+        }
+      ],
+      "place_id": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "plus_code": {
+        "compound_code": "46J2+WM Sydney, New South Wales",
+        "global_code": "4RRH46J2+WM"
+      },
+      "rating": 4.1,
+      "reference": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 112,
+      "vicinity": "King Street Wharf, 32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675883,
+          "lng": 151.2016452
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86623847010728,
+            "lng": 151.2029950298927
+          },
+          "southwest": {
+            "lat": -33.86893812989273,
+            "lng": 151.2002953701073
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Showboats",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4912,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105311284660389698992\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgP2XYkDZiZBDbOOglLdJ-9SDcspKqz72gidrLg6MZg79qPm5aD-DQH5Uq8wjjFw4UplQYWgllgmBksI-fO48PK2DpkINWscIepgw18AgNzLwaCoehhqhmsW4SNQW3i0tgQyenWxsnFhDRaFhtp6RDzEhDnpXRnFADjb2zlfqzc6xXB5",
+          "width": 7360
+        }
+      ],
+      "place_id": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.2,
+      "reference": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 151,
+      "vicinity": "32 The Promenade, King Street Wharf, 5, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8609391,
+          "lng": 151.2098735
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85958927010727,
+            "lng": 151.2112233298927
+          },
+          "southwest": {
+            "lat": -33.86228892989272,
+            "lng": 151.2085236701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Australian Cruise Group",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1536,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/113088009011192061895\">Keith Bauman</a>"
+          ],
+          "photo_reference": "AfLeUgPtWyHe9ukbVvMP1_67CjcM3a-H8i1kqX41GqqG-1l2eFF7HtDFn1FrH8CYg08Qtr-XSdsxuqPjGDSbx_U4BNOthuU-wIcetMf5uTkvrExQrrg1Eg7FrrwMdCn5KZIcTx8LIQivWb7p7RqdcSNwWejxjnKvu2htKGeWLLTLRSzH0sBT",
+          "width": 2048
+        }
+      ],
+      "place_id": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "plus_code": {
+        "compound_code": "46Q5+JW Sydney, New South Wales",
+        "global_code": "4RRH46Q5+JW"
+      },
+      "rating": 4.4,
+      "reference": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 5,
+      "vicinity": "6 Cirular Quay, Sydney"
+    }
+  ],
+  "status": "OK"
+}
+
+2023-03-11 19:01:25,712 - Received WHATISAT kiwi.cs.ucla.edu 10 3 from ('127.0.0.1', 53158)
+2023-03-11 19:01:25,712 - Send: AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 3
+2023-03-11 19:01:25,714 - Received WHATISAT kiwi.cs.ucla.edu 10 6 from ('127.0.0.1', 53159)
+2023-03-11 19:01:25,714 - Send: AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 6
+2023-03-11 19:01:25,715 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 53160)
+2023-03-11 19:01:25,715 - Send: ? WHATISAT plum.cs.ucla.edu 10 5
+2023-03-11 19:03:08,393 - Starting Bailey on port 17800
+2023-03-11 19:03:12,146 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678590192.145047 from ('127.0.0.1', 53178)
+2023-03-11 19:03:12,146 - Send: AT  +0.0017931461334228516 kiwi.cs.ucla.edu +34.068930-118.445127 1678590192.145047
+2023-03-11 19:03:12,148 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 53179)
+2023-03-11 19:03:12,148 - Send: 
+{
+  "html_attributions": [],
+  "results": [
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675219,
+          "lng": 151.2016502
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86614532010728,
+            "lng": 151.2031259298927
+          },
+          "southwest": {
+            "lat": -33.86884497989272,
+            "lng": 151.2004262701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Harbour Dinner Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 375,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109764923610545394994\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgOlAWvVjtVgHTEaXkHlRsk4B_BduD3zIs35wle3TQcGd8EQErKAzw4AH2ViCKxvuEh21JEMvdYfuRel_zgCqhgI1Kg0BLallsOKYSdwgL9nC0vVz9TNvpowY-fiU_10NXxGfyFiqZV5qJC8N5nisL1T99tmBCBdfSegLE_fg65-KOE4",
+          "width": 500
+        }
+      ],
+      "place_id": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.4,
+      "reference": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 25,
+      "vicinity": "32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8587323,
+          "lng": 151.2100055
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85739847010727,
+            "lng": 151.2112436298927
+          },
+          "southwest": {
+            "lat": -33.86009812989271,
+            "lng": 151.2085439701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+      "icon_background_color": "#FF9E67",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/bar_pinlet",
+      "name": "Cruise Bar",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 575,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112582655193348962755\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgNOB9aPPpEjZMsGWTfajvj0RkfZ5FQYgJ2UlGqGyJVZ4eDV62c_uPy3mkpR9CmhwkkIKM9hairF3lsk4SlX_dr7iBkLtn68JThSI_gt_LOo3oxgEl0FQOEy25DatBEOJZEexUhg02CY8UDqdXHrD3ojOcW_DePNeHgiK7yQWG7us4lD",
+          "width": 766
+        }
+      ],
+      "place_id": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "plus_code": {
+        "compound_code": "46R6+G2 The Rocks, New South Wales",
+        "global_code": "4RRH46R6+G2"
+      },
+      "price_level": 2,
+      "rating": 4,
+      "reference": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "scope": "GOOGLE",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 1432,
+      "vicinity": "Level 1, 2 and 3, Overseas Passenger Terminal, Circular Quay W, The Rocks"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8677035,
+          "lng": 151.2017297
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86634597010728,
+            "lng": 151.2031781298927
+          },
+          "southwest": {
+            "lat": -33.86904562989272,
+            "lng": 151.2004784701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Magistic Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3456,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111624752247196095718\">Nieves Casais</a>"
+          ],
+          "photo_reference": "AfLeUgPkcxWx8lykpZx3HXsF_94t3nxSp5aqo3yMyeZ29Ngc5v8b0T9horsQ4x8tcJr68cI0QsMCpXybqJEcvC3U1mn8cRMCB6RRsBFlYDj2UNQPyxLsSJnwCgrM1W8xIuhYnKWojjkkhM-ceaz6AwcxMY5cOll7mnWvtf6CCajIndF8qg-f",
+          "width": 4608
+        }
+      ],
+      "place_id": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "plus_code": {
+        "compound_code": "46J2+WM Sydney, New South Wales",
+        "global_code": "4RRH46J2+WM"
+      },
+      "rating": 4.1,
+      "reference": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 112,
+      "vicinity": "King Street Wharf, 32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675883,
+          "lng": 151.2016452
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86623847010728,
+            "lng": 151.2029950298927
+          },
+          "southwest": {
+            "lat": -33.86893812989273,
+            "lng": 151.2002953701073
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Showboats",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4912,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105311284660389698992\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgP2XYkDZiZBDbOOglLdJ-9SDcspKqz72gidrLg6MZg79qPm5aD-DQH5Uq8wjjFw4UplQYWgllgmBksI-fO48PK2DpkINWscIepgw18AgNzLwaCoehhqhmsW4SNQW3i0tgQyenWxsnFhDRaFhtp6RDzEhDnpXRnFADjb2zlfqzc6xXB5",
+          "width": 7360
+        }
+      ],
+      "place_id": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.2,
+      "reference": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 151,
+      "vicinity": "32 The Promenade, King Street Wharf, 5, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8609391,
+          "lng": 151.2098735
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85958927010727,
+            "lng": 151.2112233298927
+          },
+          "southwest": {
+            "lat": -33.86228892989272,
+            "lng": 151.2085236701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Australian Cruise Group",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1536,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/113088009011192061895\">Keith Bauman</a>"
+          ],
+          "photo_reference": "AfLeUgPtWyHe9ukbVvMP1_67CjcM3a-H8i1kqX41GqqG-1l2eFF7HtDFn1FrH8CYg08Qtr-XSdsxuqPjGDSbx_U4BNOthuU-wIcetMf5uTkvrExQrrg1Eg7FrrwMdCn5KZIcTx8LIQivWb7p7RqdcSNwWejxjnKvu2htKGeWLLTLRSzH0sBT",
+          "width": 2048
+        }
+      ],
+      "place_id": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "plus_code": {
+        "compound_code": "46Q5+JW Sydney, New South Wales",
+        "global_code": "4RRH46Q5+JW"
+      },
+      "rating": 4.4,
+      "reference": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 5,
+      "vicinity": "6 Cirular Quay, Sydney"
+    }
+  ],
+  "status": "OK"
+}
+
+2023-03-11 19:03:12,150 - Received WHATISAT kiwi.cs.ucla.edu 10 3 from ('127.0.0.1', 53180)
+2023-03-11 19:03:26,751 - Starting Bailey on port 17800
+2023-03-11 19:03:27,881 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678590207.880055 from ('127.0.0.1', 53183)
+2023-03-11 19:03:27,881 - Send: AT  +0.0015120506286621094 kiwi.cs.ucla.edu +34.068930-118.445127 1678590207.880055
+2023-03-11 19:03:27,882 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 53184)
+2023-03-11 19:03:27,883 - Send: 
+{
+  "html_attributions": [],
+  "results": [
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675219,
+          "lng": 151.2016502
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86614532010728,
+            "lng": 151.2031259298927
+          },
+          "southwest": {
+            "lat": -33.86884497989272,
+            "lng": 151.2004262701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Harbour Dinner Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 375,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109764923610545394994\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgOlAWvVjtVgHTEaXkHlRsk4B_BduD3zIs35wle3TQcGd8EQErKAzw4AH2ViCKxvuEh21JEMvdYfuRel_zgCqhgI1Kg0BLallsOKYSdwgL9nC0vVz9TNvpowY-fiU_10NXxGfyFiqZV5qJC8N5nisL1T99tmBCBdfSegLE_fg65-KOE4",
+          "width": 500
+        }
+      ],
+      "place_id": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.4,
+      "reference": "ChIJM1mOVTS6EmsRKaDzrTsgids",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 25,
+      "vicinity": "32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8587323,
+          "lng": 151.2100055
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85739847010727,
+            "lng": 151.2112436298927
+          },
+          "southwest": {
+            "lat": -33.86009812989271,
+            "lng": 151.2085439701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+      "icon_background_color": "#FF9E67",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/bar_pinlet",
+      "name": "Cruise Bar",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 575,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112582655193348962755\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgNOB9aPPpEjZMsGWTfajvj0RkfZ5FQYgJ2UlGqGyJVZ4eDV62c_uPy3mkpR9CmhwkkIKM9hairF3lsk4SlX_dr7iBkLtn68JThSI_gt_LOo3oxgEl0FQOEy25DatBEOJZEexUhg02CY8UDqdXHrD3ojOcW_DePNeHgiK7yQWG7us4lD",
+          "width": 766
+        }
+      ],
+      "place_id": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "plus_code": {
+        "compound_code": "46R6+G2 The Rocks, New South Wales",
+        "global_code": "4RRH46R6+G2"
+      },
+      "price_level": 2,
+      "rating": 4,
+      "reference": "ChIJi6C1MxquEmsR9-c-3O48ykI",
+      "scope": "GOOGLE",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 1432,
+      "vicinity": "Level 1, 2 and 3, Overseas Passenger Terminal, Circular Quay W, The Rocks"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8677035,
+          "lng": 151.2017297
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86634597010728,
+            "lng": 151.2031781298927
+          },
+          "southwest": {
+            "lat": -33.86904562989272,
+            "lng": 151.2004784701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Magistic Cruises",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3456,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111624752247196095718\">Nieves Casais</a>"
+          ],
+          "photo_reference": "AfLeUgPkcxWx8lykpZx3HXsF_94t3nxSp5aqo3yMyeZ29Ngc5v8b0T9horsQ4x8tcJr68cI0QsMCpXybqJEcvC3U1mn8cRMCB6RRsBFlYDj2UNQPyxLsSJnwCgrM1W8xIuhYnKWojjkkhM-ceaz6AwcxMY5cOll7mnWvtf6CCajIndF8qg-f",
+          "width": 4608
+        }
+      ],
+      "place_id": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "plus_code": {
+        "compound_code": "46J2+WM Sydney, New South Wales",
+        "global_code": "4RRH46J2+WM"
+      },
+      "rating": 4.1,
+      "reference": "ChIJxRjqYTiuEmsRGebAA_chDLE",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 112,
+      "vicinity": "King Street Wharf, 32 The Promenade, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8675883,
+          "lng": 151.2016452
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.86623847010728,
+            "lng": 151.2029950298927
+          },
+          "southwest": {
+            "lat": -33.86893812989273,
+            "lng": 151.2002953701073
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sydney Showboats",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4912,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105311284660389698992\">A Google User</a>"
+          ],
+          "photo_reference": "AfLeUgP2XYkDZiZBDbOOglLdJ-9SDcspKqz72gidrLg6MZg79qPm5aD-DQH5Uq8wjjFw4UplQYWgllgmBksI-fO48PK2DpkINWscIepgw18AgNzLwaCoehhqhmsW4SNQW3i0tgQyenWxsnFhDRaFhtp6RDzEhDnpXRnFADjb2zlfqzc6xXB5",
+          "width": 7360
+        }
+      ],
+      "place_id": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "plus_code": {
+        "compound_code": "46J2+XM Sydney, New South Wales",
+        "global_code": "4RRH46J2+XM"
+      },
+      "rating": 4.2,
+      "reference": "ChIJjRuIiTiuEmsRCHhYnrWiSok",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 151,
+      "vicinity": "32 The Promenade, King Street Wharf, 5, Sydney"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -33.8609391,
+          "lng": 151.2098735
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -33.85958927010727,
+            "lng": 151.2112233298927
+          },
+          "southwest": {
+            "lat": -33.86228892989272,
+            "lng": 151.2085236701072
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Australian Cruise Group",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1536,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/113088009011192061895\">Keith Bauman</a>"
+          ],
+          "photo_reference": "AfLeUgPtWyHe9ukbVvMP1_67CjcM3a-H8i1kqX41GqqG-1l2eFF7HtDFn1FrH8CYg08Qtr-XSdsxuqPjGDSbx_U4BNOthuU-wIcetMf5uTkvrExQrrg1Eg7FrrwMdCn5KZIcTx8LIQivWb7p7RqdcSNwWejxjnKvu2htKGeWLLTLRSzH0sBT",
+          "width": 2048
+        }
+      ],
+      "place_id": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "plus_code": {
+        "compound_code": "46Q5+JW Sydney, New South Wales",
+        "global_code": "4RRH46Q5+JW"
+      },
+      "rating": 4.4,
+      "reference": "ChIJpU8KgUKuEmsRKErVGEaa11w",
+      "scope": "GOOGLE",
+      "types": [
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 5,
+      "vicinity": "6 Cirular Quay, Sydney"
+    }
+  ],
+  "status": "OK"
+}
+
+2023-03-11 19:03:27,884 - Received WHATISAT kiwi.cs.ucla.edu 10 3 from ('127.0.0.1', 53185)
+2023-03-11 19:03:27,884 - Send: AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 3
+2023-03-11 19:03:27,885 - Received WHATISAT kiwi.cs.ucla.edu 10 6 from ('127.0.0.1', 53186)
+2023-03-11 19:03:27,885 - Send: AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 6
+2023-03-11 19:03:27,886 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 53187)
+2023-03-11 19:03:27,886 - Send: ? WHATISAT plum.cs.ucla.edu 10 5

@@ -46,6 +46,8 @@ if __name__ == '__main__':
     try:
         asyncio.run(tcp_echo_client(iamat(h, c), herd['Bailey']))
         asyncio.run(tcp_echo_client(whatsat(h, r, p), herd['Bailey']))
+        asyncio.run(tcp_echo_client(whatsat(h, r, 3), herd['Bailey']))
+        asyncio.run(tcp_echo_client(whatsat(h, r, 6), herd['Bailey']))
         asyncio.run(tcp_echo_client(whatsat(h2, r, p), herd['Bailey']))
     except ConnectionRefusedError as cre:
         print("Connection Refused")

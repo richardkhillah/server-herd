@@ -92,7 +92,7 @@ class Position:
 
     @property
     def radius(self):
-        return str(self._radius)
+        return self._radius
 
     @radius.setter
     def radius(self, r):
@@ -105,7 +105,7 @@ class Position:
 
     @property
     def pagination(self):
-        return str(self._pagination)
+        return self._pagination
 
     @pagination.setter
     def pagination(self, size):
