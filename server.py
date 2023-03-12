@@ -7,7 +7,9 @@ import sys
 import time
 
 from typing import List, Tuple
+from urllib.parse import quote_plus as safe_url
 
+import env
 from request import Request
 from record import Record, Position
 
@@ -104,6 +106,8 @@ async def handle_echo(reader, writer):
 
     # Do stuff with the record
     if is_new:
+        print("NEW")
+
         # Invalid Request by new Client
         if request.is_whatisat():
             # Need a location before we can answer whatisat
@@ -129,7 +133,9 @@ async def handle_echo(reader, writer):
             pass
         # Existing Client Query
         elif request.is_whatisat():
-            # if rec.position.radius == request.radius:
+            resp = request.client_response('ELIF__IS_WHATISAT')
+            if rec.position.radius == request.radius:
+                print("SHOULDN'T WORK")
             #   if len(rec.position.payload) <= request.pagesize
             #       serve the response with requested pagesize
             #   elif request.pagesize <= 20:
@@ -139,6 +145,21 @@ async def handle_echo(reader, writer):
             #       propagate results throughout
             #   else
             #       invalid resopnse
+            else:
+                # perform api query
+                # api_response = await api_call(rec.position, rec.position.radius)
+                api_response = dummy_api_call(rec.position, rec.position.radius)
+
+                # update record
+                print("updating record")
+                rec.position.radius = request.radius
+                rec.position.pagination = request.pagination
+                # rec.position.payload = api_response
+
+                # construct client response with payload
+
+                # construct flood response
+                
             pass
         # DOES THIS EVEN HAPPEN?
         elif request.is_iam():
@@ -147,7 +168,6 @@ async def handle_echo(reader, writer):
             pass
         else:
             pass
-        resp = request.client_response('else')
 
 
     # Reply to sender
@@ -176,11 +196,32 @@ async def main():
     async with server:
         await server.serve_forever()
 
-# async def main():
+def dummy_api_call(location, radius):
+    with open('first_response.json', 'r') as rf:
+        # data = rf.read()
+        return json.load(rf)
+
+# async def api_call():
 #     async with aiohttp.ClientSession() as session:
 #         async with session.get('http://httpbin.org/get') as resp:
 #             print(resp.status)
 #             print(await resp.text())
+
+async def api_call(location, radius):
+    key = env.PLACES_API_KEY
+    # url=(
+    #     f'https://maps.googleapis.com/maps/api/place/nearbysearch/json' +
+    #     f'?location={location}' +
+    #     f'&radius={radius}' +
+    #     f'&key={key}'
+    # )
+    url = (
+        f"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522%2C151.1957362&radius=1500&type=restaurant&keyword=cruise&key={key}"
+    )
+    ret = None
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url) as resp:
+            return json.loads(await resp.text())
 
 if __name__=='__main__':
     try:

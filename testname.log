@@ -433,3 +433,195 @@ NameError: name 'client_time' is not defined
 2023-03-11 14:34:01,773 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678574041.771827 from ('127.0.0.1', 51160)
 2023-03-11 14:34:01,773 - Send: 'AT  +0.001383066177368164 kiwi.cs.ucla.edu +34.068930-118.445127 1678574041.771827'
 2023-03-11 14:34:01,774 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 51161)
+2023-03-11 14:35:14,743 - Starting Bailey on port 17800
+2023-03-11 14:35:15,997 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678574115.9958808 from ('127.0.0.1', 51196)
+2023-03-11 14:35:15,997 - Send: 'AT  +0.0014159679412841797 kiwi.cs.ucla.edu +34.068930-118.445127 1678574115.9958808'
+2023-03-11 14:35:15,998 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 51197)
+2023-03-11 14:35:15,998 - Send: 'AT else None kiwi.cs.ucla.edu 10 5'
+2023-03-11 14:35:15,999 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 51198)
+2023-03-11 14:35:15,999 - Send: '? WHATISAT plum.cs.ucla.edu 10 5'
+2023-03-11 14:35:27,575 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678574127.574154 from ('127.0.0.1', 51200)
+2023-03-11 14:35:27,575 - Send: 'AT else +0.0013382434844970703 kiwi.cs.ucla.edu +34.068930-118.445127 1678574127.574154'
+2023-03-11 14:35:27,576 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 51201)
+2023-03-11 14:35:27,576 - Send: 'AT else None kiwi.cs.ucla.edu 10 5'
+2023-03-11 14:35:27,577 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 51202)
+2023-03-11 14:35:27,577 - Send: '? WHATISAT plum.cs.ucla.edu 10 5'
+2023-03-11 14:35:59,178 - Starting Bailey on port 17800
+2023-03-11 14:36:00,443 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678574160.441746 from ('127.0.0.1', 51205)
+2023-03-11 14:36:00,443 - Send: 'AT  +0.0015149116516113281 kiwi.cs.ucla.edu +34.068930-118.445127 1678574160.441746'
+2023-03-11 14:36:00,444 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 51206)
+2023-03-11 14:36:00,444 - Send: 'AT else None kiwi.cs.ucla.edu 10 5'
+2023-03-11 14:36:00,444 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 51207)
+2023-03-11 14:36:00,445 - Send: '? WHATISAT plum.cs.ucla.edu 10 5'
+2023-03-11 14:36:37,241 - Starting Bailey on port 17800
+2023-03-11 14:36:38,195 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678574198.193685 from ('127.0.0.1', 51219)
+2023-03-11 14:36:38,195 - Send: 'AT  +0.0014820098876953125 kiwi.cs.ucla.edu +34.068930-118.445127 1678574198.193685'
+2023-03-11 14:36:38,196 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 51220)
+2023-03-11 14:38:10,214 - Starting Bailey on port 17800
+2023-03-11 14:38:12,138 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678574292.137129 from ('127.0.0.1', 51232)
+2023-03-11 14:38:12,138 - Send: 'AT  +0.0013589859008789062 kiwi.cs.ucla.edu +34.068930-118.445127 1678574292.137129'
+2023-03-11 14:38:12,139 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 51233)
+2023-03-11 14:38:12,139 - Send: 'AT else None kiwi.cs.ucla.edu 10 5'
+2023-03-11 14:38:12,140 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 51234)
+2023-03-11 14:38:12,140 - Send: '? WHATISAT plum.cs.ucla.edu 10 5'
+2023-03-11 14:40:27,907 - Starting Bailey on port 17800
+2023-03-11 14:40:29,433 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678574429.4315772 from ('127.0.0.1', 51246)
+2023-03-11 14:40:29,433 - Send: 'AT  +0.0016319751739501953 kiwi.cs.ucla.edu +34.068930-118.445127 1678574429.4315772'
+2023-03-11 14:40:29,434 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 51247)
+2023-03-11 14:40:29,434 - Send: 'AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 5'
+2023-03-11 14:40:29,435 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 51248)
+2023-03-11 14:40:29,435 - Send: '? WHATISAT plum.cs.ucla.edu 10 5'
+2023-03-11 14:43:32,291 - Starting Bailey on port 17800
+2023-03-11 14:43:33,351 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678574613.3500009 from ('127.0.0.1', 51256)
+2023-03-11 14:43:33,351 - Send: 'AT  +0.0014851093292236328 kiwi.cs.ucla.edu +34.068930-118.445127 1678574613.3500009'
+2023-03-11 14:43:33,352 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 51257)
+2023-03-11 14:45:08,436 - Starting Bailey on port 17800
+2023-03-11 14:45:09,336 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678574709.334522 from ('127.0.0.1', 51294)
+2023-03-11 14:45:09,336 - Send: 'AT  +0.0019350051879882812 kiwi.cs.ucla.edu +34.068930-118.445127 1678574709.334522'
+2023-03-11 14:45:09,342 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 51295)
+2023-03-11 14:45:09,342 - Send: 'AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 5'
+2023-03-11 14:45:09,343 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 51296)
+2023-03-11 14:45:09,343 - Send: '? WHATISAT plum.cs.ucla.edu 10 5'
+2023-03-11 14:45:51,718 - Starting Bailey on port 17800
+2023-03-11 14:45:52,596 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678574752.594801 from ('127.0.0.1', 51300)
+2023-03-11 14:45:52,596 - Send: 'AT  +0.0014891624450683594 kiwi.cs.ucla.edu +34.068930-118.445127 1678574752.594801'
+2023-03-11 14:45:52,597 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 51301)
+2023-03-11 14:53:11,202 - Starting Bailey on port 17800
+2023-03-11 14:53:12,129 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678575192.128177 from ('127.0.0.1', 51359)
+2023-03-11 14:53:46,276 - Starting Bailey on port 17800
+2023-03-11 14:53:47,129 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678575227.128281 from ('127.0.0.1', 51361)
+2023-03-11 14:54:00,019 - Starting Bailey on port 17800
+2023-03-11 14:54:01,813 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678575241.8124402 from ('127.0.0.1', 51365)
+2023-03-11 14:54:01,813 - Send: 'AT  +0.001361846923828125 kiwi.cs.ucla.edu +34.068930-118.445127 1678575241.8124402'
+2023-03-11 14:54:01,814 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 51366)
+2023-03-11 14:54:01,814 - Send: 'AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 5'
+2023-03-11 14:54:01,815 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 51367)
+2023-03-11 14:54:01,815 - Send: '? WHATISAT plum.cs.ucla.edu 10 5'
+2023-03-11 14:54:34,342 - Starting Bailey on port 17800
+2023-03-11 14:54:35,117 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678575275.1158469 from ('127.0.0.1', 51370)
+2023-03-11 14:54:35,117 - Send: 'AT  +0.0013523101806640625 kiwi.cs.ucla.edu +34.068930-118.445127 1678575275.1158469'
+2023-03-11 14:54:35,118 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 51371)
+2023-03-11 14:54:35,118 - Send: 'AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 5'
+2023-03-11 14:54:35,119 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 51372)
+2023-03-11 14:54:35,119 - Send: '? WHATISAT plum.cs.ucla.edu 10 5'
+2023-03-11 15:01:14,538 - Starting Bailey on port 17800
+2023-03-11 15:01:15,595 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678575675.5944 from ('127.0.0.1', 51437)
+2023-03-11 15:01:15,595 - Send: 'AT  +0.0014569759368896484 kiwi.cs.ucla.edu +34.068930-118.445127 1678575675.5944'
+2023-03-11 15:01:15,596 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 51438)
+2023-03-11 15:01:15,596 - Send: 'AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 5'
+2023-03-11 15:01:15,597 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 51439)
+2023-03-11 15:01:15,597 - Send: '? WHATISAT plum.cs.ucla.edu 10 5'
+2023-03-11 15:02:10,583 - Starting Bailey on port 17800
+2023-03-11 15:02:11,399 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678575731.3979251 from ('127.0.0.1', 51452)
+2023-03-11 15:02:11,399 - Send: 'AT  +0.0013208389282226562 kiwi.cs.ucla.edu +34.068930-118.445127 1678575731.3979251'
+2023-03-11 15:02:11,400 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 51453)
+2023-03-11 15:02:11,400 - Send: 'AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 5'
+2023-03-11 15:02:11,401 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 51454)
+2023-03-11 15:02:11,401 - Send: '? WHATISAT plum.cs.ucla.edu 10 5'
+2023-03-11 15:03:38,137 - Starting Bailey on port 17800
+2023-03-11 15:03:38,999 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678575818.9980102 from ('127.0.0.1', 51476)
+2023-03-11 15:03:38,999 - Send: 'AT  +0.001361846923828125 kiwi.cs.ucla.edu +34.068930-118.445127 1678575818.9980102'
+2023-03-11 15:03:39,000 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 51477)
+2023-03-11 15:03:39,000 - Send: 'AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 5'
+2023-03-11 15:03:39,001 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 51478)
+2023-03-11 15:03:39,001 - Send: '? WHATISAT plum.cs.ucla.edu 10 5'
+2023-03-11 15:04:42,748 - Starting Bailey on port 17800
+2023-03-11 15:04:43,663 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678575883.662535 from ('127.0.0.1', 51480)
+2023-03-11 15:04:43,664 - Send: 'AT  +0.0015180110931396484 kiwi.cs.ucla.edu +34.068930-118.445127 1678575883.662535'
+2023-03-11 15:04:43,665 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 51481)
+2023-03-11 15:04:43,665 - Send: 'AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 5'
+2023-03-11 15:04:43,666 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 51482)
+2023-03-11 15:04:43,666 - Send: '? WHATISAT plum.cs.ucla.edu 10 5'
+2023-03-11 15:05:30,681 - Starting Bailey on port 17800
+2023-03-11 15:05:31,473 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678575931.4717271 from ('127.0.0.1', 51496)
+2023-03-11 15:05:31,473 - Send: 'AT  +0.0013887882232666016 kiwi.cs.ucla.edu +34.068930-118.445127 1678575931.4717271'
+2023-03-11 15:05:31,474 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 51497)
+2023-03-11 15:05:31,474 - Send: 'AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 5'
+2023-03-11 15:05:31,474 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 51498)
+2023-03-11 15:05:31,474 - Send: '? WHATISAT plum.cs.ucla.edu 10 5'
+2023-03-11 15:05:49,494 - Starting Bailey on port 17800
+2023-03-11 15:05:50,425 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678575950.424289 from ('127.0.0.1', 51502)
+2023-03-11 15:05:50,425 - Send: 'AT  +0.0016210079193115234 kiwi.cs.ucla.edu +34.068930-118.445127 1678575950.424289'
+2023-03-11 15:05:50,427 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 51503)
+2023-03-11 15:05:50,427 - Send: 'AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 5'
+2023-03-11 15:05:50,428 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 51504)
+2023-03-11 15:05:50,428 - Send: '? WHATISAT plum.cs.ucla.edu 10 5'
+2023-03-11 15:06:48,082 - Starting Bailey on port 17800
+2023-03-11 15:06:51,440 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678576011.4393868 from ('127.0.0.1', 51514)
+2023-03-11 15:06:51,441 - Send: 'AT  +0.0015463829040527344 kiwi.cs.ucla.edu +34.068930-118.445127 1678576011.4393868'
+2023-03-11 15:06:51,442 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 51515)
+2023-03-11 15:06:51,442 - Send: 'AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 5'
+2023-03-11 15:06:51,442 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 51516)
+2023-03-11 15:06:51,442 - Send: '? WHATISAT plum.cs.ucla.edu 10 5'
+2023-03-11 15:07:29,179 - Starting Bailey on port 17800
+2023-03-11 15:07:29,947 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678576049.9463491 from ('127.0.0.1', 51519)
+2023-03-11 15:07:29,947 - Send: 'AT  +0.0015518665313720703 kiwi.cs.ucla.edu +34.068930-118.445127 1678576049.9463491'
+2023-03-11 15:07:29,949 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 51520)
+2023-03-11 15:07:29,949 - Send: 'AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 5'
+2023-03-11 15:07:29,949 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 51521)
+2023-03-11 15:07:29,950 - Send: '? WHATISAT plum.cs.ucla.edu 10 5'
+2023-03-11 15:41:26,993 - Starting Bailey on port 17800
+2023-03-11 15:41:29,485 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678578089.483676 from ('127.0.0.1', 51800)
+2023-03-11 15:41:29,485 - Send: 'AT  +0.0014309883117675781 kiwi.cs.ucla.edu +34.068930-118.445127 1678578089.483676'
+2023-03-11 15:41:29,486 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 51801)
+2023-03-11 15:41:29,486 - Send: 'AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 5'
+2023-03-11 15:41:29,487 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 51802)
+2023-03-11 15:41:29,487 - Send: '? WHATISAT plum.cs.ucla.edu 10 5'
+2023-03-11 15:51:06,350 - Starting Bailey on port 17800
+2023-03-11 15:51:08,059 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678578668.058065 from ('127.0.0.1', 51878)
+2023-03-11 15:51:08,059 - Send: 'AT  +0.0016951560974121094 kiwi.cs.ucla.edu +34.068930-118.445127 1678578668.058065'
+2023-03-11 15:51:08,060 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 51879)
+2023-03-11 15:53:18,768 - Starting Bailey on port 17800
+2023-03-11 15:53:20,363 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678578800.3618078 from ('127.0.0.1', 51898)
+2023-03-11 15:53:20,363 - Send: 'AT  +0.0014922618865966797 kiwi.cs.ucla.edu +34.068930-118.445127 1678578800.3618078'
+2023-03-11 15:53:20,364 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 51899)
+2023-03-11 15:54:06,865 - Starting Bailey on port 17800
+2023-03-11 15:54:08,344 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678578848.34358 from ('127.0.0.1', 51905)
+2023-03-11 15:54:08,345 - Send: 'AT  +0.0014388561248779297 kiwi.cs.ucla.edu +34.068930-118.445127 1678578848.34358'
+2023-03-11 15:54:08,346 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 51906)
+2023-03-11 16:01:28,774 - Starting Bailey on port 17800
+2023-03-11 16:01:30,352 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678579290.351016 from ('127.0.0.1', 51961)
+2023-03-11 16:01:30,352 - Send: 'AT  +0.001519918441772461 kiwi.cs.ucla.edu +34.068930-118.445127 1678579290.351016'
+2023-03-11 16:01:30,353 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 51962)
+2023-03-11 16:01:31,177 - Send: 'AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 5'
+2023-03-11 16:01:31,183 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 51964)
+2023-03-11 16:01:31,183 - Send: '? WHATISAT plum.cs.ucla.edu 10 5'
+2023-03-11 16:03:22,989 - Starting Bailey on port 17800
+2023-03-11 16:03:24,098 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678579404.097149 from ('127.0.0.1', 51971)
+2023-03-11 16:03:24,098 - Send: 'AT  +0.0016071796417236328 kiwi.cs.ucla.edu +34.068930-118.445127 1678579404.097149'
+2023-03-11 16:03:24,099 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 51972)
+2023-03-11 16:05:22,882 - Starting Bailey on port 17800
+2023-03-11 16:05:24,869 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678579524.868438 from ('127.0.0.1', 51984)
+2023-03-11 16:05:24,870 - Send: 'AT  +0.0018239021301269531 kiwi.cs.ucla.edu +34.068930-118.445127 1678579524.868438'
+2023-03-11 16:05:24,871 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 51985)
+2023-03-11 16:05:25,591 - Send: 'AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 5'
+2023-03-11 16:05:25,597 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 51987)
+2023-03-11 16:05:25,597 - Send: '? WHATISAT plum.cs.ucla.edu 10 5'
+2023-03-11 17:31:04,071 - Starting Bailey on port 17800
+2023-03-11 17:31:06,188 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678584666.187339 from ('127.0.0.1', 52336)
+2023-03-11 17:31:06,189 - Send: 'AT  +0.0016338825225830078 kiwi.cs.ucla.edu +34.068930-118.445127 1678584666.187339'
+2023-03-11 17:31:06,190 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 52337)
+2023-03-11 17:31:07,043 - Send: 'AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 5'
+2023-03-11 17:31:07,047 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 52339)
+2023-03-11 17:31:07,048 - Send: '? WHATISAT plum.cs.ucla.edu 10 5'
+2023-03-11 17:31:26,878 - Starting Bailey on port 17800
+2023-03-11 17:31:28,704 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678584688.7027378 from ('127.0.0.1', 52341)
+2023-03-11 17:31:28,704 - Send: 'AT  +0.00164031982421875 kiwi.cs.ucla.edu +34.068930-118.445127 1678584688.7027378'
+2023-03-11 17:31:28,705 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 52342)
+2023-03-11 17:31:28,923 - Send: 'AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 5'
+2023-03-11 17:31:28,928 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 52344)
+2023-03-11 17:31:28,929 - Send: '? WHATISAT plum.cs.ucla.edu 10 5'
+2023-03-11 17:42:04,971 - Starting Bailey on port 17800
+2023-03-11 17:42:06,278 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678585326.277353 from ('127.0.0.1', 52463)
+2023-03-11 17:42:06,279 - Send: 'AT  +0.001664876937866211 kiwi.cs.ucla.edu +34.068930-118.445127 1678585326.277353'
+2023-03-11 17:42:06,280 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 52464)
+2023-03-11 17:42:06,974 - Send: 'AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 5'
+2023-03-11 17:42:06,978 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 52466)
+2023-03-11 17:42:06,978 - Send: '? WHATISAT plum.cs.ucla.edu 10 5'
+2023-03-11 17:46:04,448 - Starting Bailey on port 17800
+2023-03-11 17:46:07,608 - Received IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1678585567.606981 from ('127.0.0.1', 52500)
+2023-03-11 17:46:07,608 - Send: 'AT  +0.0016710758209228516 kiwi.cs.ucla.edu +34.068930-118.445127 1678585567.606981'
+2023-03-11 17:46:07,609 - Received WHATISAT kiwi.cs.ucla.edu 10 5 from ('127.0.0.1', 52501)
+2023-03-11 17:46:07,611 - Send: 'AT ELIF__IS_WHATISAT None kiwi.cs.ucla.edu 10 5'
+2023-03-11 17:46:07,612 - Received WHATISAT plum.cs.ucla.edu 10 5 from ('127.0.0.1', 52502)
+2023-03-11 17:46:07,612 - Send: '? WHATISAT plum.cs.ucla.edu 10 5'

@@ -90,6 +90,33 @@ class Position:
         except TypeError:
             self._lon = None
 
+    @property
+    def radius(self):
+        return str(self._radius)
+
+    @radius.setter
+    def radius(self, r):
+        print(f'{r=}')
+        try:
+            self._radius = int(r) if int(r) <= 1500 else 1500
+        except TypeError as te:
+            if r is not None:
+                raise TypeError('Expected radius of coercable int type.')
+            self._radius = None
+
+    @property
+    def pagination(self):
+        return str(self._pagination)
+
+    @pagination.setter
+    def pagination(self, size):
+        try:
+            self._pagination = int(size) if int(size) <= 20 else 20
+        except (TypeError, ValueError) as e:
+            if size is not None:
+                raise e
+            self._pagination = None
+
     def __str__(self):
         return ''.join([self.lat, self.lon])
     
