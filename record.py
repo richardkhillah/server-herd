@@ -96,7 +96,6 @@ class Position:
 
     @radius.setter
     def radius(self, r):
-        print(f'{r=}')
         try:
             self._radius = int(r) if int(r) <= 1500 else 1500
         except TypeError as te:

@@ -95,7 +95,8 @@ TYPE = {
 
 async def handle_echo(reader, writer):
     # Read info from sender
-    data = await reader.read(100) # Want this to be as many as needed
+    data = await reader.read() # Want this to be as many as needed
+    
     message = data.decode()
     addr = writer.get_extra_info('peername')
     logger.info(f"Received {message} from {addr}")
@@ -154,9 +155,12 @@ async def handle_echo(reader, writer):
                 print("updating record")
                 rec.position.radius = request.radius
                 rec.position.pagination = request.pagination
-                # rec.position.payload = api_response
+                api_response['results'] = \
+                    api_response['results'][:int(rec.position.pagination)]
+                rec.position.payload = json.dumps(api_response, indent=2)
 
                 # construct client response with payload
+                resp = request.client_response(MYNAME, payload=rec.position.payload)
 
                 # construct flood response
                 
@@ -171,7 +175,7 @@ async def handle_echo(reader, writer):
 
 
     # Reply to sender
-    logger.info(f"Send: {resp!r}")
+    logger.info(f"Send: {resp}")
     writer.write(resp.encode())
     await writer.drain()
 
@@ -198,8 +202,9 @@ async def main():
 
 def dummy_api_call(location, radius):
     with open('first_response.json', 'r') as rf:
-        # data = rf.read()
-        return json.load(rf)
+        data = json.load(rf)
+
+        return data
 
 # async def api_call():
 #     async with aiohttp.ClientSession() as session:
@@ -216,7 +221,8 @@ async def api_call(location, radius):
     #     f'&key={key}'
     # )
     url = (
-        f"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522%2C151.1957362&radius=1500&type=restaurant&keyword=cruise&key={key}"
+        # f"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522%2C151.1957362&radius=50&type=restaurant&keyword=cruise&key={key}"
+        f"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522%2C151.1957362&radius=50&key={key}"
     )
     ret = None
     async with aiohttp.ClientSession() as session:

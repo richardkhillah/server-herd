@@ -30,8 +30,9 @@ async def tcp_echo_client(message, port):
     print(f'Send: {message!r}')
     writer.write(message.encode())
     await writer.drain()
+    writer.write_eof()
 
-    data = await reader.read(100)
+    data = await reader.read()
     print(f'Received: {data.decode()!r}')
 
     print('Close the connection')
