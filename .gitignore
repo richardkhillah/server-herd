@@ -7,3 +7,4 @@ venv/
 testsplit.py
 env.py
 *.json
+*.log

@@ -42,8 +42,8 @@ async def tcp_echo_client(message, port):
                 elif not decoded.startswith('?'):
                     decoded = data.decode()
                     print(decoded)
-                    # json_data = json.loads(decoded)
-                    # print( f'{len(json_data["results"])=}')
+                    json_data = json.loads(decoded)
+                    print( f'{len(json_data["results"])=}')
     else:
         data = await reader.read()
         decoded_data = data.decode()

@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
 c_handler = logging.StreamHandler()
-f_handler = logging.FileHandler('testname.log')
+f_handler = logging.FileHandler('new_log.log', mode="w")
 c_handler.setLevel(logging.DEBUG)
 f_handler.setLevel(logging.INFO)
 
@@ -116,8 +116,6 @@ async def handle_echo(reader, writer):
 
     # Do stuff with the record
     if is_new:
-        print("NEW")
-
         # Invalid Request by new Client
         if request.is_whatisat():
             # Need a location before we can answer whatisat
@@ -128,7 +126,8 @@ async def handle_echo(reader, writer):
             records[rec.addr] = rec
             resp = request.client_response(MYNAME)
             logger.debug(f'New record: {resp!r}')
-            #TODO need to update respond to the client and flood
+            
+            #TODO need to flood
         # Peer Update
         elif request.is_iam():
             # TODO Update my record
@@ -140,18 +139,16 @@ async def handle_echo(reader, writer):
             # if iamat and location is same, reply to client only
             if str(rec.position) != Position.coords(request.lat, request.lon):
                 rec = update_record(rec, request)
-                resp = request.client_response('UPDATE_IAMAT')
+                resp = request.client_response(MYNAME)
+
+                # TODO: Flood response
             else:
                 resp = request.client_response('NO__UPDATE__NEEDED__IAMAT')
             # else update records and flood
 
         # Existing Client Query
         elif request.is_whatisat():
-            resp = request.client_response('ELIF__IS_WHATISAT')
-            # print(f"TEST: {rec.position.radius=} {request.radius=} {rec.position.pagination=} {request.pagination=}")
-
             if rec.position.radius == request.radius:
-                print(f"SHOULDN'T WORK: {rec.position.radius=} {rec.position.pagination=} {request.pagination=}")
                 # serve a subset of previously queried data
                 if request.pagination <= rec.position.pagination:
                     print(f'CASE I: {request.pagination <= rec.position.pagination}: {rec.position.pagination=} {request.pagination=}')
@@ -160,25 +157,28 @@ async def handle_echo(reader, writer):
                     payload = json.loads(rec.position.payload)
                     payload['results'] = payload['results'][:request.pagination]
                     payload = json.dumps(payload)
+                    
+                    # serve the response with requested pagesize
                     resp = request.client_response(MYNAME, payload=payload)
-                    #   serve the response with requested pagesize
+
                 # Do an API call to get more results
                 elif rec.position.pagination <= request.pagination:
                     print(f'CASE II: {rec.position.pagination <= request.pagination}: {rec.position.pagination=} {request.pagination=}')
-                    rec.position.radius = request.radius
+                    # update record with new pagesize
                     rec.position.pagination = request.pagination
                     
+                    # do api call
                     api_response = dummy_api_call(rec.position, rec.position.radius, rec.position.pagination)
-                    # api_response['results'] = \
-                    #     api_response['results'][:int(rec.position.pagination)]
+                    
+                    # update record payload
                     rec.position.payload = json.dumps(api_response)
-                    #       do api call
-                    #       update record with new pagesize
-                    #       serve the client
+
+                    # serve the client
                     resp = request.client_response(MYNAME, payload=rec.position.payload)
-                    #       propagate results throughout
+
+                    # propagate results throughout
                 else:
-                    print('INVALID')
+                    resp = request.client_response('EXISTING INVLAID', payload=rec.position.payload)
             #       invalid resopnse
             else:
                 # perform api query
@@ -186,12 +186,15 @@ async def handle_echo(reader, writer):
                 # with open('places_raw.json', 'w') as f:
                 #     json.dump(api_response, f)
 
-                api_response = dummy_api_call(rec.position, rec.position.radius, rec.position.pagination)
+                loc = request.location
+                rad = request.radius
+                pag = request.pagination
+                api_response = dummy_api_call(loc, rad, pag)
 
                 # update record
                 print("updating record")
-                rec.position.radius = request.radius
-                rec.position.pagination = request.pagination
+                rec.position.radius = rad
+                rec.position.pagination = pag
                 rec.position.payload = json.dumps(api_response)
 
                 # construct client response with payload
@@ -204,6 +207,7 @@ async def handle_echo(reader, writer):
         elif request.is_iam():
             # TODO: Update my record
             # create peer_response(MYNAME, MYPEERS)
+            resp = request.client_response('DOES THIS EVEN HAPPEN?')
             pass
         else:
             pass
@@ -239,6 +243,7 @@ async def main():
 def dummy_api_call(location, radius, pagination):
     with open('places_raw.json', 'r') as rf:
         data = json.load(rf)
+        print(f'{pagination=}')
         data['results'] = data['results'][:pagination]
         return data
 

@@ -47,8 +47,10 @@ class Request:
                 self.type = 'WHATISAT'
                 self.addr = m[1]
                 try:
-                    self.radius = int(m[2])
-                    self.pagination = int(m[3])
+                    r = int(m[2])
+                    p = int(m[3])
+                    self.radius = r if r <=50 else 50
+                    self.pagination = p if p <= 20 else 20
                 except:
                     pass
             
@@ -63,6 +65,13 @@ class Request:
         b = self._body()
         return f"{a} {b}"
     
+    @property
+    def location(self):
+        if self.lat is not None and self.lon is not None:
+            return "".join([*self.lat, *self.lon])
+        else:
+            return ""
+
     def client_response(self, at, valid=True, payload=None):
         # if self.type not in ('IAMAT', 'WHATISAT'):
         #     return f"? {self._message}"
