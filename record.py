@@ -17,6 +17,9 @@ class Record:
             self.client_time == other.client_time and
             self.position == other.position
         )
+
+    def update(self, message):
+        pass
     
     def serialize(self):
         return {
@@ -148,3 +151,7 @@ class Position:
                 pagination=dct['pagination'],
                 payload=dct['payload'],
             )
+    
+    @classmethod
+    def coords(cls, lat, lon):
+        return "".join(["".join(lat), "".join(lon)])

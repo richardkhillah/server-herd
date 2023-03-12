@@ -69,21 +69,30 @@ def parse(args: List[str]) -> Tuple[str, int]:
         sys.exit(0)
     return name, port
 
-def get_or_create_client_record(msg):
+def make_position(req):
+    return Position(req.lat, req.lon, 
+                     radius=req.radius, 
+                     pagination=req.pagination, 
+                     payload=req._payload)
+
+def update_record(record, req, is_peer=False):
+    record.skew = req.skew
+    record.client_time = req.client_time
+    record.position = make_position(req)
+    return record
+
+def get_or_create_client_record(req):
     is_new = False
     try:
-        rec = records[msg.addr]
+        rec = records[req.addr]
     except:
         rec = Record(
-            msg.addr,
-            msg.skew,
-            msg.client_time,
-            Position(msg.lat, msg.lon, 
-                     radius=msg.radius, 
-                     pagination=msg.pagination, 
-                     payload=msg._payload),
+            req.addr,
+            req.skew,
+            req.client_time,
+            make_position(req),
         )
-        # records[msg.addr] = rec
+        # records[req.addr] = rec
         is_new = True
     return is_new, rec
 
@@ -129,9 +138,13 @@ async def handle_echo(reader, writer):
         # Update existing Client
         if request.is_iamat():
             # if iamat and location is same, reply to client only
-            
+            if str(rec.position) != Position.coords(request.lat, request.lon):
+                rec = update_record(rec, request)
+                resp = request.client_response('UPDATE_IAMAT')
+            else:
+                resp = request.client_response('NO__UPDATE__NEEDED__IAMAT')
             # else update records and flood
-            pass
+
         # Existing Client Query
         elif request.is_whatisat():
             resp = request.client_response('ELIF__IS_WHATISAT')
