@@ -40,10 +40,10 @@ async def tcp_echo_client(message, port):
                 if decoded.startswith('AT'):
                     print(f"decoded: {decoded}")
                 elif not decoded.startswith('?'):
-                    decoded = data.decode()
-                    print(decoded)
                     json_data = json.loads(decoded)
                     print( f'{len(json_data["results"])=}')
+                elif decoded.startswith('?'):
+                    print(decoded)
     else:
         data = await reader.read()
         decoded_data = data.decode()
@@ -63,8 +63,8 @@ if __name__ == '__main__':
         asyncio.run(tcp_echo_client(whatsat(h, r, 3), herd['Bailey']))
         asyncio.run(tcp_echo_client(whatsat(h, r, 6), herd['Bailey']))
         asyncio.run(tcp_echo_client(whatsat(h2, r, p), herd['Bailey']))
-        asyncio.run(tcp_echo_client(iamat(h, c2), herd['Bailey']))
-        asyncio.run(tcp_echo_client(iamat(h, c2), herd['Bailey']))
+        # asyncio.run(tcp_echo_client(iamat(h, c2), herd['Bailey']))
+        # asyncio.run(tcp_echo_client(iamat(h, c2), herd['Bailey']))
     except ConnectionRefusedError as cre:
         print("Connection Refused")
         print(cre)

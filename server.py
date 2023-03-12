@@ -120,14 +120,14 @@ async def handle_echo(reader, writer):
         if request.is_whatisat():
             # Need a location before we can answer whatisat
             resp = request.client_response(MYNAME, valid=False)
-            logger.debug(f'Error: {resp!r}')
+
         # New Client
         elif request.is_iamat(): 
             records[rec.addr] = rec
             resp = request.client_response(MYNAME)
-            logger.debug(f'New record: {resp!r}')
             
             #TODO need to flood
+
         # Peer Update
         elif request.is_iam():
             # TODO Update my record
@@ -138,6 +138,7 @@ async def handle_echo(reader, writer):
         if request.is_iamat():
             # if iamat and location is same, reply to client only
             if str(rec.position) != Position.coords(request.lat, request.lon):
+                # FIXME I don't like how this update is occuring. just make direct like the rest of the code
                 rec = update_record(rec, request)
                 resp = request.client_response(MYNAME)
 
@@ -164,13 +165,15 @@ async def handle_echo(reader, writer):
                 # Do an API call to get more results
                 elif rec.position.pagination <= request.pagination:
                     print(f'CASE II: {rec.position.pagination <= request.pagination}: {rec.position.pagination=} {request.pagination=}')
-                    # update record with new pagesize
-                    rec.position.pagination = request.pagination
                     
                     # do api call
-                    api_response = dummy_api_call(rec.position, rec.position.radius, rec.position.pagination)
+                    loc = request.location
+                    rad = request.radius
+                    pag = request.pagination
+                    api_response = dummy_api_call(loc, rad, pag)
                     
-                    # update record payload
+                    # update record with new pagesize and payload
+                    rec.position.pagination = request.pagination
                     rec.position.payload = json.dumps(api_response)
 
                     # serve the client
@@ -179,7 +182,7 @@ async def handle_echo(reader, writer):
                     # propagate results throughout
                 else:
                     resp = request.client_response('EXISTING INVLAID', payload=rec.position.payload)
-            #       invalid resopnse
+            # invalid resopnse
             else:
                 # perform api query
                 # api_response = await api_call(rec.position, rec.position.radius)
@@ -202,7 +205,6 @@ async def handle_echo(reader, writer):
 
                 # construct flood response
                 
-            pass
         # DOES THIS EVEN HAPPEN?
         elif request.is_iam():
             # TODO: Update my record
@@ -222,36 +224,12 @@ async def handle_echo(reader, writer):
     writer.close()
     await writer.wait_closed()
 
-async def main():
-    fname, port = parse(sys.argv[1:])
-    if not fname:
-        raise SystemExit(USAGE)
-
-    global MYNAME 
-    MYNAME = fname
-    logger.info(f'Starting {MYNAME} on port {port}')
-    
-    server = await asyncio.start_server(
-        handle_echo, ipaddr, port=port)
-
-    addrs = ', '.join(str(sock.getsockname()) for sock in server.sockets)
-    logger.debug(f'Serving on {addrs}')
-
-    async with server:
-        await server.serve_forever()
-
 def dummy_api_call(location, radius, pagination):
     with open('places_raw.json', 'r') as rf:
         data = json.load(rf)
         print(f'{pagination=}')
         data['results'] = data['results'][:pagination]
         return data
-
-# async def api_call():
-#     async with aiohttp.ClientSession() as session:
-#         async with session.get('http://httpbin.org/get') as resp:
-#             print(resp.status)
-#             print(await resp.text())
 
 async def api_call(location, radius):
     key = env.PLACES_API_KEY
@@ -269,6 +247,24 @@ async def api_call(location, radius):
     async with aiohttp.ClientSession() as session:
         async with session.get(url) as resp:
             return json.loads(await resp.text())
+
+async def main():
+    fname, port = parse(sys.argv[1:])
+    if not fname:
+        raise SystemExit(USAGE)
+
+    global MYNAME 
+    MYNAME = fname
+    logger.info(f'Starting {MYNAME} on port {port}')
+    
+    server = await asyncio.start_server(
+        handle_echo, ipaddr, port=port)
+
+    addrs = ', '.join(str(sock.getsockname()) for sock in server.sockets)
+    logger.debug(f'Serving on {addrs}')
+
+    async with server:
+        await server.serve_forever()
 
 if __name__=='__main__':
     try:
