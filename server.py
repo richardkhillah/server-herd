@@ -1,4 +1,5 @@
 import aiohttp
+import aiofiles
 import asyncio
 import collections
 import json
@@ -51,12 +52,19 @@ seas_herd = {
 # Change this to seas herd when runnin on seas
 herd = my_herd
 
+# graph = {
+#     'Bailey': ['Campbell', 'Bona'],
+#     'Bona': ['Clark', 'Jaquez', 'Campbell', 'Bailey'],
+#     'Campbell': ['Bailey', 'Bona', 'Jaquez'],
+#     'Clark': ['Jaquez', 'Bona'],
+#     'Jaquez': ['Clark', 'Bona', 'Campbell'],
+# }
 graph = {
     'Bailey': ['Campbell', 'Bona'],
-    'Bona': ['Clark', 'Jaquez', 'Campbell', 'Bailey'],
+    'Bona': ['Clark', 'Campbell', 'Bailey'],
     'Campbell': ['Bailey', 'Bona', 'Jaquez'],
     'Clark': ['Jaquez', 'Bona'],
-    'Jaquez': ['Clark', 'Bona', 'Campbell'],
+    'Jaquez': ['Clark', 'Campbell'],
 }
 
 # Clark talks with Jaquez and Bona.
@@ -135,8 +143,9 @@ async def handle_echo(reader, writer):
     data = await reader.read() # Want this to be as many as needed
     
     message = data.decode()
-    addr = writer.get_extra_info('peername')
-    logger.info(f"Received {message} at {addr}")
+    # addr = writer.get_extra_info('peername')
+    # logger.info(f"Received {message} at {addr}")
+    logger.info(f"Received {message}")
 
     # Parse the message. If we have a client 
     request = Request(message, time.time())
@@ -145,9 +154,19 @@ async def handle_echo(reader, writer):
     flood = False
 
     # Flood throught network
-    if request.is_iam() and not request.was_visited_by(MYNAME):
-        records[rec.addr] = rec if is_new else make_record(request)
-        flood = True
+    # if request.is_iam() and not request.was_visited_by(MYNAME):
+    if request.is_iam():
+        if is_new:
+            # print(f'NEW from {request.sender} {str(rec.position)}')
+            records[rec.addr] = rec
+            flood = True
+        elif str(rec.position) != Position.coords(request.lat, request.lon):
+            # print(f'UPDATE {str(rec.position)=} to {Position.coords(request.lat, request.lon)=}')
+            records[rec.addr] =  make_record(request)
+            flood = True
+        else:
+            # print(f'END PROP of {str(request)} at {str(rec.position)}')
+            pass
 
     # Do stuff with the record
     elif is_new:
@@ -183,7 +202,7 @@ async def handle_echo(reader, writer):
 
                 # Do an API call to get more results
                 elif rec.position.pagination <= request.pagination:
-                    loc = request.location
+                    loc = request.api_location
                     rad = request.radius
                     pag = request.pagination
                     logger.debug(f'{request=}')
@@ -205,7 +224,7 @@ async def handle_echo(reader, writer):
                 #     json.dump(api_response, f)
 
                 # FIXME: location hack. fix this
-                loc = str(rec.position)
+                loc = rec.position.api_location
                 rad = request.radius
                 pag = request.pagination
                 logger.debug(f'{str(request)=}')
@@ -221,6 +240,7 @@ async def handle_echo(reader, writer):
             # TODO: Do I need to do something here?
             pass
     
+    # Respond to Client
     if not request.is_iam():
         resp = request.response(MYNAME, rec, payload=payload)
         
@@ -233,6 +253,7 @@ async def handle_echo(reader, writer):
         writer.close()
         await writer.wait_closed()
 
+    # Propigate to neighbors
     if request.is_iam() or flood:
         await propagate(request)
         
@@ -241,6 +262,7 @@ async def propagate(request: Request):
     request.mark_visited(MYNAME)
     visited = request.get_visited()
     to_visit = [x for x in graph[MYNAME] if x not in visited]
+    # to_visit = graph[MYNAME]
     resp = request.flood_response(MYNAME)
 
     for neighbor in to_visit:
@@ -257,13 +279,14 @@ async def propagate(request: Request):
         except:
             logger.info(f"Unable to connect to {neighbor}")
 
-def dummy_api_call(location, radius, pagination):
-    with open('places_raw.json', 'r') as rf:
-        data = json.load(rf)
-        data['results'] = data['results'][:pagination]
-        return data
+async def dummy_api_call(location, radius, pagination):
+    async with aiofiles.open('places_raw.json', mode='r') as rf:
+        read_data = await rf.read()
+    data = json.loads(read_data)
+    data['results'] = data['results'][:pagination]
+    return data
 
-async def api_call(location, radius, pag):
+async def places_api_call(location, radius, pag):
     key = env.PLACES_API_KEY
     url=(
         f'https://maps.googleapis.com/maps/api/place/nearbysearch/json' +
@@ -288,6 +311,8 @@ async def api_call(location, radius, pag):
 
             # return json.loads(await resp.text())
             return json_data
+
+api_call = dummy_api_call
 
 async def main():
     fname, port = parse(sys.argv[1:])

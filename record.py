@@ -120,7 +120,7 @@ class Position:
             self._pagination = None
 
     def __str__(self):
-        return ','.join([self.lat, self.lon])
+        return ''.join([self.lat, self.lon])
     
     
     
@@ -156,4 +156,8 @@ class Position:
     
     @classmethod
     def coords(cls, lat, lon):
-        return ",".join(["".join(lat), "".join(lon)])
+        return "".join(["".join(lat), "".join(lon)])
+    
+    @property
+    def api_location(self):
+        return ",".join(["".join(self.lat), "".join(self.lon)])

@@ -1,4 +1,4 @@
-from time import time, strftime
+from time import time, strftime, sleep
 
 import asyncio
 import json
@@ -63,40 +63,88 @@ async def time_after(n):
     return time()
 
 async def main():
-    hosts = ['kiwi.cs.ucla.edu', 'plum.cs.ucla.edu', 'watermelon.cs.ucla.edu']
-    coordinates = ['+34.068930-118.445127', '+55.555555-666.666666', '+77.777777-888.888888']
-    times = ['']
+    addrs = ['kiwi.cs.ucla.edu', 'plum.cs.ucla.edu', 'watermelon.cs.ucla.edu']
+    hosts = {k.split('.')[0]: k for k in addrs}
+    coordinates = {
+        'ucla': '+34.069072065913495-118.44518110210453',
+        'alcatraz': '+37.827160394635804-122.4229566155028',
+        'gordon': '+42.8066597474685-102.20244258652899',
+        'dc': '+38.89787667717704 -77.03651907314573',
+        'wounded': '+43.14272554411939-102.36505934705043',
+        'minneapolis': '+44.9481292661016-93.27610373604308',
+        'test': '+34.068930-118.445127',
+    }
+    # coordinates = ['+34.068930-118.445127', '+55.555555-666.666666', '+77.777777-888.888888']
+    # times = await asyncio.gather(
+    #     *(time_after(i) for i in range(6)))
 
-    h, c, t = 'kiwi.cs.ucla.edu', '+34.068930-118.445127', '1621464827.959498503'
-    h2, c2, t2 = 'plum.cs.ucla.edu', '+77.770077-999.99999', time()
-    r, p = 10, 5
     try:
-        # t = await asyncio.gather(
-        #     *(time_after(i) for i in range(6))
-        # )
-        # t = await time_after(5)
-        r = await asyncio.gather(
-            tcp_echo_client(iamat(h, c), herd['Bailey']),
-            tcp_echo_client(whatsat(h, r, p), herd['Bailey']),
-            # tcp_echo_client(whatsat(h, r, 3), herd['Bailey']),
-            # tcp_echo_client(whatsat(h, r, 6), herd['Bailey']),
-            # tcp_echo_client(whatsat(h2, r, p), herd['Bailey']),
-            # tcp_echo_client(iamat(h2, c2, t=t2, skew=1000000000), herd['Bailey']),
-            # tcp_echo_client(iamat(h2, c2), herd['Bailey']),
-            # tcp_echo_client(iamat(h2, c), herd['Bailey']),
-            # tcp_echo_client(whatsat(h, r, p), herd['Campbell']),
-            # tcp_echo_client(whatsat(h, r, 3), herd['Campbell'])
+        # Single Server Test
+        # await tcp_echo_client(iamat(hosts['kiwi'], coordinates['test']), herd['Bailey'])
+        # await asyncio.sleep(1)
+        # await tcp_echo_client(whatsat(hosts['kiwi'], 1, 1), herd['Bona'])
+        # await tcp_echo_client(iamat(hosts['kiwi'], coordinates['alcatraz']), herd['Bona'])
+
+        
+        await tcp_echo_client(iamat(hosts['kiwi'], coordinates['ucla']), herd['Clark'])
+        await time_after(1)
+        await tcp_echo_client(whatsat(hosts['kiwi'], 1, 2), herd['Jaquez'])
+
+        await tcp_echo_client(iamat(hosts['kiwi'], coordinates['ucla']), herd['Bailey'])
+        await time_after(2)
+        await tcp_echo_client(whatsat(hosts['kiwi'], 1, 2), herd['Clark'])
+
+        await time_after(5)
+
+        await asyncio.gather(
+            tcp_echo_client(iamat(hosts['kiwi'], coordinates['gordon']), herd['Jaquez']),
+            tcp_echo_client(whatsat(hosts['kiwi'], 2, 2), herd['Bailey']),
         )
+        
+        await time_after(5)
 
-        print(f'{t=}')
-        print(f'{r=}')
-
-
+        await asyncio.gather(
+            tcp_echo_client(whatsat(hosts['watermelon'], 2, 2), herd['Bailey']),
+            tcp_echo_client(whatsat(hosts['watermelon'], 2, 2), herd['Bona']),
+            tcp_echo_client(whatsat(hosts['watermelon'], 2, 2), herd['Campbell']),
+            tcp_echo_client(whatsat(hosts['watermelon'], 2, 2), herd['Clark']),
+            tcp_echo_client(whatsat(hosts['watermelon'], 2, 2), herd['Jaquez']),
+            tcp_echo_client(iamat(hosts['watermelon'], coordinates['dc']), herd['Clark']),
+            tcp_echo_client(whatsat(hosts['watermelon'], 2, 2), herd['Bailey']),
+        )
 
     except ConnectionRefusedError as cre:
         print("Connection Refused")
         print(cre)
         sys.exit(-1)
+
+    # sys.exit()
+    # try:
+    #     h, c, t = 'kiwi.cs.ucla.edu', '+34.068930-118.445127', '1621464827.959498503'
+    #     h2, c2, t2 = 'plum.cs.ucla.edu', '+77.770077-999.99999', time()
+    #     r, p = 10, 5
+    #     r = await asyncio.gather(
+    #         tcp_echo_client(iamat(h, c), herd['Bailey']),
+    #         tcp_echo_client(whatsat(h, r, p), herd['Bailey']),
+    #         # tcp_echo_client(whatsat(h, r, 3), herd['Bailey']),
+    #         # tcp_echo_client(whatsat(h, r, 6), herd['Bailey']),
+    #         # tcp_echo_client(whatsat(h2, r, p), herd['Bailey']),
+    #         # tcp_echo_client(iamat(h2, c2, t=t2, skew=1000000000), herd['Bailey']),
+    #         # tcp_echo_client(iamat(h2, c2), herd['Bailey']),
+    #         # tcp_echo_client(iamat(h2, c), herd['Bailey']),
+    #         # tcp_echo_client(whatsat(h, r, p), herd['Campbell']),
+    #         # tcp_echo_client(whatsat(h, r, 3), herd['Campbell'])
+    #     )
+
+    #     print(f'{t=}')
+    #     print(f'{r=}')
+
+
+
+    # except ConnectionRefusedError as cre:
+    #     print("Connection Refused")
+    #     print(cre)
+    #     sys.exit(-1)
 
 if __name__ == '__main__':
     asyncio.run(main())

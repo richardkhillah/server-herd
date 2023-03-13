@@ -29,6 +29,7 @@ class Request:
                 coords = self.crude_coord_split(m[2])
                 self.lat = (coords[0], coords[1]) # ['+/-', 'floatstring']
                 self.lon = (coords[2], coords[3]) # ['+/-', 'floatstring']
+
                 self.client_time = m[3]
 
                 if received_time is None:
@@ -50,6 +51,7 @@ class Request:
                     pass
 
             elif type == 'IAM':
+                # print(f'FULL IAM:: {m=}')
                 self.type = type
                 self.sender = m[1]
                 self.skew = m[2]
@@ -59,11 +61,16 @@ class Request:
                 self.lon = (coords[2], coords[3]) # ['+/-', 'floatstring']
                 self.client_time = m[5]
                 try:
-                    print(f'{m[6]=}')
-                    self.nodes_visisted = ast.literal_eval(m[6])
+                    # print(f'{m[6]=}')
+                    # self.nodes_visisted = ast.literal_eval(m[6])
+                    fix = "".join(m[6:])
+                    self.nodes_visisted = ast.literal_eval(fix)
                 except Exception as e:
                     # TODO: how should this be handled?
-                    print(f'ISSUE IN REQUEST.py: {e}')
+                    before_fix= m[6:]
+                    fix="".join(m[6:])
+                    print(f'ISSUE IN REQUEST.py: {e}: {m[6]=} \n{message=}\n{m=}\n{before_fix=}\n{fix=}')
+                    raise SystemError("F@*!")
                     self.nodes_visisted = []
 
     def get_visited(self):
@@ -73,7 +80,7 @@ class Request:
         self.valid = False
 
     def mark_visited(self, name):
-        self.nodes_visisted.append(name)
+        self.nodes_visisted.append(name.strip())
 
     def was_visited_by(self, name):
         return name in self.nodes_visisted
@@ -87,10 +94,18 @@ class Request:
         radius = self.radius
         pagination = self.pagination
         client_time = self.client_time
-        return f"{type=} {skew=} {addr=} {lon=} {lat=} {radius=} {pagination=} {client_time=}"
+        nodes_visited = self.nodes_visisted
+        return f"{type=} {skew=} {addr=} {lon=} {lat=} {radius=} {pagination=} {client_time=} {nodes_visited=}"
     
     @property
     def location(self):
+        if self.lat is not None and self.lon is not None:
+            return "".join([*self.lat, *self.lon])
+        else:
+            return ""
+    
+    @property
+    def api_location(self):
         if self.lat is not None and self.lon is not None:
             return ",".join([*self.lat, *self.lon])
         else:
@@ -111,7 +126,7 @@ class Request:
         try:
             a = self.skew
             b = self.addr
-            c = self.location
+            c = str(self.location)
             d = self.client_time
             e = str(self.nodes_visisted)
             r = f"IAM {at} {a} {b} {c} {d} {e}"
