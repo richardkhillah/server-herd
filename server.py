@@ -14,20 +14,22 @@ from request import Request
 from record import Record, Position
 
 logger = logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)
 
-c_handler = logging.StreamHandler()
-f_handler = logging.FileHandler('new_log.log', mode="w")
-c_handler.setLevel(logging.DEBUG)
-f_handler.setLevel(logging.INFO)
+def init_logger(filename):
+    logger.setLevel(logging.DEBUG)
 
-c_format = logging.Formatter('%(message)s')
-f_format = logging.Formatter('%(asctime)s - %(message)s')
-c_handler.setFormatter(c_format)
-f_handler.setFormatter(f_format)
+    c_handler = logging.StreamHandler()
+    f_handler = logging.FileHandler(filename+".log", mode="w")
+    c_handler.setLevel(logging.DEBUG)
+    f_handler.setLevel(logging.INFO)
 
-logger.addHandler(c_handler)
-logger.addHandler(f_handler)
+    c_format = logging.Formatter('%(message)s')
+    f_format = logging.Formatter('%(asctime)s - %(message)s')
+    c_handler.setFormatter(c_format)
+    f_handler.setFormatter(f_format)
+
+    logger.addHandler(c_handler)
+    logger.addHandler(f_handler)
 
 
 herd = {
@@ -37,6 +39,18 @@ herd = {
     'Clark': 17803,
     'Jaquez': 17804,
 }
+
+graph = {
+    'Bailey': ['Campbell', 'Bona'],
+    'Bona': ['Clark', 'Jaquez', 'Campbell', 'Bailey'],
+    'Campbell': ['Bailey', 'Bona', 'Jaquez'],
+    'Clark': ['Jaquez', 'Bona'],
+    'Jaquez': ['Clark', 'Bona', 'Campbell'],
+}
+
+# Clark talks with Jaquez and Bona.
+# Campbell talks with everyone else but Clark.
+# Bona talks with Bailey.
 
 MYNAME=""
 
@@ -81,17 +95,20 @@ def update_record(record, req, is_peer=False):
     record.position = make_position(req)
     return record
 
-def get_or_create_client_record(req):
-    is_new = False
-    try:
-        rec = records[req.addr]
-    except:
-        rec = Record(
+def make_record(req):
+    return Record(
             req.addr,
             req.skew,
             req.client_time,
             make_position(req),
         )
+
+def get_or_create_client_record(req):
+    is_new = False
+    try:
+        rec = records[req.addr]
+    except:
+        rec = make_record(req)
         is_new = True
     return is_new, rec
 
@@ -112,39 +129,35 @@ async def handle_echo(reader, writer):
     # Parse the message. If we have a client 
     request = Request(message, time.time())
     is_new, rec = get_or_create_client_record(request)
+    payload = None
+    flood = False
+
+    # Flood throught network
+    if request.is_iam() and not request.was_visited_by(MYNAME):
+        records[rec.addr] = rec if is_new else make_record(request)
+        flood = True
 
     # Do stuff with the record
-    if is_new:
+    elif is_new:
         # Invalid Request by new Client
         if request.is_whatisat():
             # Need a location before we can answer whatisat
-            resp = request.client_response(MYNAME, rec, valid=False)
+            request.mark_invalid()
 
         # New Client
         elif request.is_iamat(): 
             records[rec.addr] = rec
-            resp = request.client_response(MYNAME, rec)
-            
-            #TODO need to flood
-
-        # Peer Update
-        elif request.is_iam():
-            # TODO Update my record
-            # create peer_response(MYNAME, MYPEERS)
-            pass
-    else:
-        # Update existing Client
+            flood = True
+    
+    # Update an existing Client
+    else:    
         if request.is_iamat():
             # if iamat and location is same, reply to client only
             if str(rec.position) != Position.coords(request.lat, request.lon):
                 # FIXME I don't like how this update is occuring. just make direct like the rest of the code
                 rec = update_record(rec, request)
-                resp = request.client_response(MYNAME, rec)
 
-                # TODO: Flood response
-            else:
-                resp = request.client_response('NO__UPDATE__NEEDED__IAMAT', rec)
-            # else update records and flood
+                flood = True
 
         # Existing Client Query
         elif request.is_whatisat():
@@ -157,9 +170,6 @@ async def handle_echo(reader, writer):
                     payload = json.loads(rec.position.payload)
                     payload['results'] = payload['results'][:request.pagination]
                     payload = json.dumps(payload)
-                    
-                    # serve the response with requested pagesize
-                    resp = request.client_response(MYNAME, rec, payload=payload)
 
                 # Do an API call to get more results
                 elif rec.position.pagination <= request.pagination:
@@ -174,14 +184,12 @@ async def handle_echo(reader, writer):
                     # update record with new pagesize and payload
                     rec.position.pagination = request.pagination
                     rec.position.payload = json.dumps(api_response)
-
-                    # serve the client
-                    resp = request.client_response(MYNAME, rec, payload=rec.position.payload)
-
-                    # propagate results throughout
+                    payload = rec.position.payload
+                # Invalid response
                 else:
-                    resp = request.client_response('EXISTING INVLAID', rec, payload=rec.position.payload)
-            # invalid resopnse
+                    request.mark_invalid()
+                    raise Exception('Received an invalid exception')
+
             else:
                 # perform api query
                 # api_response = await api_call(rec.position, rec.position.radius)
@@ -198,30 +206,49 @@ async def handle_echo(reader, writer):
                 rec.position.radius = rad
                 rec.position.pagination = pag
                 rec.position.payload = json.dumps(api_response)
-
-                # construct client response with payload
-                resp = request.client_response(MYNAME, rec, payload=rec.position.payload)
-
-                # construct flood response
-                
-        # DOES THIS EVEN HAPPEN?
-        elif request.is_iam():
-            # TODO: Update my record
-            # create peer_response(MYNAME, MYPEERS)
-            resp = request.client_response('DOES THIS EVEN HAPPEN?', rec)
-            pass
+                payload = rec.position.payload
         else:
+            # TODO: Do I need to do something here?
             pass
+    
+    if not request.is_iam():
+        logger.debug(f"{(not request.is_iam())=}")
+        resp = request.response(MYNAME, rec, payload=payload)
+        # Reply to sender
+        logger.info(f"Send: {resp}")
+        writer.write(resp.encode())
+        await writer.drain()
 
+        logger.debug("Close the connection")
+        writer.close()
+        await writer.wait_closed()
 
-    # Reply to sender
-    logger.info(f"Send: {resp}")
-    writer.write(resp.encode())
-    await writer.drain()
+    if request.is_iam() or flood:
+        await propagate(request)
+        
 
-    logger.debug("Close the connection")
-    writer.close()
-    await writer.wait_closed()
+async def propagate(request: Request):
+    request.mark_visited(MYNAME)
+    visited = request.get_visited()
+    to_visit = [x for x in graph[MYNAME] if x not in visited]
+    resp = request.flood_response(MYNAME)
+
+    logger.info(f'{MYNAME=} {visited=} {graph[MYNAME]=} {to_visit=} {resp}')
+
+    for neighbor in to_visit:
+        try:
+            _, writer = await asyncio.open_connection(ipaddr, herd[neighbor])
+
+            logger.info(f'Sent {neighbor}: {resp}')
+
+            writer.write(resp.encode())
+            await writer.drain()
+
+            writer.close()
+            await writer.wait_closed()
+        except:
+            logger.info(f"Unable to connect to {neighbor}")
+        # sys.exit(-1)
 
 def dummy_api_call(location, radius, pagination):
     with open('places_raw.json', 'r') as rf:
@@ -254,6 +281,7 @@ async def main():
 
     global MYNAME 
     MYNAME = fname
+    init_logger(MYNAME)
     logger.info(f'Starting {MYNAME} on port {port}')
     
     server = await asyncio.start_server(
