@@ -56,24 +56,47 @@ async def tcp_echo_client(message, port):
     writer.close()
     await writer.wait_closed()
 
-if __name__ == '__main__':
+async def time_after(n):
+    print(f'sleep for {n=}')
+    await asyncio.sleep(n)
+    print(f'wokeup')
+    return time()
+
+async def main():
+    hosts = ['kiwi.cs.ucla.edu', 'plum.cs.ucla.edu', 'watermelon.cs.ucla.edu']
+    coordinates = ['+34.068930-118.445127', '+55.555555-666.666666', '+77.777777-888.888888']
+    times = ['']
+
     h, c, t = 'kiwi.cs.ucla.edu', '+34.068930-118.445127', '1621464827.959498503'
     h2, c2, t2 = 'plum.cs.ucla.edu', '+77.770077-999.99999', time()
     r, p = 10, 5
     try:
-        asyncio.run(tcp_echo_client(iamat(h, c), herd['Bailey']))
-        asyncio.run(tcp_echo_client(whatsat(h, r, p), herd['Bailey']))
-        asyncio.run(tcp_echo_client(whatsat(h, r, 3), herd['Bailey']))
-        asyncio.run(tcp_echo_client(whatsat(h, r, 6), herd['Bailey']))
-        asyncio.run(tcp_echo_client(whatsat(h2, r, p), herd['Bailey']))
-        asyncio.run(tcp_echo_client(iamat(h2, c2, t=t2, skew=1000000000), herd['Bailey']))
-        asyncio.run(tcp_echo_client(iamat(h2, c2), herd['Bailey']))
-        asyncio.run(tcp_echo_client(iamat(h2, c), herd['Bailey']))
+        # t = await asyncio.gather(
+        #     *(time_after(i) for i in range(6))
+        # )
+        # t = await time_after(5)
+        r = await asyncio.gather(
+            tcp_echo_client(iamat(h, c), herd['Bailey']),
+            tcp_echo_client(whatsat(h, r, p), herd['Bailey']),
+            # tcp_echo_client(whatsat(h, r, 3), herd['Bailey']),
+            # tcp_echo_client(whatsat(h, r, 6), herd['Bailey']),
+            # tcp_echo_client(whatsat(h2, r, p), herd['Bailey']),
+            # tcp_echo_client(iamat(h2, c2, t=t2, skew=1000000000), herd['Bailey']),
+            # tcp_echo_client(iamat(h2, c2), herd['Bailey']),
+            # tcp_echo_client(iamat(h2, c), herd['Bailey']),
+            # tcp_echo_client(whatsat(h, r, p), herd['Campbell']),
+            # tcp_echo_client(whatsat(h, r, 3), herd['Campbell'])
+        )
 
-        asyncio.run(tcp_echo_client(whatsat(h, r, p), herd['Campbell']))
-        asyncio.run(tcp_echo_client(whatsat(h, r, 3), herd['Campbell']))
+        print(f'{t=}')
+        print(f'{r=}')
+
+
 
     except ConnectionRefusedError as cre:
         print("Connection Refused")
         print(cre)
         sys.exit(-1)
+
+if __name__ == '__main__':
+    asyncio.run(main())

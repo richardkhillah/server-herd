@@ -44,7 +44,7 @@ class Request:
                 try:
                     r = int(m[2])
                     p = int(m[3])
-                    self.radius = r if r <=50 else 50
+                    self.radius = r*1000 if r <=50 else 50*1000
                     self.pagination = p if p <= 20 else 20
                 except:
                     pass
@@ -79,14 +79,20 @@ class Request:
         return name in self.nodes_visisted
     
     def __str__(self):
-        a = self.type
-        b = self._body()
-        return f"{a} {b}"
+        type = self.type
+        skew = self.skew
+        addr = self.addr
+        lon = self.lon
+        lat = self.lat
+        radius = self.radius
+        pagination = self.pagination
+        client_time = self.client_time
+        return f"{type=} {skew=} {addr=} {lon=} {lat=} {radius=} {pagination=} {client_time=}"
     
     @property
     def location(self):
         if self.lat is not None and self.lon is not None:
-            return "".join([*self.lat, *self.lon])
+            return ",".join([*self.lat, *self.lon])
         else:
             return ""
 

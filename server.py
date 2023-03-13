@@ -32,13 +32,24 @@ def init_logger(filename):
     logger.addHandler(f_handler)
 
 
-herd = {
+my_herd = {
     'Bailey': 17800,
     'Bona': 17801,
     'Campbell': 17802,
     'Clark': 17803,
     'Jaquez': 17804,
 }
+
+seas_herd = {
+    'Bailey': 10000,
+    'Bona': 10001,
+    'Campbell': 10002,
+    'Clark': 10003,
+    'Jaquez': 10004,
+}
+
+# Change this to seas herd when runnin on seas
+herd = my_herd
 
 graph = {
     'Bailey': ['Campbell', 'Bona'],
@@ -80,6 +91,7 @@ def parse(args: List[str]) -> Tuple[str, int]:
         port = herd[name]
     except:
         print(f"\"{name}\" not a valid server.")
+        # logger.error(f"\"{name}\" not a valid server.")
         sys.exit(0)
     return name, port
 
@@ -124,7 +136,7 @@ async def handle_echo(reader, writer):
     
     message = data.decode()
     addr = writer.get_extra_info('peername')
-    logger.info(f"Received {message} from {addr}")
+    logger.info(f"Received {message} at {addr}")
 
     # Parse the message. If we have a client 
     request = Request(message, time.time())
@@ -164,8 +176,6 @@ async def handle_echo(reader, writer):
             if rec.position.radius == request.radius:
                 # serve a subset of previously queried data
                 if request.pagination <= rec.position.pagination:
-                    print(f'CASE I: {request.pagination <= rec.position.pagination}: {rec.position.pagination=} {request.pagination=}')
-
                     # construct client response with payload
                     payload = json.loads(rec.position.payload)
                     payload['results'] = payload['results'][:request.pagination]
@@ -173,13 +183,11 @@ async def handle_echo(reader, writer):
 
                 # Do an API call to get more results
                 elif rec.position.pagination <= request.pagination:
-                    print(f'CASE II: {rec.position.pagination <= request.pagination}: {rec.position.pagination=} {request.pagination=}')
-                    
-                    # do api call
                     loc = request.location
                     rad = request.radius
                     pag = request.pagination
-                    api_response = dummy_api_call(loc, rad, pag)
+                    logger.debug(f'{request=}')
+                    api_response = await api_call(loc, rad, pag)
                     
                     # update record with new pagesize and payload
                     rec.position.pagination = request.pagination
@@ -196,13 +204,15 @@ async def handle_echo(reader, writer):
                 # with open('places_raw.json', 'w') as f:
                 #     json.dump(api_response, f)
 
-                loc = request.location
+                # FIXME: location hack. fix this
+                loc = str(rec.position)
                 rad = request.radius
                 pag = request.pagination
-                api_response = dummy_api_call(loc, rad, pag)
+                logger.debug(f'{str(request)=}')
+                api_response = await api_call(loc, rad, pag)
 
                 # update record
-                print("updating record")
+                # print("updating record")
                 rec.position.radius = rad
                 rec.position.pagination = pag
                 rec.position.payload = json.dumps(api_response)
@@ -212,8 +222,8 @@ async def handle_echo(reader, writer):
             pass
     
     if not request.is_iam():
-        logger.debug(f"{(not request.is_iam())=}")
         resp = request.response(MYNAME, rec, payload=payload)
+        
         # Reply to sender
         logger.info(f"Send: {resp}")
         writer.write(resp.encode())
@@ -233,8 +243,6 @@ async def propagate(request: Request):
     to_visit = [x for x in graph[MYNAME] if x not in visited]
     resp = request.flood_response(MYNAME)
 
-    logger.info(f'{MYNAME=} {visited=} {graph[MYNAME]=} {to_visit=} {resp}')
-
     for neighbor in to_visit:
         try:
             _, writer = await asyncio.open_connection(ipaddr, herd[neighbor])
@@ -248,31 +256,38 @@ async def propagate(request: Request):
             await writer.wait_closed()
         except:
             logger.info(f"Unable to connect to {neighbor}")
-        # sys.exit(-1)
 
 def dummy_api_call(location, radius, pagination):
     with open('places_raw.json', 'r') as rf:
         data = json.load(rf)
-        print(f'{pagination=}')
         data['results'] = data['results'][:pagination]
         return data
 
-async def api_call(location, radius):
+async def api_call(location, radius, pag):
     key = env.PLACES_API_KEY
-    # url=(
-    #     f'https://maps.googleapis.com/maps/api/place/nearbysearch/json' +
-    #     f'?location={location}' +
-    #     f'&radius={radius}' +
-    #     f'&key={key}'
-    # )
-    url = (
-        # f"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522%2C151.1957362&radius=50&type=restaurant&keyword=cruise&key={key}"
-        f"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522%2C151.1957362&radius=50&key={key}"
+    url=(
+        f'https://maps.googleapis.com/maps/api/place/nearbysearch/json' +
+        f'?location={location}' +
+        f'&radius={radius}' +
+        f'&key={key}'
     )
+    # logger.debug(f"api_call({location}, {radius}, {pag}) {url=}")
+    # url = (
+    #     # f"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522%2C151.1957362&radius=50&type=restaurant&keyword=cruise&key={key}"
+    #     f"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522%2C151.1957362&radius=50&key={key}"
+    # )
     ret = None
     async with aiohttp.ClientSession() as session:
         async with session.get(url) as resp:
-            return json.loads(await resp.text())
+            data = await resp.text()
+            # print(f'{data=}')
+            json_data = json.loads(data)
+            # print(f'{json_data=}')/
+            if len(results := json_data['results']) >= pag:
+                results = results[:pag]
+
+            # return json.loads(await resp.text())
+            return json_data
 
 async def main():
     fname, port = parse(sys.argv[1:])
@@ -282,13 +297,15 @@ async def main():
     global MYNAME 
     MYNAME = fname
     init_logger(MYNAME)
-    logger.info(f'Starting {MYNAME} on port {port}')
+
+    # should I open global connections here?
     
+    logger.info(f'Starting {MYNAME} on port {port}')
     server = await asyncio.start_server(
         handle_echo, ipaddr, port=port)
 
-    addrs = ', '.join(str(sock.getsockname()) for sock in server.sockets)
-    logger.debug(f'Serving on {addrs}')
+    # addrs = ', '.join(str(sock.getsockname()) for sock in server.sockets)
+    # logger.debug(f'Serving on {addrs}')
 
     async with server:
         await server.serve_forever()
