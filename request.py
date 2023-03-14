@@ -144,19 +144,20 @@ class Request:
             raise ParseException('Invalid AT skew')
         
         self.parse_iamat(addr, coords, timestamp)
+
+        print(f'\nparse_at: {addr=} {coords=} {timestamp=}\n')
+
         
         self.sender = peer
         self.skew = skew
 
         try:
-            fix = "".join(*args)
+            # fix = "".join(*args)
+            fix = "".join(args)
             self.nodes_visisted = ast.literal_eval(fix)
+            print(f"\n{self.nodes_visisted=}\n")
         except Exception as e:
-            # TODO: how should this be handled?
-            before_fix= args
-            fix="".join(*args)
-            # print(f'ISSUE IN REQUEST.py: {e}: {m[6]=} \n{message=}\n{m=}\n{before_fix=}\n{fix=}')
-            raise SystemError("F@*!")
+            raise ParseException(f"Invalid AT visisted {args}")
 
     def get_visited(self):
         return self.nodes_visisted
@@ -207,7 +208,7 @@ class Request:
         except:
             return False
 
-    def response(self, at, rec, herd=False, payload=None):
+    def response(self, at, rec, payload=None):
         if not self.valid:
             return f"? {self._message}"
 
@@ -226,6 +227,7 @@ class Request:
             d = self.client_time
             e = str(self.nodes_visisted)
             r = f"AT {at} {a} {b} {c} {d} {e}"
+            print(f"\nflood_response: {r=}\n")
             return r
         except Exception as e:
             # TODO: How should this be handled?
@@ -258,5 +260,5 @@ class Request:
         return self.type == 'WHATISAT'
     def is_iamat(self):
         return self.type == 'IAMAT'
-    def is_iam(self):
-        return self.type == 'IAM'
+    def is_at(self):
+        return self.type == 'AT'

@@ -126,7 +126,7 @@ def make_position(req):
                      pagination=req.pagination, 
                      payload=req._payload)
 
-def update_record(record, req, is_peer=False):
+def update_record(record, req):
     record.skew = req.skew
     record.client_time = req.client_time
     record.position = make_position(req)
@@ -171,8 +171,9 @@ async def handle_echo(reader, writer):
     request = Request(message, time.time())
 
     # if reqest is valid, process, otherwise trap
-    if request.is_valid():
-        pass
+    if not request.is_valid():
+        print(f'\nnot request.is_valid()\n')
+        # TODO Raise Error
     else:
         pass
 
@@ -180,12 +181,16 @@ async def handle_echo(reader, writer):
     payload = None
     flood = False
     if not request.is_valid():
-        pass
+        print(f'\nnot request.is_valid()\n')
     else:
         # Flood throught network
-        if request.is_iam():
-            if is_new:
-                # print(f'NEW from {request.sender} {str(rec.position)}')
+        if request.is_at():
+            # if is_new:
+            #     # print(f'NEW from {request.sender} {str(rec.position)}')
+            #     records[rec.addr] = rec
+            #     flood = True
+            if is_new or rec.client_time != request.client_time:
+                print(f'NEW from {request.sender} {str(rec.position)}')
                 records[rec.addr] = rec
                 flood = True
             # elif str(rec.position) != Position.coords(request.lat, request.lon):
@@ -269,7 +274,8 @@ async def handle_echo(reader, writer):
                 pass
         
     # Respond to Client
-    if not request.is_iam():
+    if not request.is_at():
+        print(f'\nrequest.is_valid and not request.is_at(). {request.type=}\n')
         resp = request.response(MYNAME, rec, payload=payload)
         
         # Reply to sender
@@ -282,8 +288,9 @@ async def handle_echo(reader, writer):
         await writer.wait_closed()
 
     # Propigate to neighbors
-    if request.is_valid() and (request.is_iam() or flood):
-        await propagate(request)
+    if request.is_valid():
+        if request.is_at() or flood:
+            await propagate(request)
         
 
 async def propagate(request: Request):

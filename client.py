@@ -19,13 +19,16 @@ def iamat(host, coord, t=None, skew=None):
         t = time()
     if skew is not None:
         t + skew
-        print(t+skew)
+        print(f'{(t+skew)=}')
     formatted = f"IAMAT {host} {coord} {t}"
     return formatted
 
 def whatsat(host, radius, page):
     formatted = f"WHATISAT {host} {radius} {page}"
     return formatted
+
+def invalid_command(command):
+    return f'{command}'
 
 async def tcp_echo_client(message, server):
     reader, writer = await asyncio.open_connection(
@@ -79,14 +82,66 @@ async def main():
     #     *(time_after(i) for i in range(6)))
 
     try:
-        # Single Server Test
-        # await tcp_echo_client(iamat(' ', coordinates['test']), 'Bailey')
-        # await tcp_echo_client(iamat(hosts['kiwi'], 'notcorrect'), 'Bailey')
-        # await tcp_echo_client(whatsat(hosts['kiwi'], 1, 1), 'Bailey')
+        # Single Server Tests
+        # Test invalid command
+        print('\n==================================================')
+        print('Testing Single-Server Invalid Command to Bailey')
+        await tcp_echo_client(invalid_command('DUMMY'), 'Bailey')
+
+        # Test iamat format:
+        # Invalid IAMAT
+        print('\n==================================================')
+        print('Testing Single-Server Invalid IAMAT format to Bailey')
+        await tcp_echo_client(iamat(' ', coordinates['test']), 'Bailey')
+        await tcp_echo_client(iamat(hosts['kiwi'], 'notcorrect'), 'Bailey')
+        await tcp_echo_client(iamat('another bad', 'notcorrect'), 'Bailey')
+
+        # VALID IAMAT
+        print('\n==================================================')
+        print('Testing Single-Server Valid IAMAT format to Bailey')
+        await tcp_echo_client(iamat(hosts['kiwi'], coordinates['test']), 'Bailey')
+
+        # Test whatisat format:
+        # Invalid WHATISAT
+        print('\n==================================================')
+        print('Testing Single-Server Invalid WHATISAT format to Bailey')
+        await tcp_echo_client(whatsat('Invalid address', 1, 1), 'Bailey') # Invalid address format
+        await tcp_echo_client(whatsat(hosts['plum'], 1, 1), 'Bailey') # Unkonwn address
+        await tcp_echo_client(whatsat(hosts['kiwi'], -1, 1), 'Bailey') # Invalid Radius
+        await tcp_echo_client(whatsat(hosts['kiwi'], 51, 1), 'Bailey') # Invalid Radius
+        await tcp_echo_client(whatsat(hosts['kiwi'], 1, -1), 'Bailey') # Invalid result size
+        await tcp_echo_client(whatsat(hosts['kiwi'], 1, 21), 'Bailey') # Invalid result size
+
+        # VALID WHATISAT
+        print('\n==================================================')
+        print('Testing Single-Server Valid WHATISAT format to Bailey')
+        await tcp_echo_client(whatsat(hosts['kiwi'], 1, 1), 'Bailey')
+
+        # Multi Server Tests
+        # Direct communcation
+        print('\n==================================================')
+        print('Multi-Server- Testing')
+        print('==================================================')
+        print('Testing Multi-server Communication Direct Communication from Bailey')
+        await tcp_echo_client(whatsat(hosts['kiwi'], 1, 1), 'Bona') # Bailey talks with Bona
+        await tcp_echo_client(whatsat(hosts['kiwi'], 1, 1), 'Campbell') # Bailey talks with Campbell
+
+        # Indirect communication
+        print('\n==================================================')
+        print('Testing Multi-server Communication Indirect Communication from Bailey')
+        await tcp_echo_client(whatsat(hosts['kiwi'], 1, 1), 'Clark') # Bona and Campbell talks with Clark
+        await tcp_echo_client(whatsat(hosts['kiwi'], 1, 1), 'Jaquez') # Clark and Campbell talk with Jaquez
 
 
 
-        # await tcp_echo_client(iamat(hosts['kiwi'], coordinates['test']), 'Bailey')
+
+
+
+
+
+
+
+
         # await tcp_echo_client(whatsat(hosts['kiwi'], 1, 1), 'Bailey')
         # await asyncio.sleep(1)
         # await tcp_echo_client(whatsat(hosts['kiwi'], 1, 1), 'Bona')
@@ -97,16 +152,16 @@ async def main():
         # await time_after(1)
         # await tcp_echo_client(whatsat(hosts['kiwi'], 1, 2), 'Jaquez')
 
-        await tcp_echo_client(iamat(hosts['kiwi'], coordinates['ucla']), 'Bailey')
-        await time_after(2)
-        await tcp_echo_client(whatsat(hosts['kiwi'], 1, 2), 'Clark')
+        # await tcp_echo_client(iamat(hosts['kiwi'], coordinates['ucla']), 'Bailey')
+        # await time_after(2)
+        # await tcp_echo_client(whatsat(hosts['kiwi'], 1, 2), 'Clark')
 
-        await time_after(5)
+        # await time_after(5)
 
-        await asyncio.gather(
-            tcp_echo_client(iamat(hosts['kiwi'], coordinates['gordon']), 'Jaquez'),
-            tcp_echo_client(whatsat(hosts['kiwi'], 2, 2), 'Bailey'),
-        )
+        # await asyncio.gather(
+        #     tcp_echo_client(iamat(hosts['kiwi'], coordinates['gordon']), 'Jaquez'),
+        #     tcp_echo_client(whatsat(hosts['kiwi'], 2, 2), 'Bailey'),
+        # )
         
         # await time_after(5)
 
