@@ -1,5 +1,4 @@
 import aiohttp
-import aiofiles
 import asyncio
 import collections
 import json
@@ -8,7 +7,6 @@ import sys
 import time
 
 from typing import List, Tuple
-from urllib.parse import quote_plus as safe_url
 
 import env
 from request import Request
@@ -16,9 +14,15 @@ from record import Record, Position
 
 logger = logging.getLogger(__name__)
 
+log_to_console = True
+use_dummy_api = True
+use_my_herd = True
+
+
 def init_logger(filename):
     logger.setLevel(logging.DEBUG)
 
+    
     c_handler = logging.StreamHandler()
     f_handler = logging.FileHandler(filename+".log", mode="w")
     c_handler.setLevel(logging.DEBUG)
@@ -31,6 +35,17 @@ def init_logger(filename):
 
     logger.addHandler(c_handler)
     logger.addHandler(f_handler)
+
+    # if log_to_console:
+    #     c_handler = logging.StreamHandler()
+
+    #     c_handler.setLevel(logging.DEBUG)
+
+    #     c_format = logging.Formatter('%(message)s')
+
+    #     c_handler.setFormatter(c_format)
+
+    #     logger.addHandler(c_handler)
 
 
 my_herd = {
@@ -50,7 +65,9 @@ seas_herd = {
 }
 
 # Change this to seas herd when runnin on seas
-herd = my_herd
+herd = seas_herd
+if use_my_herd:
+    herd = my_herd
 
 # graph = {
 #     'Bailey': ['Campbell', 'Bona'],
@@ -138,6 +155,9 @@ TYPE = {
     # 'IAM': None,
 }
 
+async def do_stuff(reader, writer, request):
+    pass
+
 async def handle_echo(reader, writer):
     # Read info from sender
     data = await reader.read() # Want this to be as many as needed
@@ -152,94 +172,95 @@ async def handle_echo(reader, writer):
     is_new, rec = get_or_create_client_record(request)
     payload = None
     flood = False
-
-    # Flood throught network
-    # if request.is_iam() and not request.was_visited_by(MYNAME):
-    if request.is_iam():
-        if is_new:
-            # print(f'NEW from {request.sender} {str(rec.position)}')
-            records[rec.addr] = rec
-            flood = True
-        elif str(rec.position) != Position.coords(request.lat, request.lon):
-            # print(f'UPDATE {str(rec.position)=} to {Position.coords(request.lat, request.lon)=}')
-            records[rec.addr] =  make_record(request)
-            flood = True
-        else:
-            # print(f'END PROP of {str(request)} at {str(rec.position)}')
-            pass
-
-    # Do stuff with the record
-    elif is_new:
-        # Invalid Request by new Client
-        if request.is_whatisat():
-            # Need a location before we can answer whatisat
-            request.mark_invalid()
-
-        # New Client
-        elif request.is_iamat(): 
-            records[rec.addr] = rec
-            flood = True
-    
-    # Update an existing Client
-    else:    
-        if request.is_iamat():
-            # if iamat and location is same, reply to client only
-            if str(rec.position) != Position.coords(request.lat, request.lon):
-                # FIXME I don't like how this update is occuring. just make direct like the rest of the code
-                rec = update_record(rec, request)
-
+    if not request.is_valid():
+        pass
+    else:
+        # Flood throught network
+        if request.is_iam():
+            if is_new:
+                # print(f'NEW from {request.sender} {str(rec.position)}')
+                records[rec.addr] = rec
                 flood = True
+            elif str(rec.position) != Position.coords(request.lat, request.lon):
+                # print(f'UPDATE {str(rec.position)=} to {Position.coords(request.lat, request.lon)=}')
+                records[rec.addr] =  make_record(request)
+                flood = True
+            else:
+                # print(f'END PROP of {str(request)} at {str(rec.position)}')
+                pass
 
-        # Existing Client Query
-        elif request.is_whatisat():
-            if rec.position.radius == request.radius:
-                # serve a subset of previously queried data
-                if request.pagination <= rec.position.pagination:
-                    # construct client response with payload
-                    payload = json.loads(rec.position.payload)
-                    payload['results'] = payload['results'][:request.pagination]
-                    payload = json.dumps(payload)
+        # Do stuff with the record
+        elif is_new:
+            # Invalid Request by new Client
+            if request.is_whatisat():
+                # Need a location before we can answer whatisat
+                request.mark_invalid()
 
-                # Do an API call to get more results
-                elif rec.position.pagination <= request.pagination:
-                    loc = request.api_location
+            # New Client
+            elif request.is_iamat(): 
+                records[rec.addr] = rec
+                flood = True
+        
+        # Update an existing Client
+        else:    
+            if request.is_iamat():
+                # if iamat and location is same, reply to client only
+                if str(rec.position) != Position.coords(request.lat, request.lon):
+                    # FIXME I don't like how this update is occuring. just make direct like the rest of the code
+                    rec = update_record(rec, request)
+
+                    flood = True
+
+            # Existing Client Query
+            elif request.is_whatisat():
+                if rec.position.radius == request.radius:
+                    # serve a subset of previously queried data
+                    if request.pagination <= rec.position.pagination:
+                        # construct client response with payload
+                        payload = json.loads(rec.position.payload)
+                        payload['results'] = payload['results'][:request.pagination]
+                        payload = json.dumps(payload)
+
+                    # Do an API call to get more results
+                    elif rec.position.pagination <= request.pagination:
+                        loc = request.api_location
+                        rad = request.radius
+                        pag = request.pagination
+                        logger.debug(f'{request=}')
+                        api_response = await api_call(loc, rad, pag)
+                        
+                        # update record with new pagesize and payload
+                        rec.position.pagination = request.pagination
+                        rec.position.payload = json.dumps(api_response)
+                        payload = rec.position.payload
+                    # Invalid response
+                    else:
+                        request.mark_invalid()
+                        raise Exception('Received an invalid exception')
+
+                else:
+                    # perform api query
+                    # api_response = await api_call(rec.position, rec.position.radius)
+                    # with open('places_raw.json', 'w') as f:
+                    #     json.dump(api_response, f)
+
+                    # FIXME: location hack. fix this
+                    loc = rec.position.api_location
                     rad = request.radius
                     pag = request.pagination
-                    logger.debug(f'{request=}')
+                    logger.debug(f'{str(request)=}')
                     api_response = await api_call(loc, rad, pag)
-                    
-                    # update record with new pagesize and payload
-                    rec.position.pagination = request.pagination
+
+                    # update record
+                    # print("updating record")
+                    rec.position.radius = rad
+                    rec.position.pagination = pag
                     rec.position.payload = json.dumps(api_response)
                     payload = rec.position.payload
-                # Invalid response
-                else:
-                    request.mark_invalid()
-                    raise Exception('Received an invalid exception')
-
             else:
-                # perform api query
-                # api_response = await api_call(rec.position, rec.position.radius)
-                # with open('places_raw.json', 'w') as f:
-                #     json.dump(api_response, f)
-
-                # FIXME: location hack. fix this
-                loc = rec.position.api_location
-                rad = request.radius
-                pag = request.pagination
-                logger.debug(f'{str(request)=}')
-                api_response = await api_call(loc, rad, pag)
-
-                # update record
-                # print("updating record")
-                rec.position.radius = rad
-                rec.position.pagination = pag
-                rec.position.payload = json.dumps(api_response)
-                payload = rec.position.payload
-        else:
-            # TODO: Do I need to do something here?
-            pass
-    
+                # TODO: Do I need to do something here?
+                pass
+        
     # Respond to Client
     if not request.is_iam():
         resp = request.response(MYNAME, rec, payload=payload)
@@ -254,7 +275,7 @@ async def handle_echo(reader, writer):
         await writer.wait_closed()
 
     # Propigate to neighbors
-    if request.is_iam() or flood:
+    if request.is_valid() and (request.is_iam() or flood):
         await propagate(request)
         
 
@@ -273,6 +294,7 @@ async def propagate(request: Request):
 
             writer.write(resp.encode())
             await writer.drain()
+            writer.write_eof()
 
             writer.close()
             await writer.wait_closed()
@@ -280,6 +302,7 @@ async def propagate(request: Request):
             logger.info(f"Unable to connect to {neighbor}")
 
 async def dummy_api_call(location, radius, pagination):
+    import aiofiles
     async with aiofiles.open('places_raw.json', mode='r') as rf:
         read_data = await rf.read()
     data = json.loads(read_data)
@@ -312,7 +335,9 @@ async def places_api_call(location, radius, pag):
             # return json.loads(await resp.text())
             return json_data
 
-api_call = dummy_api_call
+api_call = places_api_call
+if use_dummy_api:
+    api_call = dummy_api_call
 
 async def main():
     fname, port = parse(sys.argv[1:])
