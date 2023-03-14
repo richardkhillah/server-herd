@@ -27,11 +27,11 @@ def whatsat(host, radius, page):
     formatted = f"WHATISAT {host} {radius} {page}"
     return formatted
 
-async def tcp_echo_client(message, port):
+async def tcp_echo_client(message, server):
     reader, writer = await asyncio.open_connection(
-        ipaddr, port)
+        ipaddr, herd[server])
 
-    print(f'Send: {message!r}')
+    print(f'Send to {server}: {message!r}')
     writer.write(message.encode())
     await writer.drain()
     writer.write_eof()
@@ -80,78 +80,50 @@ async def main():
 
     try:
         # Single Server Test
-        # await tcp_echo_client(iamat(' ', coordinates['test']), herd['Bailey'])
-        # await tcp_echo_client(iamat(hosts['kiwi'], 'notcorrect'), herd['Bailey'])
-        # await tcp_echo_client(whatsat(hosts['kiwi'], 1, 1), herd['Bailey'])
+        # await tcp_echo_client(iamat(' ', coordinates['test']), 'Bailey')
+        # await tcp_echo_client(iamat(hosts['kiwi'], 'notcorrect'), 'Bailey')
+        # await tcp_echo_client(whatsat(hosts['kiwi'], 1, 1), 'Bailey')
 
 
 
-        # await tcp_echo_client(iamat(hosts['kiwi'], coordinates['test']), herd['Bailey'])
-        # await tcp_echo_client(whatsat(hosts['kiwi'], 1, 1), herd['Bailey'])
+        # await tcp_echo_client(iamat(hosts['kiwi'], coordinates['test']), 'Bailey')
+        # await tcp_echo_client(whatsat(hosts['kiwi'], 1, 1), 'Bailey')
         # await asyncio.sleep(1)
-        # await tcp_echo_client(whatsat(hosts['kiwi'], 1, 1), herd['Bona'])
-        # await tcp_echo_client(iamat(hosts['kiwi'], coordinates['alcatraz']), herd['Bona'])
+        # await tcp_echo_client(whatsat(hosts['kiwi'], 1, 1), 'Bona')
+        # await tcp_echo_client(iamat(hosts['kiwi'], coordinates['alcatraz']), 'Bona')
 
         
-        # await tcp_echo_client(iamat(hosts['kiwi'], coordinates['ucla']), herd['Clark'])
+        # await tcp_echo_client(iamat(hosts['kiwi'], coordinates['ucla']), 'Clark')
         # await time_after(1)
-        # await tcp_echo_client(whatsat(hosts['kiwi'], 1, 2), herd['Jaquez'])
+        # await tcp_echo_client(whatsat(hosts['kiwi'], 1, 2), 'Jaquez')
 
-        await tcp_echo_client(iamat(hosts['kiwi'], coordinates['ucla']), herd['Bailey'])
+        await tcp_echo_client(iamat(hosts['kiwi'], coordinates['ucla']), 'Bailey')
         await time_after(2)
-        await tcp_echo_client(whatsat(hosts['kiwi'], 1, 2), herd['Clark'])
+        await tcp_echo_client(whatsat(hosts['kiwi'], 1, 2), 'Clark')
 
         await time_after(5)
 
         await asyncio.gather(
-            tcp_echo_client(iamat(hosts['kiwi'], coordinates['gordon']), herd['Jaquez']),
-            tcp_echo_client(whatsat(hosts['kiwi'], 2, 2), herd['Bailey']),
+            tcp_echo_client(iamat(hosts['kiwi'], coordinates['gordon']), 'Jaquez'),
+            tcp_echo_client(whatsat(hosts['kiwi'], 2, 2), 'Bailey'),
         )
         
         # await time_after(5)
 
         # await asyncio.gather(
-        #     tcp_echo_client(whatsat(hosts['watermelon'], 2, 2), herd['Bailey']),
-        #     tcp_echo_client(whatsat(hosts['watermelon'], 2, 2), herd['Bona']),
-        #     tcp_echo_client(whatsat(hosts['watermelon'], 2, 2), herd['Campbell']),
-        #     tcp_echo_client(whatsat(hosts['watermelon'], 2, 2), herd['Clark']),
-        #     tcp_echo_client(whatsat(hosts['watermelon'], 2, 2), herd['Jaquez']),
-        #     tcp_echo_client(iamat(hosts['watermelon'], coordinates['dc']), herd['Clark']),
-        #     tcp_echo_client(whatsat(hosts['watermelon'], 2, 2), herd['Bailey']),
+        #     tcp_echo_client(whatsat(hosts['watermelon'], 2, 2), 'Bailey'),
+        #     tcp_echo_client(whatsat(hosts['watermelon'], 2, 2), 'Bona'),
+        #     tcp_echo_client(whatsat(hosts['watermelon'], 2, 2), 'Campbell'),
+        #     tcp_echo_client(whatsat(hosts['watermelon'], 2, 2), 'Clark'),
+        #     tcp_echo_client(whatsat(hosts['watermelon'], 2, 2), 'Jaquez'),
+        #     tcp_echo_client(iamat(hosts['watermelon'], coordinates['dc']), 'Clark'),
+        #     tcp_echo_client(whatsat(hosts['watermelon'], 2, 2), 'Bailey'),
         # )
 
     except ConnectionRefusedError as cre:
         print("Connection Refused")
         print(cre)
         sys.exit(-1)
-
-    # sys.exit()
-    # try:
-    #     h, c, t = 'kiwi.cs.ucla.edu', '+34.068930-118.445127', '1621464827.959498503'
-    #     h2, c2, t2 = 'plum.cs.ucla.edu', '+77.770077-999.99999', time()
-    #     r, p = 10, 5
-    #     r = await asyncio.gather(
-    #         tcp_echo_client(iamat(h, c), herd['Bailey']),
-    #         tcp_echo_client(whatsat(h, r, p), herd['Bailey']),
-    #         # tcp_echo_client(whatsat(h, r, 3), herd['Bailey']),
-    #         # tcp_echo_client(whatsat(h, r, 6), herd['Bailey']),
-    #         # tcp_echo_client(whatsat(h2, r, p), herd['Bailey']),
-    #         # tcp_echo_client(iamat(h2, c2, t=t2, skew=1000000000), herd['Bailey']),
-    #         # tcp_echo_client(iamat(h2, c2), herd['Bailey']),
-    #         # tcp_echo_client(iamat(h2, c), herd['Bailey']),
-    #         # tcp_echo_client(whatsat(h, r, p), herd['Campbell']),
-    #         # tcp_echo_client(whatsat(h, r, 3), herd['Campbell'])
-    #     )
-
-    #     print(f'{t=}')
-    #     print(f'{r=}')
-
-
-
-    # except ConnectionRefusedError as cre:
-    #     print("Connection Refused")
-    #     print(cre)
-    #     sys.exit(-1)
 
 if __name__ == '__main__':
     asyncio.run(main())

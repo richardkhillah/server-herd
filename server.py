@@ -169,6 +169,13 @@ async def handle_echo(reader, writer):
 
     # Parse the message. If we have a client 
     request = Request(message, time.time())
+
+    # if reqest is valid, process, otherwise trap
+    if request.is_valid():
+        pass
+    else:
+        pass
+
     is_new, rec = get_or_create_client_record(request)
     payload = None
     flood = False
@@ -181,13 +188,13 @@ async def handle_echo(reader, writer):
                 # print(f'NEW from {request.sender} {str(rec.position)}')
                 records[rec.addr] = rec
                 flood = True
-            elif str(rec.position) != Position.coords(request.lat, request.lon):
-                # print(f'UPDATE {str(rec.position)=} to {Position.coords(request.lat, request.lon)=}')
-                records[rec.addr] =  make_record(request)
-                flood = True
-            else:
-                # print(f'END PROP of {str(request)} at {str(rec.position)}')
-                pass
+            # elif str(rec.position) != Position.coords(request.lat, request.lon):
+            #     # print(f'UPDATE {str(rec.position)=} to {Position.coords(request.lat, request.lon)=}')
+            #     records[rec.addr] =  make_record(request)
+            #     flood = True
+            # else:
+            #     # print(f'END PROP of {str(request)} at {str(rec.position)}')
+            #     pass
 
         # Do stuff with the record
         elif is_new:
