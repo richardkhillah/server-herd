@@ -14,8 +14,8 @@ from record import Record, Position
 
 logger = logging.getLogger(__name__)
 
-use_dummy_api = True
-use_my_herd = True
+use_dummy_api = False
+use_my_herd = False
 
 
 def init_logger(filename):
@@ -138,11 +138,11 @@ def get_or_create_client_record(req):
 
 TYPE = {
     'IAMAT': None,
-    'WHATISAT': None,
+    'WHATSAT': None,
     # 'IAM': None,
 }
 
-async def do_stuff(reader, writer, request):
+async def do_stuff(reader, writer, request, rec):
     pass
 
 async def handle_echo(reader, writer):
@@ -155,20 +155,13 @@ async def handle_echo(reader, writer):
 
         # Parse the message. If we have a client 
         request = Request(message, time.time())
-
+    
         # if reqest is valid, process, otherwise trap
-        if not request.is_valid():
-            pass
-            # TODO Raise Error
-        else:
-            pass
-
         is_new, rec = get_or_create_client_record(request)
         payload = None
         flood = False
-        if not request.is_valid():
-            pass
-        else:
+        
+        if request.is_valid():
             # Flood throught network
             if request.is_at():
                 if is_new or rec.client_time != request.client_time:
@@ -178,7 +171,7 @@ async def handle_echo(reader, writer):
             # Do stuff with the record
             elif is_new:
                 # Invalid Request by new Client
-                if request.is_whatisat():
+                if request.is_whatsat():
                     # Need a location before we can answer whatisat
                     request.mark_invalid()
 
@@ -195,51 +188,72 @@ async def handle_echo(reader, writer):
                     flood = True
 
                 # Existing Client Query
-                elif request.is_whatisat():
-                    if rec.position.radius == request.radius:
-                        # serve a subset of previously queried data
-                        if request.pagination <= rec.position.pagination:
-                            # construct client response with payload
-                            payload = json.loads(rec.position.payload)
-                            payload['results'] = payload['results'][:request.pagination]
-                            payload = json.dumps(payload)
+                elif request.is_whatsat():
+                    # if rec.position.radius == request.radius:
+                    #     # serve a subset of previously queried data
+                    #     if request.pagination <= rec.position.pagination:
+                    #         # construct client response with payload
+                    #         payload = json.loads(rec.position.payload)
+                    #         payload['results'] = payload['results'][:request.pagination]
+                    #         payload = json.dumps(payload)
 
-                        # Do an API call to get more results
-                        elif rec.position.pagination <= request.pagination:
-                            loc = request.api_location
-                            rad = request.radius
-                            pag = request.pagination
-                            logger.debug(f'{request=}')
-                            api_response = await api_call(loc, rad, pag)
+                    #     # Do an API call to get more results
+                    #     elif rec.position.pagination <= request.pagination:
+                    #         loc = request.api_location
+                    #         rad = request.radius
+                    #         pag = request.pagination
+                    #         logger.debug(f'{request=}')
+                    #         api_response = await api_call(loc, rad, pag)
                             
-                            # update record with new pagesize and payload
-                            rec.position.pagination = request.pagination
-                            rec.position.payload = json.dumps(api_response)
-                            payload = rec.position.payload
-                        # Invalid response
-                        else:
-                            request.mark_invalid()
-                            raise Exception('Received an invalid exception')
+                    #         # update record with new pagesize and payload
+                    #         rec.position.pagination = request.pagination
+                    #         rec.position.payload = json.dumps(api_response)
+                    #         payload = rec.position.payload
+                    #     # Invalid response
+                    #     else:
+                    #         request.mark_invalid()
+                    #         raise Exception('Received an invalid exception')
 
-                    else:
-                        # perform api query
-                        # api_response = await api_call(rec.position, rec.position.radius)
-                        # with open('places_raw.json', 'w') as f:
-                        #     json.dump(api_response, f)
+                    # else:
+                    #     # perform api query
+                    #     # api_response = await api_call(rec.position, rec.position.radius)
+                    #     # with open('places_raw.json', 'w') as f:
+                    #     #     json.dump(api_response, f)
 
-                        # FIXME: location hack. fix this
-                        loc = rec.position.api_location
-                        rad = request.radius
-                        pag = request.pagination
-                        logger.debug(f'{str(request)=}')
-                        api_response = await api_call(loc, rad, pag)
+                    #     # FIXME: location hack. fix this
+                    #     loc = rec.position.api_location
+                    #     rad = request.radius
+                    #     pag = request.pagination
+                    #     logger.debug(f'{str(request)=}')
+                    #     api_response = await api_call(loc, rad, pag)
 
-                        # update record
-                        # print("updating record")
-                        rec.position.radius = rad
-                        rec.position.pagination = pag
-                        rec.position.payload = json.dumps(api_response)
-                        payload = rec.position.payload
+                    #     # update record
+                    #     # print("updating record")
+                    #     rec.position.radius = rad
+                    #     rec.position.pagination = pag
+                    #     rec.position.payload = json.dumps(api_response)
+                    #     payload = rec.position.payload
+                    
+                    
+                    # perform api query
+                    # api_response = await api_call(rec.position, rec.position.radius)
+                    # with open('places_raw.json', 'w') as f:
+                    #     json.dump(api_response, f)
+                    
+
+                    # FIXME: location hack. fix this
+                    loc = rec.position.api_location
+                    rad = request.radius
+                    pag = request.pagination
+                    logger.debug(f'{str(request)=}')
+                    api_response = await api_call(loc, rad, pag)
+
+                    # update record
+                    # print("updating record")
+                    rec.position.radius = rad
+                    rec.position.pagination = pag
+                    rec.position.payload = json.dumps(api_response)
+                    payload = rec.position.payload
                 else:
                     # TODO: Do I need to do something here?
                     pass
@@ -261,7 +275,7 @@ async def handle_echo(reader, writer):
         if request.is_valid():
             if request.is_at() or flood:
                 await propagate(request)
-        
+
 
 async def propagate(request: Request):
     request.mark_visited(MYNAME)
@@ -305,8 +319,9 @@ async def places_api_call(location, radius, pag):
         async with session.get(url) as resp:
             data = await resp.text()
             json_data = json.loads(data)
-            if len(results := json_data['results']) >= pag:
-                results = results[:pag]
+            json_data['results'] = json_data['results'][:pag]
+
+            print(f'\n{len(json_data["results"])=}\n')
 
             # return json.loads(await resp.text())
             return json_data

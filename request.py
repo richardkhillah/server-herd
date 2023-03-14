@@ -20,77 +20,22 @@ class Request:
 
         # for shrinking of variables
         self.valid = True # Assume valid unless set otherwise
-        # if message.strip().startswith(('IAMAT', 'WHATISAT', 'IAM')):
-        #     m = message.split()
-        #     m = [s.strip() for s in m]
-        #     type=m[0]
-        #     if type == 'IAMAT' and len(m) == 4:
-        #         # IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1621464827.959498503
-        #         self.type = type
-        #         self.addr = m[1]
-        #         coords = self.crude_coord_split(m[2])
-        #         self.lat = (coords[0], coords[1]) # ['+/-', 'floatstring']
-        #         self.lon = (coords[2], coords[3]) # ['+/-', 'floatstring']
 
-        #         self.client_time = m[3]
-
-        #         if received_time is None:
-        #             received_time = time.time()
-        #         s = received_time - float(self.client_time)
-        #         self.skew = '+' if s > 0 else '-'
-        #         self.skew += str(s)
-
-        #     elif type == 'WHATISAT' and len(m) == 4:
-        #         # WHATSAT kiwi.cs.ucla.edu 10 5
-        #         self.type = type
-        #         self.addr = m[1]
-        #         try:
-        #             r = int(m[2])
-        #             p = int(m[3])
-        #             self.radius = r*1000 if r <=50 else 50*1000
-        #             self.pagination = p if p <= 20 else 20
-        #         except:
-        #             pass
-
-        #     elif type == 'IAM':
-        #         # print(f'FULL IAM:: {m=}')
-        #         self.type = type
-        #         self.sender = m[1]
-        #         self.skew = m[2]
-        #         self.addr = m[3]
-        #         coords = self.crude_coord_split(m[4])
-        #         self.lat = (coords[0], coords[1]) # ['+/-', 'floatstring']
-        #         self.lon = (coords[2], coords[3]) # ['+/-', 'floatstring']
-        #         self.client_time = m[5]
-        #         try:
-        #             fix = "".join(m[6:])
-        #             self.nodes_visisted = ast.literal_eval(fix)
-        #         except Exception as e:
-        #             # TODO: how should this be handled?
-        #             before_fix= m[6:]
-        #             fix="".join(m[6:])
-        #             print(f'ISSUE IN REQUEST.py: {e}: {m[6]=} \n{message=}\n{m=}\n{before_fix=}\n{fix=}')
-        #             raise SystemError("F@*!")
-        #             self.nodes_visisted = []
-        # else:
-        #     self.mark_invalid()
-
-        # HOW I WANT TO DO IT
         try:
             self._message = message
             payload=payload
-            if message.strip().startswith(('IAMAT', 'WHATISAT', 'AT')):
+            if message.strip().startswith(('IAMAT', 'WHATSAT', 'AT')):
                 handlers = {
                     'IAMAT': self.parse_iamat,
-                    'WHATISAT': self.parse_whatisat,
+                    'WHATSAT': self.parse_whatsat,
                     'AT': self.parse_at,
                 }
                 lengths = {
                     'IAMAT': 4,
-                    'WHATISAT': 4,
+                    'WHATSAT': 4,
                 }
                 m = [s for s in message.strip().split() if len(s)]
-                if m[0] in ['IAMAT', 'WHATISAT'] and len(m) != lengths[m[0]]:
+                if m[0] in ['IAMAT', 'WHATSAT'] and len(m) != lengths[m[0]]:
                     raise ParseException(f'Invalid {m[0]} length')
 
                 self.type = m[0]
@@ -119,17 +64,17 @@ class Request:
         skew = self.received_time - float(timestamp)
         self.skew = '+'+str(skew) if skew > 0 else str(skew)
     
-    def parse_whatisat(self, addr, radius, nresults):
+    def parse_whatsat(self, addr, radius, nresults):
         # WHATSAT kiwi.cs.ucla.edu 10 5
         if not self.isnumeric(radius, nresults):
-            raise ParseException(f'Invalid WHATISAT radius and/or num type')
+            raise ParseException(f'Invalid WHATSAT radius and/or num type')
         
         r = int(radius)
         p = int(nresults)
         if r > 50 or r < 0:
-            raise ParseException(f"Invalid WHATISAT radius. {r} not between 0 and 50km.")
+            raise ParseException(f"Invalid WHATSAT radius. {r} not between 0 and 50km.")
         if p < 0 or 20 < p:
-            raise ParseException(f'Invalid WHATISAT number of responses. {p} not between 0 and 20.')
+            raise ParseException(f'Invalid WHATSAT number of responses. {p} not between 0 and 20.')
         
         self.addr = addr
         self.radius = r*1000
@@ -152,10 +97,8 @@ class Request:
         self.skew = skew
 
         try:
-            # fix = "".join(*args)
             fix = "".join(args)
             self.nodes_visisted = ast.literal_eval(fix)
-            print(f"\n{self.nodes_visisted=}\n")
         except Exception as e:
             raise ParseException(f"Invalid AT visisted {args}")
 
@@ -214,10 +157,10 @@ class Request:
 
         s = rec.skew
         a = rec.addr
-        b = str(rec.position) if self.type == 'IAMAT' else rec.position.radius
+        b = str(rec.position) if self.type == 'IAMAT' else (rec.position.radius//1000)
         c = str(rec.client_time) if self.type == 'IAMAT' else rec.position.pagination
-        r = f"AT {at} {s} {a} {b} {c}"
-        return r if not payload else (r + f"\n{payload}\n")
+        r = f"AT {at} {s} {a} {b} {c}\n"
+        return r if not payload else (r + f"{payload}\n\n")
     
     def flood_response(self, at):
         try:
@@ -227,7 +170,6 @@ class Request:
             d = self.client_time
             e = str(self.nodes_visisted)
             r = f"AT {at} {a} {b} {c} {d} {e}"
-            print(f"\nflood_response: {r=}\n")
             return r
         except Exception as e:
             # TODO: How should this be handled?
@@ -256,8 +198,8 @@ class Request:
         # FIX ME Ensure coordinates have the above form
         return ret
 
-    def is_whatisat(self):
-        return self.type == 'WHATISAT'
+    def is_whatsat(self):
+        return self.type == 'WHATSAT'
     def is_iamat(self):
         return self.type == 'IAMAT'
     def is_at(self):

@@ -6,13 +6,21 @@ import sys
 
 ipaddr = '127.0.0.1'
 
-herd = {
+my_herd = {
     'Bailey': 17800,
     'Bona': 17801,
     'Campbell': 17802,
     'Clark': 17803,
     'Jaquez': 17804,
 }
+seas_herd = {
+    'Bailey': 10000,
+    'Bona': 10001,
+    'Campbell': 10002,
+    'Clark': 10003,
+    'Jaquez': 10004,
+}
+herd = seas_herd
 
 def iamat(host, coord, t=None, skew=None):
     if t is None:
@@ -39,21 +47,35 @@ async def tcp_echo_client(message, server):
     await writer.drain()
     writer.write_eof()
 
-    if 'WHATISAT' in message:
-        while not reader.at_eof():
-            data = await reader.readline()
-            if decoded := data.decode():
-                if decoded.startswith('AT'):
-                    print(f"decoded: {decoded}")
-                elif not decoded.startswith('?'):
-                    json_data = json.loads(decoded)
-                    print( f'{len(json_data["results"])=}')
-                elif decoded.startswith('?'):
-                    print(decoded)
+    # if 'WHATISAT' in message:
+    #     while not reader.at_eof():
+    #         data = await reader.readline()
+    #         if decoded := data.decode():
+    #             if decoded.startswith('AT'):
+    #                 print(f"decoded: {decoded}")
+    #             elif not decoded.startswith('?'):
+    #                 json_data = json.loads(decoded)
+    #                 print( f'{len(json_data["results"])=}')
+    #             elif decoded.startswith('?'):
+    #                 print(decoded)
+    # else:
+    #     # print(f'Received: {decoded_data!r}')
+    #     print(f'Received: {decoded_data}')
+
+    data = await reader.read()
+    decoded_data = data.decode()
+
+    split_message = message.split()
+    split_data = decoded_data.split()
+    if split_message[1:] != split_data[3:]:
+        print(f'{split_message[1:]=}\n{split_data[3:]=}')
     else:
-        data = await reader.read()
-        decoded_data = data.decode()
-        print(f'Received: {decoded_data!r}')
+        print('SAME')
+
+
+
+    print(f'Received: {decoded_data}')
+
 
     print('Close the connection')
     writer.close()
@@ -82,55 +104,59 @@ async def main():
     #     *(time_after(i) for i in range(6)))
 
     try:
+        await tcp_echo_client('IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1621464827.959498503', 'Bailey')
+        await tcp_echo_client('WHATSAT kiwi.cs.ucla.edu 10 5', 'Bailey')
+
+
         # Single Server Tests
         # Test invalid command
-        print('\n==================================================')
-        print('Testing Single-Server Invalid Command to Bailey')
-        await tcp_echo_client(invalid_command('DUMMY'), 'Bailey')
+        # print('\n==================================================')
+        # print('Testing Single-Server Invalid Command to Bailey')
+        # await tcp_echo_client(invalid_command('DUMMY'), 'Bailey')
 
-        # Test iamat format:
-        # Invalid IAMAT
-        print('\n==================================================')
-        print('Testing Single-Server Invalid IAMAT format to Bailey')
-        await tcp_echo_client(iamat(' ', coordinates['test']), 'Bailey')
-        await tcp_echo_client(iamat(hosts['kiwi'], 'notcorrect'), 'Bailey')
-        await tcp_echo_client(iamat('another bad', 'notcorrect'), 'Bailey')
+        # # Test iamat format:
+        # # Invalid IAMAT
+        # print('\n==================================================')
+        # print('Testing Single-Server Invalid IAMAT format to Bailey')
+        # await tcp_echo_client(iamat(' ', coordinates['test']), 'Bailey')
+        # await tcp_echo_client(iamat(hosts['kiwi'], 'notcorrect'), 'Bailey')
+        # await tcp_echo_client(iamat('another bad', 'notcorrect'), 'Bailey')
 
-        # VALID IAMAT
-        print('\n==================================================')
-        print('Testing Single-Server Valid IAMAT format to Bailey')
-        await tcp_echo_client(iamat(hosts['kiwi'], coordinates['test']), 'Bailey')
+        # # VALID IAMAT
+        # print('\n==================================================')
+        # print('Testing Single-Server Valid IAMAT format to Bailey')
+        # await tcp_echo_client(iamat(hosts['kiwi'], coordinates['test']), 'Bailey')
 
-        # Test whatisat format:
-        # Invalid WHATISAT
-        print('\n==================================================')
-        print('Testing Single-Server Invalid WHATISAT format to Bailey')
-        await tcp_echo_client(whatsat('Invalid address', 1, 1), 'Bailey') # Invalid address format
-        await tcp_echo_client(whatsat(hosts['plum'], 1, 1), 'Bailey') # Unkonwn address
-        await tcp_echo_client(whatsat(hosts['kiwi'], -1, 1), 'Bailey') # Invalid Radius
-        await tcp_echo_client(whatsat(hosts['kiwi'], 51, 1), 'Bailey') # Invalid Radius
-        await tcp_echo_client(whatsat(hosts['kiwi'], 1, -1), 'Bailey') # Invalid result size
-        await tcp_echo_client(whatsat(hosts['kiwi'], 1, 21), 'Bailey') # Invalid result size
+        # # Test whatisat format:
+        # # Invalid WHATISAT
+        # print('\n==================================================')
+        # print('Testing Single-Server Invalid WHATISAT format to Bailey')
+        # await tcp_echo_client(whatsat('Invalid address', 1, 1), 'Bailey') # Invalid address format
+        # await tcp_echo_client(whatsat(hosts['plum'], 1, 1), 'Bailey') # Unkonwn address
+        # await tcp_echo_client(whatsat(hosts['kiwi'], -1, 1), 'Bailey') # Invalid Radius
+        # await tcp_echo_client(whatsat(hosts['kiwi'], 51, 1), 'Bailey') # Invalid Radius
+        # await tcp_echo_client(whatsat(hosts['kiwi'], 1, -1), 'Bailey') # Invalid result size
+        # await tcp_echo_client(whatsat(hosts['kiwi'], 1, 21), 'Bailey') # Invalid result size
 
-        # VALID WHATISAT
-        print('\n==================================================')
-        print('Testing Single-Server Valid WHATISAT format to Bailey')
-        await tcp_echo_client(whatsat(hosts['kiwi'], 1, 1), 'Bailey')
+        # # VALID WHATISAT
+        # print('\n==================================================')
+        # print('Testing Single-Server Valid WHATISAT format to Bailey')
+        # await tcp_echo_client(whatsat(hosts['kiwi'], 1, 1), 'Bailey')
 
-        # Multi Server Tests
-        # Direct communcation
-        print('\n==================================================')
-        print('Multi-Server- Testing')
-        print('==================================================')
-        print('Testing Multi-server Communication Direct Communication from Bailey')
-        await tcp_echo_client(whatsat(hosts['kiwi'], 1, 1), 'Bona') # Bailey talks with Bona
-        await tcp_echo_client(whatsat(hosts['kiwi'], 1, 1), 'Campbell') # Bailey talks with Campbell
+        # # Multi Server Tests
+        # # Direct communcation
+        # print('\n==================================================')
+        # print('Multi-Server- Testing')
+        # print('==================================================')
+        # print('Testing Multi-server Communication Direct Communication from Bailey')
+        # await tcp_echo_client(whatsat(hosts['kiwi'], 1, 1), 'Bona') # Bailey talks with Bona
+        # await tcp_echo_client(whatsat(hosts['kiwi'], 1, 1), 'Campbell') # Bailey talks with Campbell
 
-        # Indirect communication
-        print('\n==================================================')
-        print('Testing Multi-server Communication Indirect Communication from Bailey')
-        await tcp_echo_client(whatsat(hosts['kiwi'], 1, 1), 'Clark') # Bona and Campbell talks with Clark
-        await tcp_echo_client(whatsat(hosts['kiwi'], 1, 1), 'Jaquez') # Clark and Campbell talk with Jaquez
+        # # Indirect communication
+        # print('\n==================================================')
+        # print('Testing Multi-server Communication Indirect Communication from Bailey')
+        # await tcp_echo_client(whatsat(hosts['kiwi'], 1, 1), 'Clark') # Bona and Campbell talks with Clark
+        # await tcp_echo_client(whatsat(hosts['kiwi'], 1, 1), 'Jaquez') # Clark and Campbell talk with Jaquez
 
 
 

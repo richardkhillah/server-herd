@@ -4,3 +4,6 @@ REPORT=report.pdf
 
 dist:
 	tar -zcvf project.tgz ${SRC} ${REPORT}
+
+clean:
+	rm project.tgz
