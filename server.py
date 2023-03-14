@@ -6,7 +6,7 @@ import logging
 import sys
 import time
 
-from typing import List, Tuple
+# from typing import List, Tuple
 
 import env
 from request import Request
@@ -16,7 +16,6 @@ logger = logging.getLogger(__name__)
 
 use_dummy_api = False
 use_my_herd = False
-
 
 def init_logger(filename):
     logger.setLevel(logging.DEBUG)
@@ -56,13 +55,6 @@ herd = seas_herd
 if use_my_herd:
     herd = my_herd
 
-# graph = {
-#     'Bailey': ['Campbell', 'Bona'],
-#     'Bona': ['Clark', 'Jaquez', 'Campbell', 'Bailey'],
-#     'Campbell': ['Bailey', 'Bona', 'Jaquez'],
-#     'Clark': ['Jaquez', 'Bona'],
-#     'Jaquez': ['Clark', 'Bona', 'Campbell'],
-# }
 graph = {
     'Bailey': ['Campbell', 'Bona'],
     'Bona': ['Clark', 'Campbell', 'Bailey'],
@@ -85,7 +77,7 @@ USAGE = (
 
 records = {}
 
-def parse(args: List[str]) -> Tuple[str, int]:
+def parse(args):
     arguments = collections.deque(args)
     name=None
     while arguments:
@@ -102,9 +94,7 @@ def parse(args: List[str]) -> Tuple[str, int]:
     try:
         port = herd[name]
     except:
-        print(f"\"{name}\" not a valid server.")
-        # logger.error(f"\"{name}\" not a valid server.")
-        sys.exit(0)
+        raise Exception(f"\"{name}\" not a valid server.")
     return name, port
 
 def make_position(req):
@@ -161,10 +151,11 @@ async def handle_echo(reader, writer):
         payload = None
         flood = False
         
+        # Handle the request information
         if request.is_valid():
-            # Flood throught network
             if request.is_at():
                 if is_new or rec.client_time != request.client_time:
+                    # Update and Propigate
                     records[rec.addr] = rec
                     flood = True
 

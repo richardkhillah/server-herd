@@ -1,5 +1,3 @@
-import json
-
 class Record:
     def __init__(self, addr, skew, client_time, position):
         self.addr = addr

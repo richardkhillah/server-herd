@@ -1,5 +1,5 @@
 
-SRC=record.py request.py server.py env.py
+SRC=record.py request.py server.py env.py projectExceptions.py
 REPORT=report.pdf
 
 dist:

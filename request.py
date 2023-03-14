@@ -157,9 +157,11 @@ class Request:
 
         s = rec.skew
         a = rec.addr
-        b = str(rec.position) if self.type == 'IAMAT' else (rec.position.radius//1000)
-        c = str(rec.client_time) if self.type == 'IAMAT' else rec.position.pagination
+        b = str(rec.position)
+        c = str(rec.client_time)
         r = f"AT {at} {s} {a} {b} {c}\n"
+        if payload:
+            payload.strip('\n')
         return r if not payload else (r + f"{payload}\n\n")
     
     def flood_response(self, at):

@@ -42,7 +42,7 @@ async def tcp_echo_client(message, server):
     reader, writer = await asyncio.open_connection(
         ipaddr, herd[server])
 
-    print(f'Send to {server}: {message!r}')
+    print(f'Send to {server}: {message}')
     writer.write(message.encode())
     await writer.drain()
     writer.write_eof()
@@ -67,10 +67,12 @@ async def tcp_echo_client(message, server):
 
     split_message = message.split()
     split_data = decoded_data.split()
-    if split_message[1:] != split_data[3:]:
-        print(f'{split_message[1:]=}\n{split_data[3:]=}')
-    else:
-        print('SAME')
+    
+    # if split_message[1:] != split_data[3:]:
+    #     print(f'{split_message[1:]=}\n{split_data[3:]=}')
+    # else:
+    #     print('SAME')
+
 
 
 
