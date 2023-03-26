@@ -42,7 +42,6 @@ class Request:
             else:
                 self.mark_invalid()
         except ParseException as pe:
-            print(f'INVALID: {pe}')
             self.mark_invalid()
 
     def parse_iamat(self, addr, coords, timestamp):

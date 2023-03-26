@@ -132,9 +132,6 @@ TYPE = {
     # 'IAM': None,
 }
 
-async def do_stuff(reader, writer, request, rec):
-    pass
-
 async def handle_echo(reader, writer):
     # Read info from sender
     while not reader.at_eof():
@@ -180,71 +177,17 @@ async def handle_echo(reader, writer):
 
                 # Existing Client Query
                 elif request.is_whatsat():
-                    # if rec.position.radius == request.radius:
-                    #     # serve a subset of previously queried data
-                    #     if request.pagination <= rec.position.pagination:
-                    #         # construct client response with payload
-                    #         payload = json.loads(rec.position.payload)
-                    #         payload['results'] = payload['results'][:request.pagination]
-                    #         payload = json.dumps(payload)
-
-                    #     # Do an API call to get more results
-                    #     elif rec.position.pagination <= request.pagination:
-                    #         loc = request.api_location
-                    #         rad = request.radius
-                    #         pag = request.pagination
-                    #         logger.debug(f'{request=}')
-                    #         api_response = await api_call(loc, rad, pag)
-                            
-                    #         # update record with new pagesize and payload
-                    #         rec.position.pagination = request.pagination
-                    #         rec.position.payload = json.dumps(api_response)
-                    #         payload = rec.position.payload
-                    #     # Invalid response
-                    #     else:
-                    #         request.mark_invalid()
-                    #         raise Exception('Received an invalid exception')
-
-                    # else:
-                    #     # perform api query
-                    #     # api_response = await api_call(rec.position, rec.position.radius)
-                    #     # with open('places_raw.json', 'w') as f:
-                    #     #     json.dump(api_response, f)
-
-                    #     # FIXME: location hack. fix this
-                    #     loc = rec.position.api_location
-                    #     rad = request.radius
-                    #     pag = request.pagination
-                    #     logger.debug(f'{str(request)=}')
-                    #     api_response = await api_call(loc, rad, pag)
-
-                    #     # update record
-                    #     # print("updating record")
-                    #     rec.position.radius = rad
-                    #     rec.position.pagination = pag
-                    #     rec.position.payload = json.dumps(api_response)
-                    #     payload = rec.position.payload
-                    
-                    
-                    # perform api query
-                    # api_response = await api_call(rec.position, rec.position.radius)
-                    # with open('places_raw.json', 'w') as f:
-                    #     json.dump(api_response, f)
-                    
-
-                    # FIXME: location hack. fix this
                     loc = rec.position.api_location
                     rad = request.radius
                     pag = request.pagination
-                    logger.debug(f'{str(request)=}')
                     api_response = await api_call(loc, rad, pag)
 
                     # update record
-                    # print("updating record")
                     rec.position.radius = rad
                     rec.position.pagination = pag
                     rec.position.payload = json.dumps(api_response)
                     payload = rec.position.payload
+
                 else:
                     # TODO: Do I need to do something here?
                     pass
@@ -267,23 +210,18 @@ async def handle_echo(reader, writer):
             if request.is_at() or flood:
                 await propagate(request)
 
-
 async def propagate(request: Request):
     request.mark_visited(MYNAME)
     visited = request.get_visited()
     to_visit = [x for x in graph[MYNAME] if x not in visited]
     resp = request.flood_response(MYNAME)
-
     for neighbor in to_visit:
         try:
             _, writer = await asyncio.open_connection(ipaddr, herd[neighbor])
-
             logger.info(f'Sent {neighbor}: {resp}')
-
             writer.write(resp.encode())
             await writer.drain()
             writer.write_eof()
-
             writer.close()
             await writer.wait_closed()
         except:
@@ -311,10 +249,6 @@ async def places_api_call(location, radius, pag):
             data = await resp.text()
             json_data = json.loads(data)
             json_data['results'] = json_data['results'][:pag]
-
-            print(f'\n{len(json_data["results"])=}\n')
-
-            # return json.loads(await resp.text())
             return json_data
 
 api_call = places_api_call
@@ -329,15 +263,11 @@ async def main():
     global MYNAME 
     MYNAME = fname
     init_logger(MYNAME)
-
-    # should I open global connections here?
     
     logger.info(f'Starting {MYNAME} on port {port}')
     server = await asyncio.start_server(
         handle_echo, ipaddr, port=port)
 
-    # addrs = ', '.join(str(sock.getsockname()) for sock in server.sockets)
-    # logger.debug(f'Serving on {addrs}')
 
     async with server:
         await server.serve_forever()
