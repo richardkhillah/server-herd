@@ -20,7 +20,7 @@ seas_herd = {
     'Clark': 10003,
     'Jaquez': 10004,
 }
-herd = seas_herd
+herd = my_herd
 
 def iamat(host, coord, t=None, skew=None):
     if t is None:
@@ -107,7 +107,7 @@ async def main():
 
     try:
         await tcp_echo_client('IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1621464827.959498503', 'Bailey')
-        await tcp_echo_client('WHATSAT kiwi.cs.ucla.edu 10 5', 'Bailey')
+        await tcp_echo_client('WHATSAT kiwi.cs.ucla.edu 10 5', 'Clark')
 
 
         # Single Server Tests

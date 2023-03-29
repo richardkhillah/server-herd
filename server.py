@@ -14,8 +14,8 @@ from record import Record, Position
 
 logger = logging.getLogger(__name__)
 
-use_dummy_api = False
-use_my_herd = False
+use_dummy_api = True
+use_my_herd = True
 
 def init_logger(filename):
     logger.setLevel(logging.DEBUG)
@@ -126,11 +126,11 @@ def get_or_create_client_record(req):
         is_new = True
     return is_new, rec
 
-TYPE = {
-    'IAMAT': None,
-    'WHATSAT': None,
-    # 'IAM': None,
-}
+# TYPE = {
+#     'IAMAT': None,
+#     'WHATSAT': None,
+#     # 'IAM': None,
+# }
 
 async def handle_echo(reader, writer):
     # Read info from sender

@@ -86,11 +86,7 @@ class Request:
         if not self.isnumeric(skew):
             raise ParseException('Invalid AT skew')
         
-        self.parse_iamat(addr, coords, timestamp)
-
-        print(f'\nparse_at: {addr=} {coords=} {timestamp=}\n')
-
-        
+        self.parse_iamat(addr, coords, timestamp)        
         self.sender = peer
         self.skew = skew
 
