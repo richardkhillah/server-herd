@@ -126,11 +126,44 @@ def get_or_create_client_record(req):
         is_new = True
     return is_new, rec
 
-# TYPE = {
-#     'IAMAT': None,
-#     'WHATSAT': None,
-#     # 'IAM': None,
-# }
+async def process_request(request, is_new, rec):
+    payload = None
+    flood = False
+    if request.is_valid():
+        if request.is_at() and \
+        (is_new or rec.client_time != request.client_time):
+            # Update and Propigate
+            records[rec.addr] = rec
+            flood = True
+
+        elif is_new and request.is_whatsat():
+            # Need a location before we can answer whatisat
+            request.mark_invalid()
+
+        # New Client
+        elif is_new and request.is_iamat(): 
+            records[rec.addr] = rec
+            flood = True
+        
+        # Update an existing Client
+        elif request.is_iamat():
+            # if iamat and location is same, reply to client only
+            rec = update_record(rec, request)
+            flood = True
+
+        # Existing Client Query
+        elif request.is_whatsat():
+            loc = rec.position.api_location
+            rad = request.radius
+            pag = request.pagination
+            api_response = await api_call(loc, rad, pag)
+            payload = json.dumps(api_response)
+
+        else:
+            # This should be unreachable
+            request.mark_invalid()
+         
+    return payload, flood
 
 async def handle_echo(reader, writer):
     # Read info from sender
@@ -145,53 +178,12 @@ async def handle_echo(reader, writer):
     
         # if reqest is valid, process, otherwise trap
         is_new, rec = get_or_create_client_record(request)
-        payload = None
-        flood = False
+        # payload = None
+        # flood = False
         
         # Handle the request information
-        if request.is_valid():
-            if request.is_at():
-                if is_new or rec.client_time != request.client_time:
-                    # Update and Propigate
-                    records[rec.addr] = rec
-                    flood = True
-
-            # Do stuff with the record
-            elif is_new:
-                # Invalid Request by new Client
-                if request.is_whatsat():
-                    # Need a location before we can answer whatisat
-                    request.mark_invalid()
-
-                # New Client
-                elif request.is_iamat(): 
-                    records[rec.addr] = rec
-                    flood = True
-            
-            # Update an existing Client
-            else:    
-                if request.is_iamat():
-                    # if iamat and location is same, reply to client only
-                    rec = update_record(rec, request)
-                    flood = True
-
-                # Existing Client Query
-                elif request.is_whatsat():
-                    loc = rec.position.api_location
-                    rad = request.radius
-                    pag = request.pagination
-                    api_response = await api_call(loc, rad, pag)
-
-                    # update record
-                    rec.position.radius = rad
-                    rec.position.pagination = pag
-                    rec.position.payload = json.dumps(api_response)
-                    payload = rec.position.payload
-
-                else:
-                    # TODO: Do I need to do something here?
-                    pass
-            
+        payload, flood = await process_request(request, is_new, rec)
+           
         # Respond to Client
         if not request.is_at():
             resp = request.response(MYNAME, rec, payload=payload)

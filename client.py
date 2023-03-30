@@ -47,35 +47,12 @@ async def tcp_echo_client(message, server):
     await writer.drain()
     writer.write_eof()
 
-    # if 'WHATISAT' in message:
-    #     while not reader.at_eof():
-    #         data = await reader.readline()
-    #         if decoded := data.decode():
-    #             if decoded.startswith('AT'):
-    #                 print(f"decoded: {decoded}")
-    #             elif not decoded.startswith('?'):
-    #                 json_data = json.loads(decoded)
-    #                 print( f'{len(json_data["results"])=}')
-    #             elif decoded.startswith('?'):
-    #                 print(decoded)
-    # else:
-    #     # print(f'Received: {decoded_data!r}')
-    #     print(f'Received: {decoded_data}')
-
     data = await reader.read()
     decoded_data = data.decode()
 
-    split_message = message.split()
-    split_data = decoded_data.split()
+    # split_message = message.split()
+    # split_data = decoded_data.split()
     
-    # if split_message[1:] != split_data[3:]:
-    #     print(f'{split_message[1:]=}\n{split_data[3:]=}')
-    # else:
-    #     print('SAME')
-
-
-
-
     print(f'Received: {decoded_data}')
 
 
@@ -106,6 +83,8 @@ async def main():
     #     *(time_after(i) for i in range(6)))
 
     try:
+        await tcp_echo_client('WHATSAT kiwi.cs.ucla.edu 10 5', 'Clark')
+        await time_after(5)
         await tcp_echo_client('IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1621464827.959498503', 'Bailey')
         await tcp_echo_client('WHATSAT kiwi.cs.ucla.edu 10 5', 'Clark')
 

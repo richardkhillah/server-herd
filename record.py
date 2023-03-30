@@ -16,32 +16,7 @@ class Record:
             self.position == other.position
         )
 
-    def update(self, message):
-        pass
-    
-    def serialize(self):
-        return {
-            '__record__': True,
-            'addr': self.addr, 
-            'skew': self.skew, 
-            'client_time': self.client_time, 
-            'position': self.position.serialize(), 
-        }
-    
-    @classmethod
-    def deserialize(cls, dct):
-        if '__record__' in dct:
-            return cls(
-                dct['addr'],
-                dct['skew'],
-                dct['client_time'],
-                Position.deserialize(dct['position']),
-            )
-    
     def to_message(self, name):
-        pass
-
-    def has_changed(self, msg):
         pass
 
 class Position:
@@ -54,6 +29,9 @@ class Position:
     
     def __repr__(self):
         return self.__str__()
+    
+    def __str__(self):
+        return ''.join([self.lat, self.lon])
     
     @property
     def lat(self):
@@ -116,12 +94,7 @@ class Position:
             if size is not None:
                 raise e
             self._pagination = None
-
-    def __str__(self):
-        return ''.join([self.lat, self.lon])
-    
-    
-    
+        
     def __eq__(self, other):
         return (
             self.lat == other.lat and
@@ -130,31 +103,6 @@ class Position:
             self.pagination == other.pagination and
             self.payload == other.payload
         )
-    
-    def serialize(self):
-        return {
-            '__position__': True, 
-            'lat': self.lat,
-            'lon': self.lon,
-            'radius': self.radius,
-            'pagination': self.pagination,
-            'payload': self.payload,
-        }
-    
-    @classmethod
-    def deserialize(cls, dct):
-        if '__position__' in dct:
-            return cls(
-                dct['lat'],
-                dct['lon'],
-                radius=dct['radius'],
-                pagination=dct['pagination'],
-                payload=dct['payload'],
-            )
-    
-    @classmethod
-    def coords(cls, lat, lon):
-        return "".join(["".join(lat), "".join(lon)])
     
     @property
     def api_location(self):
