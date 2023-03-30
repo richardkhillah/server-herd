@@ -178,8 +178,6 @@ async def handle_echo(reader, writer):
     
         # if reqest is valid, process, otherwise trap
         is_new, rec = get_or_create_client_record(request)
-        # payload = None
-        # flood = False
         
         # Handle the request information
         payload, flood = await process_request(request, is_new, rec)
