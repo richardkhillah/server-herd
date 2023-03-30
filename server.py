@@ -184,21 +184,24 @@ async def handle_echo(reader, writer):
            
         # Respond to Client
         if not request.is_at():
-            resp = request.response(MYNAME, rec, payload=payload)
-            
-            # Reply to sender
-            logger.info(f"Send: {resp}")
-            writer.write(resp.encode())
-            await writer.drain()
-
-            logger.debug("Close the connection")
-            writer.close()
-            await writer.wait_closed()
+            await respond_to_client(writer, request, rec, payload)
 
         # Propigate to neighbors
         if request.is_valid():
             if request.is_at() or flood:
                 await propagate(request)
+
+async def respond_to_client(writer, request, rec, payload):
+    resp = request.response(MYNAME, rec, payload=payload)
+            
+    # Reply to sender
+    logger.info(f"Send: {resp}")
+    writer.write(resp.encode())
+    await writer.drain()
+
+    logger.debug("Close the connection")
+    writer.close()
+    await writer.wait_closed()
 
 async def propagate(request: Request):
     request.mark_visited(MYNAME)
