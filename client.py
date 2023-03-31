@@ -83,10 +83,15 @@ async def main():
     #     *(time_after(i) for i in range(6)))
 
     try:
-        await tcp_echo_client('WHATSAT kiwi.cs.ucla.edu 10 5', 'Clark')
+        # await tcp_echo_client('WHATSAT kiwi.cs.ucla.edu 10 5', 'Clark')
+        # await time_after(5)
+        # await tcp_echo_client('IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1621464827.959498503', 'Bailey')
+        # await tcp_echo_client('WHATSAT kiwi.cs.ucla.edu 10 5', 'Clark')
+
+        await tcp_echo_client('IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1621464827.959498503', 'Clark')
         await time_after(5)
-        await tcp_echo_client('IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1621464827.959498503', 'Bailey')
-        await tcp_echo_client('WHATSAT kiwi.cs.ucla.edu 10 5', 'Clark')
+        await tcp_echo_client('IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1621464827.959498503', 'Bona')
+
 
 
         # Single Server Tests

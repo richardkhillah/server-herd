@@ -4,6 +4,7 @@ class Record:
         self.skew = skew
         self.client_time = client_time
         self.position = position
+        self._new = True
 
     def __str__(self):
         return f'{self.addr} {self.position}'
@@ -15,6 +16,12 @@ class Record:
             self.client_time == other.client_time and
             self.position == other.position
         )
+
+    def is_new(self):
+        return self._new
+    
+    def mark_notnew(self):
+        self._new = False
 
     def to_message(self, name):
         pass

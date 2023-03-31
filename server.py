@@ -118,30 +118,29 @@ def make_record(req):
         )
 
 def get_or_create_client_record(req):
-    is_new = False
     try:
         rec = records[req.addr]
     except:
         rec = make_record(req)
-        is_new = True
-    return is_new, rec
+    return rec
 
-async def process_request(request, is_new, rec):
+async def process_request(request, rec):
     payload = None
     flood = False
     if request.is_valid():
+        is_new_record = rec.is_new()
         if request.is_at() and \
-        (is_new or rec.client_time != request.client_time):
+        (is_new_record or rec.client_time != request.client_time):
             # Update and Propigate
             records[rec.addr] = rec
             flood = True
 
-        elif is_new and request.is_whatsat():
+        elif is_new_record and request.is_whatsat():
             # Need a location before we can answer whatisat
             request.mark_invalid()
 
         # New Client
-        elif is_new and request.is_iamat(): 
+        elif is_new_record and request.is_iamat(): 
             records[rec.addr] = rec
             flood = True
         
@@ -162,6 +161,7 @@ async def process_request(request, is_new, rec):
         else:
             # This should be unreachable
             request.mark_invalid()
+        rec.mark_notnew()
          
     return payload, flood
 
@@ -177,10 +177,10 @@ async def handle_echo(reader, writer):
         request = Request(message, time.time())
     
         # if reqest is valid, process, otherwise trap
-        is_new, rec = get_or_create_client_record(request)
+        rec = get_or_create_client_record(request)
         
         # Handle the request information
-        payload, flood = await process_request(request, is_new, rec)
+        payload, flood = await process_request(request, rec)
            
         # Respond to Client
         if not request.is_at():
