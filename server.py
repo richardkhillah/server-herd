@@ -103,12 +103,6 @@ def make_position(req):
                      pagination=req.pagination, 
                      payload=req._payload)
 
-def update_record(record, req):
-    record.skew = req.skew
-    record.client_time = req.client_time
-    record.position = make_position(req)
-    return record
-
 def make_record(req):
     return Record(
             req.addr,
@@ -127,27 +121,16 @@ def get_or_create_client_record(req):
 async def process_request(request, rec):
     payload = None
     flood = False
+
+    if request.is_whatsat() and rec.is_new():
+        request.mark_invalid()
+
     if request.is_valid():
-        is_new_record = rec.is_new()
-        if request.is_at() and \
-        (is_new_record or rec.client_time != request.client_time):
+        if (request.is_at() or request.is_iamat()) and \
+           (rec.is_new() or rec.client_time < request.client_time):
             # Update and Propigate
+            rec.mark_notnew()
             records[rec.addr] = rec
-            flood = True
-
-        elif is_new_record and request.is_whatsat():
-            # Need a location before we can answer whatisat
-            request.mark_invalid()
-
-        # New Client
-        elif is_new_record and request.is_iamat(): 
-            records[rec.addr] = rec
-            flood = True
-        
-        # Update an existing Client
-        elif request.is_iamat():
-            # if iamat and location is same, reply to client only
-            rec = update_record(rec, request)
             flood = True
 
         # Existing Client Query
@@ -161,8 +144,8 @@ async def process_request(request, rec):
         else:
             # This should be unreachable
             request.mark_invalid()
-        rec.mark_notnew()
-         
+    
+
     return payload, flood
 
 async def handle_echo(reader, writer):
@@ -187,9 +170,9 @@ async def handle_echo(reader, writer):
             await respond_to_client(writer, request, rec, payload)
 
         # Propigate to neighbors
-        if request.is_valid():
-            if request.is_at() or flood:
-                await propagate(request)
+        # if request.is_valid() and (flood or request.is_at()):
+        if request.is_valid() and (flood or request.is_at()):
+            await propagate(request)
 
 async def respond_to_client(writer, request, rec, payload):
     resp = request.response(MYNAME, rec, payload=payload)
