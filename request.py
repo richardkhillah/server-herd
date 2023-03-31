@@ -15,6 +15,7 @@ class Request:
         self.received_time = received_time
         self._message = message
         self._payload = payload
+        self._flood = False
         self.nodes_visisted = []
 
         # for shrinking of variables
@@ -111,6 +112,19 @@ class Request:
     def was_visited_by(self, name):
         return name in self.nodes_visisted
     
+    @property
+    def flood(self):
+        return self._flood
+    
+    @flood.setter
+    def flood(self):
+        raise Exception("Directly set of flood not allowed")
+    
+    def set_flood(self, val):
+        if not isinstance(val, bool):
+            raise TypeError(f"{val=} must be of type bool.")
+        self._flood = True
+
     def __str__(self):
         type = self.type
         skew = self.skew

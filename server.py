@@ -120,7 +120,6 @@ def get_or_create_client_record(req):
 
 async def process_request(request, rec):
     payload = None
-    flood = False
 
     if request.is_whatsat() and rec.is_new():
         request.mark_invalid()
@@ -128,10 +127,9 @@ async def process_request(request, rec):
     if request.is_valid():
         if (request.is_at() or request.is_iamat()) and \
            (rec.is_new() or rec.client_time < request.client_time):
-            # Update and Propigate
             rec.mark_notnew()
             records[rec.addr] = rec
-            flood = True
+            request.set_flood(True)
 
         # Existing Client Query
         elif request.is_whatsat():
@@ -145,8 +143,7 @@ async def process_request(request, rec):
             # This should be unreachable
             request.mark_invalid()
     
-
-    return payload, flood
+    return payload
 
 async def handle_echo(reader, writer):
     # Read info from sender
@@ -163,15 +160,14 @@ async def handle_echo(reader, writer):
         rec = get_or_create_client_record(request)
         
         # Handle the request information
-        payload, flood = await process_request(request, rec)
+        payload = await process_request(request, rec)
            
         # Respond to Client
         if not request.is_at():
             await respond_to_client(writer, request, rec, payload)
 
         # Propigate to neighbors
-        # if request.is_valid() and (flood or request.is_at()):
-        if request.is_valid() and (flood or request.is_at()):
+        if request.is_valid() and request.flood:
             await propagate(request)
 
 async def respond_to_client(writer, request, rec, payload):
