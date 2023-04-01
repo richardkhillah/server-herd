@@ -69,135 +69,129 @@ graph = {
 
 MYNAME=""
 
-ipaddr='127.0.0.1'
+IPADDR='127.0.0.1'
 
 USAGE = (
     f"Usage {sys.argv[0]} [srvname]"
 )
 
-records = {}
+class Server:
+    def __init__(self, fname, ipaddr, port, neighbors):
+        self.myname = fname
+        self.ipaddr = ipaddr
+        self.port = port
+        self.neighbors = neighbors
+        self.records = {}
 
-def parse(args):
-    arguments = collections.deque(args)
-    name=None
-    while arguments:
-        current = arguments.popleft()
-        if name is None:
-            if current in ["-h", "--help"]:
-                print(USAGE)
-                sys.exit(0)
-            else:
-                name = current
-        else:
-            print(USAGE)
-            sys.exit(0)
-    try:
-        port = herd[name]
-    except:
-        raise Exception(f"\"{name}\" not a valid server.")
-    return name, port
+    async def run(self):
+        logger.info(f'Starting {self.myname} on port {self.port}')
+        server = await asyncio.start_server(
+            self.handle_echo, self.ipaddr, port=self.port)
 
-def make_position(req):
-    return Position(req.lat, req.lon, 
-                     radius=req.radius, 
-                     pagination=req.pagination, 
-                     payload=req._payload)
+        async with server:
+            await server.serve_forever()
 
-def make_record(req):
-    return Record(
-            req.addr,
-            req.skew,
-            req.client_time,
-            make_position(req),
-        )
+    def make_position(self, req):
+        return Position(req.lat, req.lon, 
+                        radius=req.radius, 
+                        pagination=req.pagination, 
+                        payload=req._payload)
 
-def get_or_create_client_record(req):
-    try:
-        rec = records[req.addr]
-    except:
-        rec = make_record(req)
-    return rec
+    def make_record(self, req):
+        return Record(
+                req.addr,
+                req.skew,
+                req.client_time,
+                self.make_position(req),
+            )
 
-async def process_request(request, rec):
-    payload = None
-
-    if request.is_whatsat() and rec.is_new():
-        request.mark_invalid()
-
-    if request.is_valid():
-        if (request.is_at() or request.is_iamat()) and \
-           (rec.is_new() or rec.client_time < request.client_time):
-            rec.mark_notnew()
-            records[rec.addr] = rec
-            request.set_flood(True)
-
-        # Existing Client Query
-        elif request.is_whatsat():
-            loc = rec.position.api_location
-            rad = request.radius
-            pag = request.pagination
-            api_response = await api_call(loc, rad, pag)
-            payload = json.dumps(api_response)
-
-        else:
-            # This should be unreachable
-            request.mark_invalid()
-    
-    return payload
-
-async def handle_echo(reader, writer):
-    # Read info from sender
-    while not reader.at_eof():
-        data = await reader.read() # Want this to be as many as needed
-    
-        message = data.decode()
-        logger.info(f"Received {message}")
-
-        # Parse the message. If we have a client 
-        request = Request(message, time.time())
-    
-        # if reqest is valid, process, otherwise trap
-        rec = get_or_create_client_record(request)
-        
-        # Handle the request information
-        payload = await process_request(request, rec)
-           
-        # Respond to Client
-        if not request.is_at():
-            await respond_to_client(writer, request, rec, payload)
-
-        # Propigate to neighbors
-        if request.is_valid() and request.flood:
-            await propagate(request)
-
-async def respond_to_client(writer, request, rec, payload):
-    resp = request.response(MYNAME, rec, payload=payload)
-            
-    # Reply to sender
-    logger.info(f"Send: {resp}")
-    writer.write(resp.encode())
-    await writer.drain()
-
-    logger.debug("Close the connection")
-    writer.close()
-    await writer.wait_closed()
-
-async def propagate(request: Request):
-    request.mark_visited(MYNAME)
-    visited = request.get_visited()
-    to_visit = [x for x in graph[MYNAME] if x not in visited]
-    resp = request.flood_response(MYNAME)
-    for neighbor in to_visit:
+    def get_or_create_client_record(self, req):
         try:
-            _, writer = await asyncio.open_connection(ipaddr, herd[neighbor])
-            logger.info(f'Sent {neighbor}: {resp}')
-            writer.write(resp.encode())
-            await writer.drain()
-            writer.write_eof()
-            writer.close()
-            await writer.wait_closed()
+            rec = self.records[req.addr]
         except:
-            logger.info(f"Unable to connect to {neighbor}")
+            rec = self.make_record(req)
+        return rec
+
+    async def process_request(self, request, rec):
+        payload = None
+
+        if request.is_whatsat() and rec.is_new():
+            request.mark_invalid()
+
+        if request.is_valid():
+            if (request.is_at() or request.is_iamat()) and \
+               (rec.is_new() or (rec.client_time < request.client_time)):
+                self.records[rec.addr] = rec
+                rec.mark_notnew()
+                request.set_flood(True)
+
+            elif request.is_whatsat():
+                loc = rec.position.api_location
+                rad = request.radius
+                pag = request.pagination
+                api_response = await api_call(loc, rad, pag)
+                payload = json.dumps(api_response)
+
+            else:
+                # received duplicate or 
+                request.mark_invalid()
+        
+        return payload
+
+    async def handle_echo(self, reader, writer):
+        # Read info from sender
+        while not reader.at_eof():
+            data = await reader.read() # Want this to be as many as needed
+        
+            message = data.decode()
+            logger.info(f"Received {message}")
+
+            # Parse the message. If we have a client 
+            request = Request(message, time.time())
+        
+            # if reqest is valid, process, otherwise trap
+            rec = self.get_or_create_client_record(request)
+            
+            # Handle the request information
+            payload = await self.process_request(request, rec)
+            
+            # Respond to Client
+            if not request.is_at():
+                await self.respond_to_client(writer, request, rec, payload)
+
+            # Propigate to neighbors
+            if request.is_valid() and request.flood:
+                await self.propagate(request)
+
+    async def respond_to_client(self, writer, request, rec, payload):
+        resp = request.response(self.myname, rec, payload=payload)
+                
+        # Reply to sender
+        logger.info(f"Send: {resp}")
+        writer.write(resp.encode())
+        await writer.drain()
+
+        logger.debug("Close the connection")
+        writer.close()
+        await writer.wait_closed()
+
+    async def propagate(self, request: Request):
+        request.mark_visited(self.myname)
+        visited = request.get_visited()
+        to_visit = [n for n in self.neighbors if n[0] not in visited]
+        resp = request.flood_response(self.myname)
+        for neighbor, port in to_visit:
+            try:
+                _, writer = await asyncio.open_connection(self.ipaddr, port)
+                logger.info(f'Sent {neighbor}: {resp}')
+                writer.write(resp.encode())
+                await writer.drain()
+                writer.write_eof()
+                writer.close()
+                await writer.wait_closed()
+            except:
+                logger.info(f"Unable to connect to {neighbor}")
+
 
 async def dummy_api_call(location, radius, pagination):
     import aiofiles
@@ -227,22 +221,38 @@ api_call = places_api_call
 if use_dummy_api:
     api_call = dummy_api_call
 
+def parse(args):
+    arguments = collections.deque(args)
+    name=None
+    while arguments:
+        current = arguments.popleft()
+        if name is None:
+            if current in ["-h", "--help"]:
+                print(USAGE)
+                sys.exit(0)
+            else:
+                name = current
+        else:
+            print(USAGE)
+            sys.exit(0)
+    try:
+        port = herd[name]
+        neighbor_names = graph[name]
+    except:
+        raise Exception(f"\"{name}\" not a valid server.")
+    return name, port, neighbor_names
+
 async def main():
-    fname, port = parse(sys.argv[1:])
-    if not fname:
+    sname, port, neighbor_names = parse(sys.argv[1:])
+    if not sname:
         raise SystemExit(USAGE)
-
-    global MYNAME 
-    MYNAME = fname
-    init_logger(MYNAME)
     
-    logger.info(f'Starting {MYNAME} on port {port}')
-    server = await asyncio.start_server(
-        handle_echo, ipaddr, port=port)
+    init_logger(sname)
 
-
-    async with server:
-        await server.serve_forever()
+    neighbors = set(zip(neighbor_names, [herd[n] for n in neighbor_names]))
+    server = Server(sname, IPADDR, port, neighbors)
+    
+    await server.run()
 
 if __name__=='__main__':
     try:

@@ -83,23 +83,24 @@ async def main():
     #     *(time_after(i) for i in range(6)))
 
     try:
+        ta = 2
         # await tcp_echo_client('WHATSAT kiwi.cs.ucla.edu 10 5', 'Clark')
         # await time_after(5)
         # await tcp_echo_client('IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1621464827.959498503', 'Bailey')
         # await tcp_echo_client('WHATSAT kiwi.cs.ucla.edu 10 5', 'Clark')
 
         await tcp_echo_client('WHATSAT plum.cs.ucla.edu 10 5', 'Clark')
-        await time_after(5)
+        await time_after(ta)
         await tcp_echo_client('IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1621464827.959498503', 'Clark')
-        await time_after(5)
+        await time_after(ta)
         await tcp_echo_client('IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1621464827.959498503', 'Bona')
-        await time_after(5)
+        await time_after(ta)
         # await tcp_echo_client('IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1621464827.959498503', 'Bona')
-        # await time_after(5)
+        # await time_after(ta)
         # await tcp_echo_client('IAMAT kiwi.cs.ucla.edu +34.068930-118.445127 1621464827.959498503', 'Bona')
         
         await tcp_echo_client(iamat(hosts['kiwi'], coordinates['test']), 'Bailey')
-        await time_after(5)
+        await time_after(ta)
         await tcp_echo_client(iamat(hosts['kiwi'], coordinates['test']), 'Bona')
 
 
