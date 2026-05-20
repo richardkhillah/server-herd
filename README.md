@@ -15,4 +15,4 @@ pip install -r requirements.txt
 python server.py <server_name>
 ```
 
-Run multiple server instances in separate terminals to simulate the full herd. See report.pdf for full design documentation and architecture notes.
+Run multiple server instances in separate terminals to simulate the full herd. See `report.pdf` for full design documentation and architecture notes.
