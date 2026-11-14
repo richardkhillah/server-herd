@@ -9,3 +9,5 @@ env.py
 *.json
 *.log
 *.tgz
+__pycache__
+monterey_venv

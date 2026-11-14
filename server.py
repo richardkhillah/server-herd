@@ -4,13 +4,17 @@ import collections
 import json
 import logging
 import sys
+import os
 import time
 
-# from typing import List, Tuple
-
-import env
 from request import Request
 from record import Record, Position
+
+from pathlib import Path
+env_path = Path(__file__).resolve().parent / ".env"
+if env_path.exists():
+    from dotenv import load_dotenv
+    load_dotenv(env_path)
 
 logger = logging.getLogger(__name__)
 
@@ -202,7 +206,7 @@ async def dummy_api_call(location, radius, pagination):
     return data
 
 async def places_api_call(location, radius, pag):
-    key = env.PLACES_API_KEY
+    key = os.getenv("PLACES_API_KEY", "need-to-get-google-places-api-key") # returns None if variable is missing
     url=(
         f'https://maps.googleapis.com/maps/api/place/nearbysearch/json' +
         f'?location={location}' +
