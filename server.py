@@ -87,13 +87,16 @@ class Server:
         self.neighbors = neighbors
         self.records = {}
 
-    async def run(self):
-        logger.info(f'Starting {self.myname} on port {self.port}')
-        server = await asyncio.start_server(
+    async def start(self) -> asyncio.Server:
+        self.server = await asyncio.start_server(
             self.handle_echo, self.ipaddr, port=self.port)
+        self.port = self.server.sockets[0].getsockname()[1]
+        logger.info(f'Started {self.myname} on port {self.port}')
+        return self.server
 
-        async with server:
-            await server.serve_forever()
+    async def serve_forever(self):
+        async with self.server:
+            await self.server.serve_forever()
 
     def make_position(self, req):
         return Position(req.lat, req.lon, 
@@ -256,7 +259,8 @@ async def main():
     neighbors = set(zip(neighbor_names, [herd[n] for n in neighbor_names]))
     server = Server(sname, IPADDR, port, neighbors)
     
-    await server.run()
+    await server.start()
+    await server.serve_forever()
 
 if __name__=='__main__':
     try:
