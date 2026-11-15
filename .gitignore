@@ -11,3 +11,4 @@ env.py
 *.tgz
 __pycache__
 monterey_venv
+plan
