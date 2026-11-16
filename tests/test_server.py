@@ -28,6 +28,11 @@ class SingleServerTest(unittest.IsolatedAsyncioTestCase):
     def stored_coordinate(self, client: str):
         return str(self.server.records[client].position)
 
+    async def test_is_serving_follows_start_and_stop(self):
+        self.assertTrue(self.server.is_serving())
+        await self.server.stop()
+        self.assertFalse(self.server.is_serving())
+
     async def test_iamat_gets_at_reply(self):
         reply = await send(self.server.port, f"IAMAT {CLIENT} {COORDS} {TIMESTAMP}")
         self.assertTrue(reply.startswith("AT Bailey "))
