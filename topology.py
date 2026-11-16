@@ -11,8 +11,8 @@ PORTS = {
 # Bona talks with Bailey.
 NEIGHBORS = {
     'Bailey': ['Campbell', 'Bona'],
-    'Bona': ['Clark', 'Bailey'],
-    'Campbell': ['Bailey', 'Jaquez'],
+    'Bona': ['Campbell', 'Clark', 'Bailey'],
+    'Campbell': ['Bailey', 'Jaquez', 'Bona'],
     'Clark': ['Jaquez', 'Bona'],
     'Jaquez': ['Clark', 'Campbell'],
 }

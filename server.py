@@ -39,38 +39,6 @@ def init_logger(filename):
     logger.addHandler(c_handler)
     logger.addHandler(f_handler)
 
-# my_herd = {
-#     'Bailey': 17800,
-#     'Bona': 17801,
-#     'Campbell': 17802,
-#     'Clark': 17803,
-#     'Jaquez': 17804,
-# }
-
-# seas_herd = {
-#     'Bailey': 10000,
-#     'Bona': 10001,
-#     'Campbell': 10002,
-#     'Clark': 10003,
-#     'Jaquez': 10004,
-# }
-
-# Change this to seas herd when runnin on seas
-# herd = seas_herd
-# if use_my_herd:
-    # herd = my_herd
-
-# graph = {
-#     'Bailey': ['Campbell', 'Bona'],
-#     'Bona': ['Clark', 'Campbell', 'Bailey'],
-#     'Campbell': ['Bailey', 'Bona', 'Jaquez'],
-#     'Clark': ['Jaquez', 'Bona'],
-#     'Jaquez': ['Clark', 'Campbell'],
-# }
-
-# Clark talks with Jaquez and Bona.
-# Campbell talks with everyone else but Clark.
-# Bona talks with Bailey.
 
 MYNAME=""
 
