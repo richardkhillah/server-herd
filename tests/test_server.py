@@ -20,11 +20,10 @@ async def send(port: int, line: str) -> str:
 class SingleServerTest(unittest.IsolatedAsyncioTestCase):
     async def asyncSetUp(self):
         self.server = Server("Bailey", "127.0.0.1", 0, set()) #no neighbors
-        return await self.server.start()
+        await self.server.start()
 
     async def asyncTearDown(self):
-        self.server.server.close()
-        await self.server.server.wait_closed()
+        await self.server.stop()
 
     def stored_coordinate(self, client: str):
         return str(self.server.records[client].position)

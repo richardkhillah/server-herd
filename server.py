@@ -55,17 +55,26 @@ class Server:
         self.port = port
         self.neighbors = neighbors
         self.records = {}
+        self._server: asyncio.Server | None = None
 
-    async def start(self) -> asyncio.Server:
-        self.server = await asyncio.start_server(
+    async def start(self) -> None:
+        self._server = await asyncio.start_server(
             self.handle_echo, self.ipaddr, port=self.port)
-        self.port = self.server.sockets[0].getsockname()[1]
+        self.port = self._server.sockets[0].getsockname()[1]
         logger.info(f'Started {self.myname} on port {self.port}')
-        return self.server
 
-    async def serve_forever(self):
-        async with self.server:
-            await self.server.serve_forever()
+    async def serve_forever(self) -> None:
+        assert self._server is not None # start() must run first
+        async with self._server:
+            await self._server.serve_forever()
+
+    async def stop(self) -> None:
+        assert self._server is not None # start() must run first
+        self._server.close()
+        await self._server.wait_closed()
+
+    def is_serving(self) -> bool:
+        return self._server is not None and self._server.is_serving()
 
     def make_position(self, req):
         return Position(req.lat, req.lon, 
