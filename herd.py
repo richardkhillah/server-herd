@@ -1,0 +1,46 @@
+import asyncio
+import logging
+import time
+
+from server import Server, IPADDR
+from topology import NEIGHBORS, PORTS
+
+
+class Herd:
+    def __init__(self, ports: dict[str, int], neighbors: dict[str, list[str]]):
+        self._neighbors: dict[str, list[str]] = neighbors
+        self._servers: dict[str, Server] = {
+            name: Server(name, IPADDR, port, set()) # no neighbors for now
+            for name, port in ports.items()
+        }
+        self._started_at: dict[str, float] = {}
+
+    async def start(self) -> None:
+        # Start all servers and record their start times
+        for name, server in self._servers.items():
+            await server.start()
+            self._started_at[name] = time.monotonic()
+        # wire the neighbors
+        for name, server in self._servers.items():
+            server.neighbors = {(n, self._servers[n].port) for n in self._neighbors[name]}
+
+    async def stop(self) -> None:
+        for server in self._servers.values():
+            await server.stop()
+
+
+async def main():
+    logging.basicConfig(level=logging.INFO)
+    herd = Herd(PORTS, NEIGHBORS)
+    await herd.start()
+    try:
+        await asyncio.Event().wait() # run until Ctrl-C
+    finally:
+        await herd.stop()
+
+
+if __name__ == "__main__":
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        pass
