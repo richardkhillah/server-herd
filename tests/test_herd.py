@@ -12,6 +12,10 @@ class TopologyTest(unittest.TestCase):
                 self.assertIn(a, NEIGHBORS[b], f"{a} lists {b}, but {b} doesn't list {a}")
 
 
+def row_for(snapshot, server_name):
+    return {s.name: s for s in snapshot}[server_name]
+
+
 class HerdTest(unittest.IsolatedAsyncioTestCase):
     async def asyncSetUp(self):
         self.herd = Herd({name: 0 for name in PORTS}, NEIGHBORS)
@@ -21,14 +25,27 @@ class HerdTest(unittest.IsolatedAsyncioTestCase):
         await self.herd.stop()
 
     async def test_iamat_reaches_jaquez(self):
-        await send(self.herd._servers["Bailey"].port,
+        await send(row_for(self.herd.snapshot(), "Bailey").port,
                    f"IAMAT {CLIENT} {COORDS} {TIMESTAMP}")
 
         async def reached():
-            while CLIENT not in self.herd._servers["Jaquez"].records:
+            while CLIENT not in row_for(self.herd.snapshot(), "Jaquez").clients:
                 await asyncio.sleep(0.01)
 
         await asyncio.wait_for(reached(), timeout=2)
+
+    async def test_snapshot_gives_one_row_per_server(self):
+        for snap, name in zip(self.herd.snapshot(), PORTS.keys(), strict=True):
+            self.assertEqual(snap.name, name)       # row names match names in PORTS
+            self.assertTrue(snap.serving)           # every row running
+            self.assertIsNotNone(snap.started_at)   # all started_at
+            self.assertNotEqual(snap.port, 0)       # no port 0
+
+    async def test_for_stale_start_time(self):
+        await self.herd.stop()
+        for snap in self.herd.snapshot():
+            self.assertIsNone(snap.started_at)
+            self.assertFalse(snap.serving)
 
 
 if __name__=="__main__":

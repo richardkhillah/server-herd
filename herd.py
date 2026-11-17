@@ -1,9 +1,19 @@
 import asyncio
 import logging
 import time
+from dataclasses import dataclass
 
 from server import Server, IPADDR
 from topology import NEIGHBORS, PORTS
+
+
+@dataclass(frozen=True)
+class ServerStatus:
+    name: str
+    port: int
+    serving: bool
+    started_at: float | None
+    clients: frozenset[str]
 
 
 class Herd:
@@ -27,6 +37,19 @@ class Herd:
     async def stop(self) -> None:
         for server in self._servers.values():
             await server.stop()
+
+    def snapshot(self) -> tuple[ServerStatus, ...]:
+        snap = []
+        for name, server in self._servers.items():
+            serving=server.is_serving()
+            snap.append(ServerStatus(
+                name=name,
+                port=server.port,
+                serving=serving,
+                started_at=self._started_at[name] if serving else None,
+                clients=frozenset(server.records),
+            ))
+        return tuple(snap)
 
 
 async def main():
