@@ -1,3 +1,4 @@
+import argparse
 import asyncio
 import logging
 import time
@@ -5,6 +6,8 @@ from dataclasses import dataclass
 
 from server import Server, IPADDR
 from topology import NEIGHBORS, PORTS
+
+_MINIMUM_REFRESH = 0.1
 
 
 @dataclass(frozen=True)
@@ -50,6 +53,22 @@ class Herd:
                 clients=frozenset(server.records),
             ))
         return tuple(snap)
+
+
+def _refresh_type(arg):
+    if (a := float(arg)) >= _MINIMUM_REFRESH:
+        return a
+    raise argparse.ArgumentTypeError(f"must be at least {_MINIMUM_REFRESH}")
+
+
+def parse_args(argv):
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--refresh', 
+                        default=1.0, 
+                        help=f'Seconds between redraws, minimum {_MINIMUM_REFRESH}; (Default: 1.0)',
+                        type=_refresh_type
+    )
+    return parser.parse_args(argv)
 
 
 async def main():

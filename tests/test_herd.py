@@ -1,9 +1,12 @@
 import asyncio
+from contextlib import redirect_stderr
+import io
 import unittest
 
-from herd import Herd
+from herd import parse_args, Herd
 from topology import NEIGHBORS, PORTS
 from tests.test_server import send, CLIENT, COORDS, TIMESTAMP
+
 
 class TopologyTest(unittest.TestCase):
     def test_neighbors_are_symmetric(self):
@@ -16,7 +19,7 @@ def row_for(snapshot, server_name):
     return {s.name: s for s in snapshot}[server_name]
 
 
-class HerdTest(unittest.IsolatedAsyncioTestCase):
+class HerdTestAsync(unittest.IsolatedAsyncioTestCase):
     async def asyncSetUp(self):
         self.herd = Herd({name: 0 for name in PORTS}, NEIGHBORS)
         await self.herd.start()
@@ -48,5 +51,18 @@ class HerdTest(unittest.IsolatedAsyncioTestCase):
             self.assertFalse(snap.serving)
 
 
+class HerdTest(unittest.TestCase):
+    def test_empty_list_defaults_to_1(self):
+        self.assertEqual(parse_args([]).refresh, 1.0)
+
+    def test_minimum_refresh_boundary_accepted(self):
+        self.assertEqual(parse_args(['--refresh', '0.1']).refresh, 0.1)
+
+    def test_below_minimum_refresh_exits(self):
+        with redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
+            parse_args(['--refresh', '0.05'])
+
+
 if __name__=="__main__":
     unittest.main()
+    
