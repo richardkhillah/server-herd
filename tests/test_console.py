@@ -1,6 +1,7 @@
+import re
 import unittest
 
-from console import render_dashboard
+from console import render_dashboard, render_frame, HOME, ERASE_TO_EOL, CLEAR_SCREEN
 from herd import ServerStatus
 
 
@@ -45,6 +46,23 @@ class RenderDashboardTest(unittest.TestCase):
     def test_footer_contains_unique_clients_only(self):
         footer = self.output[-1].split()
         self.assertEqual(footer[-1], "3")
+
+
+class RenderFrameTest(unittest.TestCase):
+    def test_input_cuts_to_width(self):
+        expected_result = HOME + "01234" + ERASE_TO_EOL
+        result = render_frame(["0123456789"], 5)
+        self.assertEqual(result, expected_result)
+
+    def test_input_not_cut(self):
+        expected_result = HOME + "01234" + ERASE_TO_EOL
+        result = render_frame(["01234"], 10)
+        self.assertEqual(result, expected_result)
+
+    def test_proper_multiline_formatting_witout_clear(self):
+        lines = ["Hello, ", "World!"] ; width = 5
+        expected_result = HOME + "Hello" + ERASE_TO_EOL + "\n" + "World" + ERASE_TO_EOL
+        self.assertEqual(render_frame(lines, width), expected_result)
 
 
 if __name__ == "__main__":
