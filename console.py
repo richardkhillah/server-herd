@@ -1,3 +1,7 @@
+import asyncio
+import shutil
+import time
+
 from collections.abc import Sequence
 
 
@@ -65,3 +69,14 @@ def render_dashboard(rows: Sequence, now: float) -> list[str]:
 
 def render_frame(lines: list[str], width: int) -> str:
     return HOME + '\n'.join(l[:width] + ERASE_TO_EOL for l in lines)
+
+
+async def run_console(herd, refresh: float) -> None:    
+    print(CLEAR_SCREEN, flush=True)
+    while True: # run until Ctrl-C
+        snap = herd.snapshot()
+        width = shutil.get_terminal_size().columns
+        dash = render_dashboard(snap, time.monotonic())
+        frame = render_frame(dash, width)
+        print(frame, flush=True)
+        await asyncio.sleep(refresh)

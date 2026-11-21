@@ -1,9 +1,11 @@
 import argparse
 import asyncio
 import logging
+import sys
 import time
 from dataclasses import dataclass
 
+from console import run_console
 from server import Server, IPADDR
 from topology import NEIGHBORS, PORTS
 
@@ -72,11 +74,12 @@ def parse_args(argv):
 
 
 async def main():
-    logging.basicConfig(level=logging.INFO)
+    args = parse_args(sys.argv[1:])
+    logging.basicConfig(level=logging.INFO, filename='herd.log')
     herd = Herd(PORTS, NEIGHBORS)
     await herd.start()
     try:
-        await asyncio.Event().wait() # run until Ctrl-C
+        await run_console(herd, args.refresh)
     finally:
         await herd.stop()
 
