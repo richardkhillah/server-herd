@@ -1,7 +1,7 @@
 import re
 import unittest
 
-from console import render_dashboard, render_frame, HOME, ERASE_TO_EOL, CLEAR_SCREEN
+from console import render_dashboard, render_frame, HOME, ERASE_TO_EOL, CLEAR_SCREEN, CLEAR_TO_END_OF_SCREEN
 from herd import ServerStatus
 
 
@@ -50,18 +50,18 @@ class RenderDashboardTest(unittest.TestCase):
 
 class RenderFrameTest(unittest.TestCase):
     def test_input_cuts_to_width(self):
-        expected_result = HOME + "01234" + ERASE_TO_EOL
+        expected_result = HOME + "01234" + ERASE_TO_EOL + CLEAR_TO_END_OF_SCREEN
         result = render_frame(["0123456789"], 5)
         self.assertEqual(result, expected_result)
 
     def test_input_not_cut(self):
-        expected_result = HOME + "01234" + ERASE_TO_EOL
+        expected_result = HOME + "01234" + ERASE_TO_EOL + CLEAR_TO_END_OF_SCREEN
         result = render_frame(["01234"], 10)
         self.assertEqual(result, expected_result)
 
     def test_proper_multiline_formatting_witout_clear(self):
         lines = ["Hello, ", "World!"] ; width = 5
-        expected_result = HOME + "Hello" + ERASE_TO_EOL + "\n" + "World" + ERASE_TO_EOL
+        expected_result = HOME + "Hello" + ERASE_TO_EOL + "\n" + "World" + ERASE_TO_EOL + CLEAR_TO_END_OF_SCREEN
         self.assertEqual(render_frame(lines, width), expected_result)
 
 

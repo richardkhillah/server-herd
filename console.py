@@ -19,6 +19,7 @@ ESC = chr(27)
 HOME = ESC + '[H'
 ERASE_TO_EOL = ESC + '[K'
 CLEAR_SCREEN = ESC + '[2J'
+CLEAR_TO_END_OF_SCREEN = ESC + '[J'
 
 
 def _pad(row: list[str]) -> str:
@@ -68,7 +69,7 @@ def render_dashboard(rows: Sequence, now: float) -> list[str]:
 
 
 def render_frame(lines: list[str], width: int) -> str:
-    return HOME + '\n'.join(l[:width] + ERASE_TO_EOL for l in lines)
+    return HOME + '\n'.join(l[:width] + ERASE_TO_EOL for l in lines) + CLEAR_TO_END_OF_SCREEN
 
 
 async def run_console(herd, refresh: float) -> None:    
