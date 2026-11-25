@@ -4,13 +4,18 @@ import collections
 import json
 import logging
 import sys
+import os
 import time
 
-# from typing import List, Tuple
-
-import env
+from topology import PORTS, NEIGHBORS
 from request import Request
 from record import Record, Position
+
+from pathlib import Path
+env_path = Path(__file__).resolve().parent / ".env"
+if env_path.exists():
+    from dotenv import load_dotenv
+    load_dotenv(env_path)
 
 logger = logging.getLogger(__name__)
 
@@ -34,38 +39,6 @@ def init_logger(filename):
     logger.addHandler(c_handler)
     logger.addHandler(f_handler)
 
-my_herd = {
-    'Bailey': 17800,
-    'Bona': 17801,
-    'Campbell': 17802,
-    'Clark': 17803,
-    'Jaquez': 17804,
-}
-
-seas_herd = {
-    'Bailey': 10000,
-    'Bona': 10001,
-    'Campbell': 10002,
-    'Clark': 10003,
-    'Jaquez': 10004,
-}
-
-# Change this to seas herd when runnin on seas
-herd = seas_herd
-if use_my_herd:
-    herd = my_herd
-
-graph = {
-    'Bailey': ['Campbell', 'Bona'],
-    'Bona': ['Clark', 'Campbell', 'Bailey'],
-    'Campbell': ['Bailey', 'Bona', 'Jaquez'],
-    'Clark': ['Jaquez', 'Bona'],
-    'Jaquez': ['Clark', 'Campbell'],
-}
-
-# Clark talks with Jaquez and Bona.
-# Campbell talks with everyone else but Clark.
-# Bona talks with Bailey.
 
 MYNAME=""
 
@@ -82,14 +55,26 @@ class Server:
         self.port = port
         self.neighbors = neighbors
         self.records = {}
+        self._server: asyncio.Server | None = None
 
-    async def run(self):
-        logger.info(f'Starting {self.myname} on port {self.port}')
-        server = await asyncio.start_server(
+    async def start(self) -> None:
+        self._server = await asyncio.start_server(
             self.handle_echo, self.ipaddr, port=self.port)
+        self.port = self._server.sockets[0].getsockname()[1]
+        logger.info(f'Started {self.myname} on port {self.port}')
 
-        async with server:
-            await server.serve_forever()
+    async def serve_forever(self) -> None:
+        assert self._server is not None # start() must run first
+        async with self._server:
+            await self._server.serve_forever()
+
+    async def stop(self) -> None:
+        assert self._server is not None # start() must run first
+        self._server.close()
+        await self._server.wait_closed()
+
+    def is_serving(self) -> bool:
+        return self._server is not None and self._server.is_serving()
 
     def make_position(self, req):
         return Position(req.lat, req.lon, 
@@ -202,7 +187,7 @@ async def dummy_api_call(location, radius, pagination):
     return data
 
 async def places_api_call(location, radius, pag):
-    key = env.PLACES_API_KEY
+    key = os.getenv("PLACES_API_KEY", "need-to-get-google-places-api-key") # returns None if variable is missing
     url=(
         f'https://maps.googleapis.com/maps/api/place/nearbysearch/json' +
         f'?location={location}' +
@@ -236,8 +221,8 @@ def parse(args):
             print(USAGE)
             sys.exit(0)
     try:
-        port = herd[name]
-        neighbor_names = graph[name]
+        port = PORTS[name]
+        neighbor_names = NEIGHBORS[name]
     except:
         raise Exception(f"\"{name}\" not a valid server.")
     return name, port, neighbor_names
@@ -249,10 +234,11 @@ async def main():
     
     init_logger(sname)
 
-    neighbors = set(zip(neighbor_names, [herd[n] for n in neighbor_names]))
+    neighbors = set(zip(neighbor_names, [PORTS[n] for n in neighbor_names]))
     server = Server(sname, IPADDR, port, neighbors)
     
-    await server.run()
+    await server.start()
+    await server.serve_forever()
 
 if __name__=='__main__':
     try:
