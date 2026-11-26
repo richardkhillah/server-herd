@@ -76,6 +76,23 @@ def parse_message(message: str) -> IAmAt | WhatsAt | ClientLocation:
             except ValueError:
                 raise ProtocolError(f"Invalid WHATSAT message: {message}")
             return WhatsAt(client=parts[1], radius_km=radius, limit=limit)
+        case "AT" if len(parts) == 6:
+            # Valid Format: `AT Clark +0.263873386 kiwi.cs.ucla.edu +34.068930-118.445127 1621464827.959498503`
+            try:
+                skew = float(parts[2])
+                if not math.isfinite(skew):
+                    raise ProtocolError(f"Invalid AT message: {message}")
+                parse_coordinates(parts[4])  # validate coordinates
+                _raise_for_invalid_timestamp(parts[5])
+            except ValueError:
+                raise ProtocolError(f"Invalid AT message: {message}")
+            return ClientLocation(
+                server=parts[1],
+                skew=skew,
+                client=parts[3],
+                coordinates=parts[4],
+                timestamp=parts[5],
+            )
         case _:
-            err = "Invalid" if parts[0] in {"IAMAT", "WHATSAT"} else "Unknown"
+            err = "Invalid" if parts[0] in {"IAMAT", "WHATSAT", "AT"} else "Unknown"
             raise ProtocolError(f"{err} command: {parts[0]}")

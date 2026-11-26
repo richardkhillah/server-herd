@@ -132,3 +132,42 @@ class TestProtocol(unittest.TestCase):
             with self.subTest(message=message):
                 with self.assertRaises(ProtocolError):
                     parse_message(message)
+
+    def test_valid_AT_message(self):
+        valid_messages = [
+            "AT Clark +0.263873386 code.021tech.io +34.068930-118.445127 1621464827.959498503",
+        ]
+        for message in valid_messages:
+            with self.subTest(message=message):
+                result = parse_message(message)
+                self.assertIsInstance(result, ClientLocation)
+                self.assertEqual(result.server, "Clark")
+                self.assertEqual(result.skew, 0.263873386)
+                self.assertEqual(result.client, "code.021tech.io")
+                self.assertEqual(result.coordinates, "+34.068930-118.445127")
+                self.assertEqual(result.timestamp, "1621464827.959498503")
+
+    def test_invalid_AT_message(self):
+        invalid_messages = [
+            # length issues
+            "AT Clark +0.263873386 code.021tech.io +34.068930-118.445127",
+            "AT Clark +0.263873386 code.021tech.io +34.068930-118.445127 1621464827.959498503 extra",
+
+            # invalid skew
+            "AT Clark inf code.021tech.io +34.068930-118.445127 1621464827.959498503",
+            "AT Clark nan code.021tech.io +34.068930-118.445127 1621464827.959498503",
+            "AT Clark abc code.021tech.io +34.068930-118.445127 1621464827.959498503",
+
+            # invalid coordinates
+            "AT Clark +0.263873386 code.021tech.io 34.068930-118.445127 1621464827.959498503", # (no latitude sign)
+            "AT Clark +0.263873386 code.021tech.io +91-118 1621464827.959498503", # (latitude out of range)
+
+            # invalid timestamp
+            "AT Clark +0.263873386 code.021tech.io +34.068930-118.445127 inf",
+            "AT Clark +0.263873386 code.021tech.io +34.068930-118.445127 nan",
+            "AT Clark +0.263873386 code.021tech.io +34.068930-118.445127 abc",
+        ]
+        for message in invalid_messages:
+            with self.subTest(message=message):
+                with self.assertRaises(ProtocolError):
+                    parse_message(message)
