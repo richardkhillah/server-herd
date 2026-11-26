@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+import math
 import re
 
 
@@ -44,3 +45,37 @@ def parse_coordinates(coordinates: str) -> tuple[float, float]:
         raise ProtocolError(f"Coordinates out of bounds: ({lat}, {lon})")
 
     return lat, lon
+
+
+def _raise_for_invalid_timestamp(ts: str) -> None:
+    try:
+        ts = float(ts)
+        if not math.isfinite(ts):
+            raise ProtocolError(f"Invalid timestamp: {ts}")
+    except ValueError:
+        raise ProtocolError(f"Invalid timestamp: {ts}")
+
+
+def parse_message(message: str) -> IAmAt | WhatsAt | ClientLocation:
+    parts = message.split()
+    if not parts:
+        raise ProtocolError("Empty message")
+
+    # match commands
+    match parts[0]:
+        case "IAMAT" if len(parts) == 4:
+            parse_coordinates(parts[2])  # validate coordinates
+            _raise_for_invalid_timestamp(parts[3])
+            return IAmAt(client=parts[1], coordinates=parts[2], timestamp=parts[3])
+        case "WHATSAT" if len(parts) == 4:
+            try:
+                radius = int(parts[2])
+                limit = int(parts[3])
+                if not ((0 < radius <= 50) and (0 < limit <= 20)):
+                    raise ProtocolError(f"Invalid WHATSAT message: {message}")
+            except ValueError:
+                raise ProtocolError(f"Invalid WHATSAT message: {message}")
+            return WhatsAt(client=parts[1], radius_km=radius, limit=limit)
+        case _:
+            err = "Invalid" if parts[0] in {"IAMAT", "WHATSAT"} else "Unknown"
+            raise ProtocolError(f"{err} command: {parts[0]}")
