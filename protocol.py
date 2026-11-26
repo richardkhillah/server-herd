@@ -96,3 +96,11 @@ def parse_message(message: str) -> IAmAt | WhatsAt | ClientLocation:
         case _:
             err = "Invalid" if parts[0] in {"IAMAT", "WHATSAT", "AT"} else "Unknown"
             raise ProtocolError(f"{err} command: {parts[0]}")
+
+
+def format_location(location: ClientLocation) -> str:
+    return f"AT {location.server} {location.skew:+} {location.client} {location.coordinates} {location.timestamp}"
+
+
+def format_invalid(line: str) -> str:
+    return f"? {line.rstrip('\n')}"

@@ -1,6 +1,6 @@
 import unittest
 
-from protocol import ClientLocation, IAmAt, ProtocolError, WhatsAt, parse_coordinates, parse_message
+from protocol import ClientLocation, IAmAt, ProtocolError, WhatsAt, format_invalid, format_location, parse_coordinates, parse_message
 
 
 CLIENT_LOCATION = {
@@ -171,3 +171,45 @@ class TestProtocol(unittest.TestCase):
             with self.subTest(message=message):
                 with self.assertRaises(ProtocolError):
                     parse_message(message)
+
+    def test_format_location_returns_positive_signed_skew(self):
+        cl = ClientLocation(
+            server=CLIENT_LOCATION["server"],
+            client=CLIENT_LOCATION["client"],
+            coordinates=CLIENT_LOCATION["coordinates"],
+            skew=0.263873386,
+            timestamp="1621464827.959498503",
+        )
+        self.assertEqual(format_location(cl), "AT Bailey +0.263873386 code.021tech.io +34.069072065913495-118.44518110210453 1621464827.959498503")
+    
+    def test_format_location_valid_client_location_receives_AT_message(self):
+        client_locations = [
+            ClientLocation(
+                server=CLIENT_LOCATION["server"],
+                client=CLIENT_LOCATION["client"],
+                coordinates=CLIENT_LOCATION["coordinates"],
+                skew=0.263873386,
+                timestamp="1621464827.959498503",
+            ),
+            ClientLocation(
+                server=CLIENT_LOCATION["server"],
+                client=CLIENT_LOCATION["client"],
+                coordinates=CLIENT_LOCATION["coordinates"],
+                skew=-0.263873386,
+                timestamp="1621464827.959498503",
+            ),
+            ClientLocation(
+                server=CLIENT_LOCATION["server"],
+                client=CLIENT_LOCATION["client"],
+                coordinates=CLIENT_LOCATION["coordinates"],
+                skew=+0.0,
+                timestamp="1621464827.959498503",
+            ),
+        ]
+        for cl in client_locations:
+            with self.subTest(message=cl):
+                self.assertEqual(parse_message(format_location(cl)), cl)
+
+    def test_format_invalid_prefixes_question_mark(self):
+        invalid_message = "IAMAT\n"
+        self.assertEqual(format_invalid("IAMAT"), "? "+invalid_message.rstrip())
